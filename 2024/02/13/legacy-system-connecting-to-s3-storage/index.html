@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="max-image-preview:large">
+<title>Legacy system connecting to S3 Storage &ndash; Ashley Walker's Blog</title>
+<link rel="alternate" type="application/rss+xml" title="Ashley Walker's Blog &raquo; Feed" href="https://blog.skywalker.net.au/feed/">
+<link rel="alternate" type="application/rss+xml" title="Ashley Walker's Blog &raquo; Comments Feed" href="https://blog.skywalker.net.au/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Ashley Walker's Blog &raquo; Legacy system connecting to S3 Storage Comments Feed" href="https://blog.skywalker.net.au/2024/02/13/legacy-system-connecting-to-s3-storage/feed/">
+<script>
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.skywalker.net.au\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.4.3"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<style id="wp-block-site-title-inline-css">
+.wp-block-site-title a{color:inherit}
+.wp-block-site-title{font-size: var(--wp--preset--font-size--x-large);}
+</style>
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}
+</style>
+<style id="wp-block-group-theme-inline-css">
+:where(.wp-block-group.has-background){padding:1.25em 2.375em}
+</style>
+<style id="wp-block-navigation-link-inline-css">
+.wp-block-navigation .wp-block-navigation-item__label{overflow-wrap:break-word}.wp-block-navigation .wp-block-navigation-item__description{display:none}
+</style>
+<link rel="stylesheet" id="wp-block-navigation-css" href="https://blog.skywalker.net.au/wp-includes/blocks/navigation/style.min.css?ver=6.4.3" media="all">
+<style id="wp-block-navigation-inline-css">
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+</style>
+<style id="wp-block-template-part-theme-inline-css">
+.wp-block-template-part.has-background{margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
+</style>
+<style id="wp-block-post-featured-image-inline-css">
+.wp-block-post-featured-image{margin-left:0;margin-right:0}.wp-block-post-featured-image a{display:block;height:100%}.wp-block-post-featured-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom;width:100%}.wp-block-post-featured-image.alignfull img,.wp-block-post-featured-image.alignwide img{width:100%}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim{background-color:#000;inset:0;position:absolute}.wp-block-post-featured-image{position:relative}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-gradient{background-color:transparent}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-0{opacity:0}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-10{opacity:.1}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-20{opacity:.2}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-30{opacity:.3}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-40{opacity:.4}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-50{opacity:.5}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-60{opacity:.6}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-70{opacity:.7}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-80{opacity:.8}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-90{opacity:.9}.wp-block-post-featured-image .wp-block-post-featured-image__overlay.has-background-dim-100{opacity:1}.wp-block-post-featured-image:where(.alignleft,.alignright){width:100%}
+</style>
+<style id="wp-block-post-title-inline-css">
+.wp-block-post-title{box-sizing:border-box;word-break:break-word}.wp-block-post-title a{display:inline-block}
+</style>
+<style id="wp-block-post-date-inline-css">
+.wp-block-post-date{box-sizing:border-box}
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}p.has-background{padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+</style>
+<style id="wp-block-post-terms-inline-css">
+.wp-block-post-terms{box-sizing:border-box}.wp-block-post-terms .wp-block-post-terms__separator{white-space:pre-wrap}
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}ol.has-background,ul.has-background{padding:1.25em 2.375em}
+</style>
+<link rel="stylesheet" id="visualize-style-css" href="https://blog.skywalker.net.au/wp-content/plugins/visualize/style.css?ver=1707811042" media="all">
+<link rel="stylesheet" id="kevinbatdorf-code-block-pro-style-css" href="https://blog.skywalker.net.au/wp-content/plugins/code-block-pro/build/style-index.css?ver=1.13.0" media="all">
+<style id="wp-block-comments-inline-css">
+.wp-block-post-comments{box-sizing:border-box}.wp-block-post-comments .alignleft{float:left}.wp-block-post-comments .alignright{float:right}.wp-block-post-comments .navigation:after{clear:both;content:"";display:table}.wp-block-post-comments .commentlist{clear:both;list-style:none;margin:0;padding:0}.wp-block-post-comments .commentlist .comment{min-height:2.25em;padding-left:3.25em}.wp-block-post-comments .commentlist .comment p{font-size:1em;line-height:1.8;margin:1em 0}.wp-block-post-comments .commentlist .children{list-style:none;margin:0;padding:0}.wp-block-post-comments .comment-author{line-height:1.5}.wp-block-post-comments .comment-author .avatar{border-radius:1.5em;display:block;float:left;height:2.5em;margin-right:.75em;margin-top:.5em;width:2.5em}.wp-block-post-comments .comment-author cite{font-style:normal}.wp-block-post-comments .comment-meta{font-size:.875em;line-height:1.5}.wp-block-post-comments .comment-meta b{font-weight:400}.wp-block-post-comments .comment-meta .comment-awaiting-moderation{display:block;margin-bottom:1em;margin-top:1em}.wp-block-post-comments .comment-body .commentmetadata{font-size:.875em}.wp-block-post-comments .comment-form-author label,.wp-block-post-comments .comment-form-comment label,.wp-block-post-comments .comment-form-email label,.wp-block-post-comments .comment-form-url label{display:block;margin-bottom:.25em}.wp-block-post-comments .comment-form input:not([type=submit]):not([type=checkbox]),.wp-block-post-comments .comment-form textarea{box-sizing:border-box;display:block;width:100%}.wp-block-post-comments .comment-form-cookies-consent{display:flex;gap:.25em}.wp-block-post-comments .comment-form-cookies-consent #wp-comment-cookies-consent{margin-top:.35em}.wp-block-post-comments .comment-reply-title{margin-bottom:0}.wp-block-post-comments .comment-reply-title :where(small){font-size:var(--wp--preset--font-size--medium,smaller);margin-left:.5em}.wp-block-post-comments .reply{font-size:.875em;margin-bottom:1.4em}.wp-block-post-comments input:not([type=submit]),.wp-block-post-comments textarea{border:1px solid #949494;font-family:inherit;font-size:1em}.wp-block-post-comments input:not([type=submit]):not([type=checkbox]),.wp-block-post-comments textarea{padding:calc(.667em + 2px)}:where(.wp-block-post-comments input[type=submit]){border:none}
+</style>
+<style id="wp-block-heading-inline-css">
+h1.has-background,h2.has-background,h3.has-background,h4.has-background,h5.has-background,h6.has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+</style>
+<style id="wp-block-columns-inline-css">
+.wp-block-columns{align-items:normal!important;box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}
+</style>
+<link rel="stylesheet" id="wp-block-social-links-css" href="https://blog.skywalker.net.au/wp-includes/blocks/social-links/style.min.css?ver=6.4.3" media="all">
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,161;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px;--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{clip:rect(1px,1px,1px,1px);word-wrap:normal!important;border:0;-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.screen-reader-text:focus{clip:auto!important;background-color:#ddd;-webkit-clip-path:none;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+</style>
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--background: #ffffff;--wp--preset--color--base: #434343;--wp--preset--color--primary: #008aff;--wp--preset--color--secondary: #313131;--wp--preset--color--tertiary: #f3f6fb;--wp--preset--color--quaternary: #e7e7e7;--wp--preset--color--quinary: #cccccc;--wp--preset--color--senary: #2f2f2f;--wp--preset--color--transparent: transparent;--wp--preset--color--current-color: currentColor;--wp--preset--color--inherit: inherit;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 0.84rem;--wp--preset--font-size--medium: clamp(1.2rem, 1.2rem + ((1vw - 0.2rem) * 0.545), 1.5rem);--wp--preset--font-size--large: clamp(1.44rem, 1.44rem + ((1vw - 0.2rem) * 1.018), 2rem);--wp--preset--font-size--x-large: clamp(1.73rem, 1.73rem + ((1vw - 0.2rem) * 1.691), 2.66rem);--wp--preset--font-size--x-small: 0.63rem;--wp--preset--font-size--base: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.236), 1.13rem);--wp--preset--font-size--xx-large: clamp(2.07rem, 2.07rem + ((1vw - 0.2rem) * 2.691), 3.55rem);--wp--preset--font-size--xxx-large: clamp(2.49rem, 2.49rem + ((1vw - 0.2rem) * 4.073), 4.73rem);--wp--preset--font-size--xxxx-large: clamp(2.99rem, 2.99rem + ((1vw - 0.2rem) * 6.036), 6.31rem);--wp--preset--font-family--inter: Inter, sans-serif;--wp--preset--font-family--figtree: Figtree, sans-serif;--wp--preset--font-family--outfit: Outfit, sans-serif;--wp--preset--spacing--xx-small: 8px;--wp--preset--spacing--x-small: clamp(0.75rem, 0.659rem + 0.45vw, 1rem);--wp--preset--spacing--small: clamp(1.125rem, 0.989rem + 0.68vw, 1.5rem);--wp--preset--spacing--medium: clamp(1.5rem, 1.318rem + 0.91vw, 2rem);--wp--preset--spacing--large: clamp(2.125rem, 1.807rem + 1.59vw, 3rem);--wp--preset--spacing--x-large: clamp(2.625rem, 2.125rem + 2.5vw, 4rem);--wp--preset--spacing--xx-large: clamp(3.688rem, 2.847rem + 4.2vw, 6rem);--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}body { margin: 0;--wp--style--global--content-size: 760px;--wp--style--global--wide-size: 1200px; }.wp-site-blocks { padding-top: var(--wp--style--root--padding-top); padding-bottom: var(--wp--style--root--padding-bottom); }.has-global-padding { padding-right: var(--wp--style--root--padding-right); padding-left: var(--wp--style--root--padding-left); }.has-global-padding :where(.has-global-padding:not(.wp-block-block)) { padding-right: 0; padding-left: 0; }.has-global-padding > .alignfull { margin-right: calc(var(--wp--style--root--padding-right) * -1); margin-left: calc(var(--wp--style--root--padding-left) * -1); }.has-global-padding :where(.has-global-padding:not(.wp-block-block)) > .alignfull { margin-right: 0; margin-left: 0; }.has-global-padding > .alignfull:where(:not(.has-global-padding):not(.is-layout-flex):not(.is-layout-grid)) > :where([class*="wp-block-"]:not(.alignfull):not([class*="__"]),p,h1,h2,h3,h4,h5,h6,ul,ol) { padding-right: var(--wp--style--root--padding-right); padding-left: var(--wp--style--root--padding-left); }.has-global-padding :where(.has-global-padding) > .alignfull:where(:not(.has-global-padding)) > :where([class*="wp-block-"]:not(.alignfull):not([class*="__"]),p,h1,h2,h3,h4,h5,h6,ul,ol) { padding-right: 0; padding-left: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child:first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child:last-child { margin-block-end: 0; }body { --wp--style--block-gap: 24px; }:where(body .is-layout-flow)  > :first-child:first-child{margin-block-start: 0;}:where(body .is-layout-flow)  > :last-child:last-child{margin-block-end: 0;}:where(body .is-layout-flow)  > *{margin-block-start: 24px;margin-block-end: 0;}:where(body .is-layout-constrained)  > :first-child:first-child{margin-block-start: 0;}:where(body .is-layout-constrained)  > :last-child:last-child{margin-block-end: 0;}:where(body .is-layout-constrained)  > *{margin-block-start: 24px;margin-block-end: 0;}:where(body .is-layout-flex) {gap: 24px;}:where(body .is-layout-grid) {gap: 24px;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}body{background-color: var(--wp--preset--color--background);color: var(--wp--preset--color--base);font-family: var(--wp--preset--font-family--figtree);font-size: var(--wp--preset--font-size--base);font-style: normal;font-weight: 400;line-height: 1.6;--wp--style--root--padding-top: 0px;--wp--style--root--padding-right: 20px;--wp--style--root--padding-bottom: 0px;--wp--style--root--padding-left: 20px;}a:where(:not(.wp-element-button)){color: var(--wp--preset--color--primary);text-decoration: underline;}h1, h2, h3, h4, h5, h6{color: var(--wp--preset--color--secondary);font-family: var(--wp--preset--font-family--figtree);font-style: normal;font-weight: 500;}h1{font-size: var(--wp--preset--font-size--xx-large);line-height: 1.2;}h2{font-size: var(--wp--preset--font-size--x-large);line-height: 1.3;}h3{font-size: var(--wp--preset--font-size--large);line-height: 1.4;}h4{font-size: var(--wp--preset--font-size--medium);line-height: 1.5;}h5{font-size: var(--wp--preset--font-size--base);line-height: 1.6;}h6{font-size: var(--wp--preset--font-size--small);line-height: 1.6;}.wp-element-button, .wp-block-button__link{background-color: var(--wp--preset--color--primary);border-width: 0;color: #fff;font-family: inherit;font-size: inherit;line-height: inherit;padding: calc(0.667em + 2px) calc(1.333em + 2px);text-decoration: none;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-background-color{color: var(--wp--preset--color--background) !important;}.has-base-color{color: var(--wp--preset--color--base) !important;}.has-primary-color{color: var(--wp--preset--color--primary) !important;}.has-secondary-color{color: var(--wp--preset--color--secondary) !important;}.has-tertiary-color{color: var(--wp--preset--color--tertiary) !important;}.has-quaternary-color{color: var(--wp--preset--color--quaternary) !important;}.has-quinary-color{color: var(--wp--preset--color--quinary) !important;}.has-senary-color{color: var(--wp--preset--color--senary) !important;}.has-transparent-color{color: var(--wp--preset--color--transparent) !important;}.has-current-color-color{color: var(--wp--preset--color--current-color) !important;}.has-inherit-color{color: var(--wp--preset--color--inherit) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-background-background-color{background-color: var(--wp--preset--color--background) !important;}.has-base-background-color{background-color: var(--wp--preset--color--base) !important;}.has-primary-background-color{background-color: var(--wp--preset--color--primary) !important;}.has-secondary-background-color{background-color: var(--wp--preset--color--secondary) !important;}.has-tertiary-background-color{background-color: var(--wp--preset--color--tertiary) !important;}.has-quaternary-background-color{background-color: var(--wp--preset--color--quaternary) !important;}.has-quinary-background-color{background-color: var(--wp--preset--color--quinary) !important;}.has-senary-background-color{background-color: var(--wp--preset--color--senary) !important;}.has-transparent-background-color{background-color: var(--wp--preset--color--transparent) !important;}.has-current-color-background-color{background-color: var(--wp--preset--color--current-color) !important;}.has-inherit-background-color{background-color: var(--wp--preset--color--inherit) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-background-border-color{border-color: var(--wp--preset--color--background) !important;}.has-base-border-color{border-color: var(--wp--preset--color--base) !important;}.has-primary-border-color{border-color: var(--wp--preset--color--primary) !important;}.has-secondary-border-color{border-color: var(--wp--preset--color--secondary) !important;}.has-tertiary-border-color{border-color: var(--wp--preset--color--tertiary) !important;}.has-quaternary-border-color{border-color: var(--wp--preset--color--quaternary) !important;}.has-quinary-border-color{border-color: var(--wp--preset--color--quinary) !important;}.has-senary-border-color{border-color: var(--wp--preset--color--senary) !important;}.has-transparent-border-color{border-color: var(--wp--preset--color--transparent) !important;}.has-current-color-border-color{border-color: var(--wp--preset--color--current-color) !important;}.has-inherit-border-color{border-color: var(--wp--preset--color--inherit) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-x-small-font-size{font-size: var(--wp--preset--font-size--x-small) !important;}.has-base-font-size{font-size: var(--wp--preset--font-size--base) !important;}.has-xx-large-font-size{font-size: var(--wp--preset--font-size--xx-large) !important;}.has-xxx-large-font-size{font-size: var(--wp--preset--font-size--xxx-large) !important;}.has-xxxx-large-font-size{font-size: var(--wp--preset--font-size--xxxx-large) !important;}.has-inter-font-family{font-family: var(--wp--preset--font-family--inter) !important;}.has-figtree-font-family{font-family: var(--wp--preset--font-family--figtree) !important;}.has-outfit-font-family{font-family: var(--wp--preset--font-family--outfit) !important;}
+</style>
+<style id="core-block-supports-inline-css">
+.wp-container-core-group-layout-1.wp-container-core-group-layout-1{flex-wrap:nowrap;gap:15px;}.wp-container-core-navigation-layout-1.wp-container-core-navigation-layout-1{gap:var(--wp--preset--spacing--large);justify-content:flex-end;}.wp-container-core-group-layout-2.wp-container-core-group-layout-2{flex-wrap:nowrap;justify-content:space-between;}.wp-container-core-group-layout-4.wp-container-core-group-layout-4{flex-wrap:nowrap;gap:var(--wp--preset--spacing--xx-small);}.wp-container-core-columns-layout-1.wp-container-core-columns-layout-1{flex-wrap:nowrap;gap:var(--wp--preset--spacing--x-large) var(--wp--preset--spacing--x-large);}.wp-container-core-social-links-layout-1.wp-container-core-social-links-layout-1{gap:var(--wp--preset--spacing--xx-small) var(--wp--preset--spacing--xx-small);justify-content:flex-start;}.wp-container-core-columns-layout-2.wp-container-core-columns-layout-2{flex-wrap:nowrap;gap:var(--wp--preset--spacing--x-large) var(--wp--preset--spacing--x-large);}
+</style>
+<style id="wp-block-template-skip-link-inline-css">
+
+		.skip-link.screen-reader-text {
+			border: 0;
+			clip: rect(1px,1px,1px,1px);
+			clip-path: inset(50%);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute !important;
+			width: 1px;
+			word-wrap: normal !important;
+		}
+
+		.skip-link.screen-reader-text:focus {
+			background-color: #eee;
+			clip: auto !important;
+			clip-path: none;
+			color: #444;
+			display: block;
+			font-size: 1em;
+			height: auto;
+			left: 5px;
+			line-height: normal;
+			padding: 15px 23px 14px;
+			text-decoration: none;
+			top: 5px;
+			width: auto;
+			z-index: 100000;
+		}
+</style>
+<link rel="stylesheet" id="jadro-style-css" href="https://blog.skywalker.net.au/wp-content/themes/jadro/style.css?ver=1.0.1" media="all">
+<script src="https://blog.skywalker.net.au/wp-includes/js/dist/interactivity.min.js?ver=6.4.3" id="wp-interactivity-js" defer data-wp-strategy="defer"></script>
+<script src="https://blog.skywalker.net.au/wp-includes/blocks/navigation/view.min.js?ver=e3d6f3216904b5b42831" id="wp-block-navigation-view-js" defer data-wp-strategy="defer"></script>
+<link rel="https://api.w.org/" href="https://blog.skywalker.net.au/wp-json/"><link rel="alternate" type="application/json" href="https://blog.skywalker.net.au/wp-json/wp/v2/posts/142"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blog.skywalker.net.au/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.4.3">
+<link rel="canonical" href="https://blog.skywalker.net.au/2024/02/13/legacy-system-connecting-to-s3-storage/">
+<link rel="shortlink" href="https://blog.skywalker.net.au/?p=142">
+<style id="wp-fonts-local">
+@font-face{font-family:Inter;font-style:normal;font-weight:100 900;font-display:block;src:url('https://blog.skywalker.net.au/wp-content/themes/jadro/assets/fonts/Inter-Variable.woff2') format('woff2');font-stretch:normal;}
+@font-face{font-family:Figtree;font-style:normal;font-weight:300 900;font-display:block;src:url('https://blog.skywalker.net.au/wp-content/themes/jadro/assets/fonts/Figtree-Variable.woff2') format('woff2');font-stretch:normal;}
+@font-face{font-family:Outfit;font-style:normal;font-weight:100 900;font-display:block;src:url('https://blog.skywalker.net.au/wp-content/themes/jadro/assets/fonts/Outfit-Variable.woff2') format('woff2');font-stretch:normal;}
+</style>
+<link rel="icon" href="https://blog.skywalker.net.au/wp-content/uploads/2024/02/cropped-Logo-512x512-1-32x32.png" sizes="32x32">
+<link rel="icon" href="https://blog.skywalker.net.au/wp-content/uploads/2024/02/cropped-Logo-512x512-1-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://blog.skywalker.net.au/wp-content/uploads/2024/02/cropped-Logo-512x512-1-180x180.png">
+<meta name="msapplication-TileImage" content="https://blog.skywalker.net.au/wp-content/uploads/2024/02/cropped-Logo-512x512-1-270x270.png">
+</head>
+
+<body class="post-template-default single single-post postid-142 single-format-standard wp-embed-responsive">
+
+<div class="wp-site-blocks"><header class="wp-block-template-part">
+<div class="wp-block-group alignfull has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style="padding-top:var(--wp--preset--spacing--small);padding-bottom:var(--wp--preset--spacing--small)">
+<div class="wp-block-group alignwide is-content-justification-space-between is-nowrap is-layout-flex wp-container-core-group-layout-2 wp-block-group-is-layout-flex">
+<div class="wp-block-group is-nowrap is-layout-flex wp-container-core-group-layout-1 wp-block-group-is-layout-flex"><h1 class="wp-block-site-title"><a href="https://blog.skywalker.net.au" target="_self" rel="home">Ashley Walker's Blog</a></h1></div>
+
+
+<nav class="is-responsive items-justified-right wp-block-navigation is-content-justification-right is-layout-flex wp-container-core-navigation-layout-1 wp-block-navigation-is-layout-flex" aria-label="Header navigation" data-wp-interactive data-wp-context='{"core":{"navigation":{"overlayOpenedBy":[],"type":"overlay","roleAttribute":"","ariaLabel":"Menu"}}}'><button aria-haspopup="true" aria-label="Open menu" class="wp-block-navigation__responsive-container-open " data-wp-on--click="actions.core.navigation.openMenuOnClick" data-wp-on--keydown="actions.core.navigation.handleMenuKeydown"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M5 5v1.5h14V5H5zm0 7.8h14v-1.5H5v1.5zM5 19h14v-1.5H5V19z"></path></svg></button>
+			<div class="wp-block-navigation__responsive-container  " style="" id="modal-1" data-wp-class--has-modal-open="selectors.core.navigation.isMenuOpen" data-wp-class--is-menu-open="selectors.core.navigation.isMenuOpen" data-wp-effect="effects.core.navigation.initMenu" data-wp-on--keydown="actions.core.navigation.handleMenuKeydown" data-wp-on--focusout="actions.core.navigation.handleMenuFocusout" tabindex="-1">
+				<div class="wp-block-navigation__responsive-close" tabindex="-1">
+					<div class="wp-block-navigation__responsive-dialog" data-wp-bind--aria-modal="selectors.core.navigation.ariaModal" data-wp-bind--aria-label="selectors.core.navigation.ariaLabel" data-wp-bind--role="selectors.core.navigation.roleAttribute" data-wp-effect="effects.core.navigation.focusFirstElement">
+							<button aria-label="Close menu" class="wp-block-navigation__responsive-container-close" data-wp-on--click="actions.core.navigation.closeMenuOnClick"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M13 11.8l6.1-6.3-1-1-6.1 6.2-6.1-6.2-1 1 6.1 6.3-6.5 6.7 1 1 6.5-6.6 6.5 6.6 1-1z"></path></svg></button>
+						<div class="wp-block-navigation__responsive-container-content" id="modal-1-content">
+							<ul class="wp-block-navigation__container is-responsive items-justified-right wp-block-navigation"><li class=" wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="https://blog.skywalker.net.au/"><span class="wp-block-navigation-item__label">Home</span></a></li><li class=" wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="https://blog.skywalker.net.au/about-me/"><span class="wp-block-navigation-item__label">About</span></a></li><li class=" wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="https://blog.skywalker.net.au/archive/"><span class="wp-block-navigation-item__label">Blog</span></a></li><li class=" wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="https://www.linkedin.com/in/skywalkerisnull/" target="_blank"><span class="wp-block-navigation-item__label">Contact</span></a></li></ul>
+						</div>
+					</div>
+				</div>
+			</div></nav></div>
+</div>
+</header>
+
+
+<main class="wp-block-group is-layout-flow wp-block-group-is-layout-flow" style="margin-top:0px;margin-bottom:0px;padding-top:var(--wp--preset--spacing--xx-large);padding-right:0;padding-bottom:var(--wp--preset--spacing--xx-large);padding-left:0">
+<div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained"><figure style="margin-bottom:var(--wp--preset--spacing--large);" class="wp-block-post-featured-image"><img width="1400" height="900" src="https://blog.skywalker.net.au/wp-content/uploads/2024/02/legacy-application.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" style="border-radius:10px;object-fit:cover;" decoding="async" fetchpriority="high" srcset="https://blog.skywalker.net.au/wp-content/uploads/2024/02/legacy-application.jpg 1400w, https://blog.skywalker.net.au/wp-content/uploads/2024/02/legacy-application-300x193.jpg 300w, https://blog.skywalker.net.au/wp-content/uploads/2024/02/legacy-application-1024x658.jpg 1024w, https://blog.skywalker.net.au/wp-content/uploads/2024/02/legacy-application-768x494.jpg 768w" sizes="(max-width: 1400px) 100vw, 1400px"></figure>
+
+<h2 style="margin-bottom:0;margin-top:0px;" class="wp-block-post-title has-xx-large-font-size">Legacy system connecting to S3 Storage</h2>
+
+
+<div class="wp-block-group is-nowrap is-layout-flex wp-container-core-group-layout-4 wp-block-group-is-layout-flex"><div class="wp-block-post-date"><time datetime="2024-02-13T18:28:22+10:00"><a href="https://blog.skywalker.net.au/2024/02/13/legacy-system-connecting-to-s3-storage/">February 13, 2024</a></time></div>
+
+
+<p class="has-quinary-color has-text-color">/</p>
+
+
+<div class="taxonomy-category wp-block-post-terms"><a href="https://blog.skywalker.net.au/category/professional/security/" rel="tag">Security</a><span class="wp-block-post-terms__separator">, </span><a href="https://blog.skywalker.net.au/category/professional/software-engineering/" rel="tag">Software Engineering</a><span class="wp-block-post-terms__separator">, </span><a href="https://blog.skywalker.net.au/category/professional/systems-architecture/" rel="tag">Systems Architecture</a></div></div>
+</div>
+
+
+<div class="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
+<p>One of the legacy systems that I need to assist a client on has a business-critical application written in PHP 5.2 hosted on a CentOS 6 VM. This host machine has an old version of OpenSSL and does not connect to many modern endpoints that require strong ciphers and TLS 1.2 or higher. Further, loading dependencies such as the AWS SDK to interact with the S3 buckets is even more difficult. The key issues that I faced were:</p>
+
+
+
+<ul>
+<li>Old version of TLS on the CentOS is lower than required by AWS SDK.</li>
+
+
+
+<li>Loading the dependencies would be difficult as none of the package managers work.</li>
+</ul>
+
+
+
+<p>My solution was to build a new dotnet application using minimal APIs, place a proxy server in front of it using <a href="https://traefik.io/">Traefik</a>, and then allow the legacy PHP application to make curl requests to the C# application, that will then interact directly with S3. The basic flow would look something like this:</p>
+
+
+
+<div class="wp-block-visualize-mermaid"><pre class="visualizeMermaid__content js-visualize-content">graph LR;
+    PHP--cURL request--&gt;Traefik;
+    Traefik--proxy--&gt;dotnet;
+    dotnet--http request--&gt;S3</pre><pre class="visualizeMermaid__error visualizeMermaid__error--hidden js-visualize-error"></pre><div class="visualizeMermaid__canvas"><svg id="graphDiv1707812235963" width="537.1666870117188" xmlns="http://www.w3.org/2000/svg" height="54.19791793823242" viewbox="0 0 537.1666870117188 54.19791793823242"><style>#graphDiv1707812235963 .label{font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family);color:#333}#graphDiv1707812235963 .label text{fill:#333}#graphDiv1707812235963 .node rect,#graphDiv1707812235963 .node circle,#graphDiv1707812235963 .node ellipse,#graphDiv1707812235963 .node polygon,#graphDiv1707812235963 .node path{fill:#eee;stroke:#999;stroke-width:1px}#graphDiv1707812235963 .node .label{text-align:center}#graphDiv1707812235963 .node.clickable{cursor:pointer}#graphDiv1707812235963 .arrowheadPath{fill:#333}#graphDiv1707812235963 .edgePath .path{stroke:#666;stroke-width:1.5px}#graphDiv1707812235963 .edgeLabel{background-color:#fff;text-align:center}#graphDiv1707812235963 .edgeLabel rect{opacity:0.5}#graphDiv1707812235963 .cluster rect{fill:#eaf2fb;stroke:#26a;stroke-width:1px}#graphDiv1707812235963 .cluster text{fill:#333}#graphDiv1707812235963 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family);font-size:12px;background:#eaf2fb;border:1px solid #26a;border-radius:2px;pointer-events:none;z-index:100}#graphDiv1707812235963 .actor{stroke:#999;fill:#eee}#graphDiv1707812235963 text.actor{fill:#333;stroke:none}#graphDiv1707812235963 .actor-line{stroke:#666}#graphDiv1707812235963 .messageLine0{stroke-width:1.5;stroke-dasharray:'2 2';stroke:#333}#graphDiv1707812235963 .messageLine1{stroke-width:1.5;stroke-dasharray:'2 2';stroke:#333}#graphDiv1707812235963 #arrowhead{fill:#333}#graphDiv1707812235963 .sequenceNumber{fill:#fff}#graphDiv1707812235963 #sequencenumber{fill:#333}#graphDiv1707812235963 #crosshead path{fill:#333 !important;stroke:#333 !important}#graphDiv1707812235963 .messageText{fill:#333;stroke:none}#graphDiv1707812235963 .labelBox{stroke:#999;fill:#eee}#graphDiv1707812235963 .labelText{fill:#333;stroke:none}#graphDiv1707812235963 .loopText{fill:#333;stroke:none}#graphDiv1707812235963 .loopLine{stroke-width:2;stroke-dasharray:'2 2';stroke:#999}#graphDiv1707812235963 .note{stroke:#770;fill:#ffa}#graphDiv1707812235963 .noteText{fill:black;stroke:none;font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family);font-size:14px}#graphDiv1707812235963 .activation0{fill:#f4f4f4;stroke:#666}#graphDiv1707812235963 .activation1{fill:#f4f4f4;stroke:#666}#graphDiv1707812235963 .activation2{fill:#f4f4f4;stroke:#666}#graphDiv1707812235963 .mermaid-main-font{font-family:"trebuchet ms", verdana, arial;font-family:var(--mermaid-font-family)}#graphDiv1707812235963 .section{stroke:none;opacity:0.2}#graphDiv1707812235963 .section0{fill:#80b3e6}#graphDiv1707812235963 .section2{fill:#80b3e6}#graphDiv1707812235963 .section1,#graphDiv1707812235963 .section3{fill:#fff;opacity:0.2}#graphDiv1707812235963 .sectionTitle0{fill:#333}#graphDiv1707812235963 .sectionTitle1{fill:#333}#graphDiv1707812235963 .sectionTitle2{fill:#333}#graphDiv1707812235963 .sectionTitle3{fill:#333}#graphDiv1707812235963 .sectionTitle{text-anchor:start;font-size:11px;text-height:14px;font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family)}#graphDiv1707812235963 .grid .tick{stroke:#e6e6e6;opacity:0.8;shape-rendering:crispEdges}#graphDiv1707812235963 .grid .tick text{font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family)}#graphDiv1707812235963 .grid path{stroke-width:0}#graphDiv1707812235963 .today{fill:none;stroke:#d42;stroke-width:2px}#graphDiv1707812235963 .task{stroke-width:2}#graphDiv1707812235963 .taskText{text-anchor:middle;font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family)}#graphDiv1707812235963 .taskText:not([font-size]){font-size:11px}#graphDiv1707812235963 .taskTextOutsideRight{fill:#333;text-anchor:start;font-size:11px;font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family)}#graphDiv1707812235963 .taskTextOutsideLeft{fill:#333;text-anchor:end;font-size:11px}#graphDiv1707812235963 .task.clickable{cursor:pointer}#graphDiv1707812235963 .taskText.clickable{cursor:pointer;fill:#003163 !important;font-weight:bold}#graphDiv1707812235963 .taskTextOutsideLeft.clickable{cursor:pointer;fill:#003163 !important;font-weight:bold}#graphDiv1707812235963 .taskTextOutsideRight.clickable{cursor:pointer;fill:#003163 !important;font-weight:bold}#graphDiv1707812235963 .taskText0,#graphDiv1707812235963 .taskText1,#graphDiv1707812235963 .taskText2,#graphDiv1707812235963 .taskText3{fill:#fff}#graphDiv1707812235963 .task0,#graphDiv1707812235963 .task1,#graphDiv1707812235963 .task2,#graphDiv1707812235963 .task3{fill:#26a;stroke:#1a4d80}#graphDiv1707812235963 .taskTextOutside0,#graphDiv1707812235963 .taskTextOutside2{fill:#333}#graphDiv1707812235963 .taskTextOutside1,#graphDiv1707812235963 .taskTextOutside3{fill:#333}#graphDiv1707812235963 .active0,#graphDiv1707812235963 .active1,#graphDiv1707812235963 .active2,#graphDiv1707812235963 .active3{fill:#eee;stroke:#1a4d80}#graphDiv1707812235963 .activeText0,#graphDiv1707812235963 .activeText1,#graphDiv1707812235963 .activeText2,#graphDiv1707812235963 .activeText3{fill:#333 !important}#graphDiv1707812235963 .done0,#graphDiv1707812235963 .done1,#graphDiv1707812235963 .done2,#graphDiv1707812235963 .done3{stroke:#666;fill:#bbb;stroke-width:2}#graphDiv1707812235963 .doneText0,#graphDiv1707812235963 .doneText1,#graphDiv1707812235963 .doneText2,#graphDiv1707812235963 .doneText3{fill:#333 !important}#graphDiv1707812235963 .crit0,#graphDiv1707812235963 .crit1,#graphDiv1707812235963 .crit2,#graphDiv1707812235963 .crit3{stroke:#b1361b;fill:#d42;stroke-width:2}#graphDiv1707812235963 .activeCrit0,#graphDiv1707812235963 .activeCrit1,#graphDiv1707812235963 .activeCrit2,#graphDiv1707812235963 .activeCrit3{stroke:#b1361b;fill:#eee;stroke-width:2}#graphDiv1707812235963 .doneCrit0,#graphDiv1707812235963 .doneCrit1,#graphDiv1707812235963 .doneCrit2,#graphDiv1707812235963 .doneCrit3{stroke:#b1361b;fill:#bbb;stroke-width:2;cursor:pointer;shape-rendering:crispEdges}#graphDiv1707812235963 .milestone{transform:rotate(45deg) scale(0.8, 0.8)}#graphDiv1707812235963 .milestoneText{font-style:italic}#graphDiv1707812235963 .doneCritText0,#graphDiv1707812235963 .doneCritText1,#graphDiv1707812235963 .doneCritText2,#graphDiv1707812235963 .doneCritText3{fill:#333 !important}#graphDiv1707812235963 .activeCritText0,#graphDiv1707812235963 .activeCritText1,#graphDiv1707812235963 .activeCritText2,#graphDiv1707812235963 .activeCritText3{fill:#333 !important}#graphDiv1707812235963 .titleText{text-anchor:middle;font-size:18px;fill:#333;font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family)}#graphDiv1707812235963 g.classGroup text{fill:#999;stroke:none;font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family);font-size:10px}#graphDiv1707812235963 g.classGroup text .title{font-weight:bolder}#graphDiv1707812235963 g.clickable{cursor:pointer}#graphDiv1707812235963 g.classGroup rect{fill:#eee;stroke:#999}#graphDiv1707812235963 g.classGroup line{stroke:#999;stroke-width:1}#graphDiv1707812235963 .classLabel .box{stroke:none;stroke-width:0;fill:#eee;opacity:0.5}#graphDiv1707812235963 .classLabel .label{fill:#999;font-size:10px}#graphDiv1707812235963 .relation{stroke:#999;stroke-width:1;fill:none}#graphDiv1707812235963 .dashed-line{stroke-dasharray:3}#graphDiv1707812235963 #compositionStart{fill:#999;stroke:#999;stroke-width:1}#graphDiv1707812235963 #compositionEnd{fill:#999;stroke:#999;stroke-width:1}#graphDiv1707812235963 #aggregationStart{fill:#eee;stroke:#999;stroke-width:1}#graphDiv1707812235963 #aggregationEnd{fill:#eee;stroke:#999;stroke-width:1}#graphDiv1707812235963 #dependencyStart{fill:#999;stroke:#999;stroke-width:1}#graphDiv1707812235963 #dependencyEnd{fill:#999;stroke:#999;stroke-width:1}#graphDiv1707812235963 #extensionStart{fill:#999;stroke:#999;stroke-width:1}#graphDiv1707812235963 #extensionEnd{fill:#999;stroke:#999;stroke-width:1}#graphDiv1707812235963 .commit-id,#graphDiv1707812235963 .commit-msg,#graphDiv1707812235963 .branch-label{fill:lightgrey;color:lightgrey;font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family)}#graphDiv1707812235963 .pieTitleText{text-anchor:middle;font-size:25px;fill:#333;font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family)}#graphDiv1707812235963 .slice{font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family)}#graphDiv1707812235963 g.stateGroup text{fill:#999;stroke:none;font-size:10px;font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family)}#graphDiv1707812235963 g.stateGroup text{fill:#999;stroke:none;font-size:10px}#graphDiv1707812235963 g.stateGroup .state-title{font-weight:bolder;fill:#000}#graphDiv1707812235963 g.stateGroup rect{fill:#eee;stroke:#999}#graphDiv1707812235963 g.stateGroup line{stroke:#999;stroke-width:1}#graphDiv1707812235963 .transition{stroke:#999;stroke-width:1;fill:none}#graphDiv1707812235963 .stateGroup .composit{fill:white;border-bottom:1px}#graphDiv1707812235963 .stateGroup .alt-composit{fill:#e0e0e0;border-bottom:1px}#graphDiv1707812235963 .state-note{stroke:#770;fill:#ffa}#graphDiv1707812235963 .state-note text{fill:black;stroke:none;font-size:10px}#graphDiv1707812235963 .stateLabel .box{stroke:none;stroke-width:0;fill:#eee;opacity:0.5}#graphDiv1707812235963 .stateLabel text{fill:#000;font-size:10px;font-weight:bold;font-family:'trebuchet ms', verdana, arial;font-family:var(--mermaid-font-family)}#graphDiv1707812235963 .node circle.state-start{fill:black;stroke:black}#graphDiv1707812235963 .node circle.state-end{fill:black;stroke:white;stroke-width:1.5}#graphDiv1707812235963 #statediagram-barbEnd{fill:#999}#graphDiv1707812235963 .statediagram-cluster rect{fill:#eee;stroke:#999;stroke-width:1px}#graphDiv1707812235963 .statediagram-cluster rect.outer{rx:5px;ry:5px}#graphDiv1707812235963 .statediagram-state .divider{stroke:#999}#graphDiv1707812235963 .statediagram-state .title-state{rx:5px;ry:5px}#graphDiv1707812235963 .statediagram-cluster.statediagram-cluster .inner{fill:white}#graphDiv1707812235963 .statediagram-cluster.statediagram-cluster-alt .inner{fill:#e0e0e0}#graphDiv1707812235963 .statediagram-cluster .inner{rx:0;ry:0}#graphDiv1707812235963 .statediagram-state rect.basic{rx:5px;ry:5px}#graphDiv1707812235963 .statediagram-state rect.divider{stroke-dasharray:10,10;fill:#efefef}#graphDiv1707812235963 .note-edge{stroke-dasharray:5}#graphDiv1707812235963 .statediagram-note rect{fill:#ffa;stroke:#770;stroke-width:1px;rx:0;ry:0}:root{--mermaid-font-family: '"trebuchet ms", verdana, arial';--mermaid-font-family: "Comic Sans MS", "Comic Sans", cursive}
+
+:root { --mermaid-font-family: "trebuchet ms", verdana, arial;}</style><style>#graphDiv1707812235963 {
+    color: rgb(60, 67, 74);
+    font: 13px / 18.2px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  }</style><g><g class="output"><g class="clusters"></g><g class="edgePaths"><g class="edgePath" style="opacity: 1;"><path class="path" d="M51.79166793823242,27.09895896911621L114.51562881469727,27.09895896911621L177.2395896911621,27.09895896911621" marker-end="url(#arrowhead1523)" style="fill:none"></path><defs><marker id="arrowhead1523" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M234.5416717529297,27.09895896911621L275.5625057220459,27.09895896911621L316.5833396911621,27.09895896911621" marker-end="url(#arrowhead1524)" style="fill:none"></path><defs><marker id="arrowhead1524" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M374.8229217529297,27.09895896911621L435.0364646911621,27.09895896911621L495.25000762939453,27.09895896911621" marker-end="url(#arrowhead1525)" style="fill:none"></path><defs><marker id="arrowhead1525" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" style="opacity: 1;" transform="translate(114.51562881469727,27.09895896911621)"><g transform="translate(-37.723960876464844,-9.098958969116211)" class="label"><rect rx="0" ry="0" width="75.44792175292969" height="18.197917938232422" style="fill:#e8e8e8;"></rect><foreignobject width="75.44792175292969" height="18.197917938232422"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">cURL request</span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform="translate(275.5625057220459,27.09895896911621)"><g transform="translate(-16.02083396911621,-9.098958969116211)" class="label"><rect rx="0" ry="0" width="32.04166793823242" height="18.197917938232422" style="fill:#e8e8e8;"></rect><foreignobject width="32.04166793823242" height="18.197917938232422"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">proxy</span></div></foreignobject></g></g><g class="edgeLabel" style="opacity: 1;" transform="translate(435.0364646911621,27.09895896911621)"><g transform="translate(-35.21354293823242,-9.098958969116211)" class="label"><rect rx="0" ry="0" width="70.42708587646484" height="18.197917938232422" style="fill:#e8e8e8;"></rect><foreignobject width="70.42708587646484" height="18.197917938232422"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel">http request</span></div></foreignobject></g></g></g><g class="nodes"><g class="node default" style="opacity: 1;" id="PHP" transform="translate(29.89583396911621,27.09895896911621)"><rect rx="0" ry="0" x="-21.89583396911621" y="-19.09895896911621" width="43.79166793823242" height="38.19791793823242" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-11.895833969116211,-9.098958969116211)"><foreignobject width="23.791667938232422" height="18.197917938232422"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">PHP</div></foreignobject></g></g></g><g class="node default" style="opacity: 1;" id="Traefik" transform="translate(205.8906307220459,27.09895896911621)"><rect rx="0" ry="0" x="-28.651042938232422" y="-19.09895896911621" width="57.302085876464844" height="38.19791793823242" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-18.651042938232422,-9.098958969116211)"><foreignobject width="37.302085876464844" height="18.197917938232422"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">Traefik</div></foreignobject></g></g></g><g class="node default" style="opacity: 1;" id="dotnet" transform="translate(345.7031307220459,27.09895896911621)"><rect rx="0" ry="0" x="-29.119792938232422" y="-19.09895896911621" width="58.239585876464844" height="38.19791793823242" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-19.119792938232422,-9.098958969116211)"><foreignobject width="38.239585876464844" height="18.197917938232422"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">dotnet</div></foreignobject></g></g></g><g class="node default" style="opacity: 1;" id="S3" transform="translate(512.2083415985107,27.09895896911621)"><rect rx="0" ry="0" x="-16.958333492279053" y="-19.09895896911621" width="33.916666984558105" height="38.19791793823242" class="label-container"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-6.958333492279053,-9.098958969116211)"><foreignobject width="13.916666984558105" height="18.197917938232422"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">S3</div></foreignobject></g></g></g></g></g></g></svg></div></div>
+
+
+
+<p>The minimal APIs of the initial prototype are below:</p>
+
+
+
+<div class="wp-block-kevinbatdorf-code-block-pro padding-bottom-disabled cbp-has-line-numbers cbp-highlight-hover" data-code-block-pro-font-family="Code-Pro-JetBrains-Mono" style="font-size:.875rem;font-family:Code-Pro-JetBrains-Mono,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;--cbp-line-number-color:#D4D4D4;--cbp-line-number-width:calc(3 * 0.6 * .875rem);--cbp-line-highlight-color:rgba(234, 191, 191, 0.2);line-height:1.25rem;--cbp-tab-width:2;tab-size:var(--cbp-tab-width, 2)"><span style="display:flex;align-items:center;padding:10px 0px 10px 16px;margin-bottom:-2px;width:100%;text-align:left;background-color:#2b2b2b;color:#c7c7c7">program.cs</span><span role="button" tabindex="0" data-code="using OpenTelemetry.Metrics;
+using OpenTelemetry.Trace;
+using OpenTelemetry.Logs;
+using OpenTelemetry.Resources;
+using System.Text;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.OpenApi.Models;
+using System.Security.Authentication;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+using System.Security.Cryptography;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.UseKestrel(options =&gt; {
+    options.Limits.MaxResponseBufferSize = 52428800; // 50MB
+    options.Listen(IPAddress.Any, 5000); // HTTP
+    options.Listen(IPAddress.Any, 5001, listenOptions =&gt; // HTTPS
+    {
+        listenOptions.UseHttps(httpsOptions =&gt;
+        {
+            // Generate a self-signed certificate
+            var certReq = new CertificateRequest(&quot;CN=Kestrel&quot;, RSA.Create(2048), HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+            var cert = certReq.CreateSelfSigned(DateTimeOffset.Now, DateTimeOffset.Now.AddYears(1));
+            httpsOptions.ServerCertificate = cert;
+            httpsOptions.SslProtocols = SslProtocols.Tls12 | SslProtocols.Tls13;
+        });
+    });
+});
+
+builder.Services.AddTransient&lt;S3Client&gt;();
+
+builder.Services.AddAuthentication(&quot;BasicAuthentication&quot;)
+        .AddScheme&lt;AuthenticationSchemeOptions, BasicAuthenticationHandler&gt;(&quot;BasicAuthentication&quot;, null);
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =&gt;
+{
+    options.AddSecurityDefinition(&quot;basic&quot;, new OpenApiSecurityScheme
+    {
+        Name = &quot;Authorization&quot;,
+        Type = SecuritySchemeType.Http,
+        Scheme = &quot;basic&quot;,
+        In = ParameterLocation.Header,
+        Description = &quot;Basic Authorization header using the Bearer scheme.&quot;
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = &quot;basic&quot;
+                }
+            },
+            new string[] {}
+        }
+    });
+});
+
+builder.Logging.AddOpenTelemetry(logging =&gt;
+{
+    var resourceBuilder = ResourceBuilder
+        .CreateDefault()
+        .AddService(builder.Environment.ApplicationName);
+
+    logging.SetResourceBuilder(resourceBuilder)
+        .AddConsoleExporter();
+});
+
+builder.Services.AddOpenTelemetry()
+    .ConfigureResource(resource =&gt; resource
+        .AddService(serviceName: builder.Environment.ApplicationName))
+    .WithMetrics(metrics =&gt; metrics
+        .AddAspNetCoreInstrumentation()
+        .AddConsoleExporter((exporterOptions, metricReaderOptions) =&gt;
+        {
+            metricReaderOptions.PeriodicExportingMetricReaderOptions.ExportIntervalMilliseconds = 2000;
+        }));
+
+builder.Services.AddControllers();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+// Basic Authentication
+app.UseMiddleware&lt;BasicAuthMiddleware&gt;();
+
+app.MapPost(&quot;/upload&quot;, async (HttpContext context, string fileName) =&gt;
+{
+    var authHeader = context.Request.Headers.Authorization.ToString().Split(' ')[1];
+    if (!ValidateCredentials(authHeader, builder))
+    {
+        return Results.Unauthorized();
+    }
+    var s3Client = context.RequestServices.GetRequiredService&lt;S3Client&gt;();
+    var file = context.Request.Form.Files[0];
+    await s3Client.UploadFileAsync(file, fileName);
+    return Results.Ok();
+})
+    .WithOpenApi()
+    .WithDescription(&quot;Uploads a file to S3 bucket&quot;);
+
+// Download the file from S3
+app.MapGet(&quot;/download&quot;, async (HttpContext context, string fileName) =&gt;
+{
+    var authHeader = context.Request.Headers.Authorization.ToString().Split(' ')[1];
+    if (!ValidateCredentials(authHeader, builder))
+    {
+        return Results.Unauthorized();
+    }
+    var s3Client = context.RequestServices.GetRequiredService&lt;S3Client&gt;();
+    var stream = await s3Client.DownloadFileAsync(fileName);
+    return Results.File(stream, &quot;application/octet-stream&quot;);
+})
+    .WithOpenApi()
+    .WithDescription(&quot;Returns the file directly.&quot;);
+
+// Download the valet URL
+app.MapGet(&quot;/download-valet&quot;, (HttpContext context, string fileName) =&gt;
+{
+    var authHeader = context.Request.Headers.Authorization.ToString().Split(' ')[1];
+    if (!ValidateCredentials(authHeader, builder))
+    {
+        return Results.Unauthorized();
+    }
+    var s3Client = app.Services.GetRequiredService&lt;S3Client&gt;();
+    var url = s3Client.GetValetUrl(fileName, null);
+    return Results.Ok(new { url });
+})
+    .WithOpenApi()
+    .WithDescription(&quot;Returns a time limited URL that can directly download the file.&quot;);
+
+static bool ValidateCredentials(string authHeader, WebApplicationBuilder builder)
+{
+    var credentialBytes = Convert.FromBase64String(authHeader);
+    var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':');
+    var username = credentials[0];
+    var password = credentials[1];
+    var appSettings = builder.Configuration.GetSection(&quot;BasicAuthSettings&quot;);
+    var appUsername = appSettings[&quot;Username&quot;];
+    var appPassword = appSettings[&quot;Password&quot;];
+    return username == appUsername &amp;&amp; password == appPassword;
+}
+
+app.MapControllers();
+app.Run();" style="color:#D4D4D4;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M16.5 8.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v8.25A2.25 2.25 0 006 16.5h2.25m8.25-8.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-7.5A2.25 2.25 0 018.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 00-2.25 2.25v6"></path></svg></span><pre class="shiki dark-plus" style="background-color: #1E1E1E" tabindex="0"><code><span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">OpenTelemetry</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Metrics</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">OpenTelemetry</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Trace</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">OpenTelemetry</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Logs</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">OpenTelemetry</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Resources</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">System</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Text</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Microsoft</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">AspNetCore</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Authentication</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Microsoft</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">OpenApi</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Models</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">System</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Security</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Authentication</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">System</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Net</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">System</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Security</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Cryptography</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">X509Certificates</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">System</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Security</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Cryptography</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">WebApplication</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">CreateBuilder</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">args</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">WebHost</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">UseKestrel</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">options</span><span style="color: #D4D4D4"> =&gt; {</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">options</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Limits</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">MaxResponseBufferSize</span><span style="color: #D4D4D4"> = </span><span style="color: #B5CEA8">52428800</span><span style="color: #D4D4D4">; </span><span style="color: #6A9955">// 50MB</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">options</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Listen</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">IPAddress</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Any</span><span style="color: #D4D4D4">, </span><span style="color: #B5CEA8">5000</span><span style="color: #D4D4D4">); </span><span style="color: #6A9955">// HTTP</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">options</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Listen</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">IPAddress</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Any</span><span style="color: #D4D4D4">, </span><span style="color: #B5CEA8">5001</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">listenOptions</span><span style="color: #D4D4D4"> =&gt; </span><span style="color: #6A9955">// HTTPS</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">listenOptions</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">UseHttps</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">httpsOptions</span><span style="color: #D4D4D4"> =&gt;</span></span>
+<span class="line"><span style="color: #D4D4D4">        {</span></span>
+<span class="line"><span style="color: #6A9955">            // Generate a self-signed certificate</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">certReq</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">CertificateRequest</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"CN=Kestrel"</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">RSA</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Create</span><span style="color: #D4D4D4">(</span><span style="color: #B5CEA8">2048</span><span style="color: #D4D4D4">), </span><span style="color: #9CDCFE">HashAlgorithmName</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">SHA256</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">RSASignaturePadding</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Pkcs1</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">cert</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">certReq</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">CreateSelfSigned</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">DateTimeOffset</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Now</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">DateTimeOffset</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Now</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">AddYears</span><span style="color: #D4D4D4">(</span><span style="color: #B5CEA8">1</span><span style="color: #D4D4D4">));</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">httpsOptions</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">ServerCertificate</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">cert</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">httpsOptions</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">SslProtocols</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">SslProtocols</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Tls12</span><span style="color: #D4D4D4"> | </span><span style="color: #9CDCFE">SslProtocols</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Tls13</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">        });</span></span>
+<span class="line"><span style="color: #D4D4D4">    });</span></span>
+<span class="line"><span style="color: #D4D4D4">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Services</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">AddTransient</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">S3Client</span><span style="color: #D4D4D4">&gt;();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Services</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">AddAuthentication</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"BasicAuthentication"</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">        .</span><span style="color: #DCDCAA">AddScheme</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">AuthenticationSchemeOptions</span><span style="color: #D4D4D4">, </span><span style="color: #4EC9B0">BasicAuthenticationHandler</span><span style="color: #D4D4D4">&gt;(</span><span style="color: #CE9178">"BasicAuthentication"</span><span style="color: #D4D4D4">, </span><span style="color: #569CD6">null</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Services</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">AddEndpointsApiExplorer</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Services</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">AddSwaggerGen</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">options</span><span style="color: #D4D4D4"> =&gt;</span></span>
+<span class="line"><span style="color: #D4D4D4">{</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">options</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">AddSecurityDefinition</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"basic"</span><span style="color: #D4D4D4">, </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">OpenApiSecurityScheme</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">Name</span><span style="color: #D4D4D4"> = </span><span style="color: #CE9178">"Authorization"</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">Type</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">SecuritySchemeType</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Http</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">Scheme</span><span style="color: #D4D4D4"> = </span><span style="color: #CE9178">"basic"</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">In</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">ParameterLocation</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Header</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">Description</span><span style="color: #D4D4D4"> = </span><span style="color: #CE9178">"Basic Authorization header using the Bearer scheme."</span></span>
+<span class="line"><span style="color: #D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">options</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">AddSecurityRequirement</span><span style="color: #D4D4D4">(</span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">OpenApiSecurityRequirement</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        {</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">OpenApiSecurityScheme</span></span>
+<span class="line"><span style="color: #D4D4D4">            {</span></span>
+<span class="line"><span style="color: #D4D4D4">                </span><span style="color: #9CDCFE">Reference</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">OpenApiReference</span></span>
+<span class="line"><span style="color: #D4D4D4">                {</span></span>
+<span class="line"><span style="color: #D4D4D4">                    </span><span style="color: #9CDCFE">Type</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">ReferenceType</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">SecurityScheme</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">                    </span><span style="color: #9CDCFE">Id</span><span style="color: #D4D4D4"> = </span><span style="color: #CE9178">"basic"</span></span>
+<span class="line"><span style="color: #D4D4D4">                }</span></span>
+<span class="line"><span style="color: #D4D4D4">            },</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">string</span><span style="color: #D4D4D4">[] {}</span></span>
+<span class="line"><span style="color: #D4D4D4">        }</span></span>
+<span class="line"><span style="color: #D4D4D4">    });</span></span>
+<span class="line"><span style="color: #D4D4D4">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Logging</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">AddOpenTelemetry</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">logging</span><span style="color: #D4D4D4"> =&gt;</span></span>
+<span class="line"><span style="color: #D4D4D4">{</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">resourceBuilder</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">ResourceBuilder</span></span>
+<span class="line"><span style="color: #D4D4D4">        .</span><span style="color: #DCDCAA">CreateDefault</span><span style="color: #D4D4D4">()</span></span>
+<span class="line"><span style="color: #D4D4D4">        .</span><span style="color: #DCDCAA">AddService</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Environment</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">ApplicationName</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">logging</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">SetResourceBuilder</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">resourceBuilder</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">        .</span><span style="color: #DCDCAA">AddConsoleExporter</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"><span style="color: #D4D4D4">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Services</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">AddOpenTelemetry</span><span style="color: #D4D4D4">()</span></span>
+<span class="line"><span style="color: #D4D4D4">    .</span><span style="color: #DCDCAA">ConfigureResource</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">resource</span><span style="color: #D4D4D4"> =&gt; </span><span style="color: #9CDCFE">resource</span></span>
+<span class="line"><span style="color: #D4D4D4">        .</span><span style="color: #DCDCAA">AddService</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">serviceName</span><span style="color: #D4D4D4">: </span><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Environment</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">ApplicationName</span><span style="color: #D4D4D4">))</span></span>
+<span class="line"><span style="color: #D4D4D4">    .</span><span style="color: #DCDCAA">WithMetrics</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">metrics</span><span style="color: #D4D4D4"> =&gt; </span><span style="color: #9CDCFE">metrics</span></span>
+<span class="line"><span style="color: #D4D4D4">        .</span><span style="color: #DCDCAA">AddAspNetCoreInstrumentation</span><span style="color: #D4D4D4">()</span></span>
+<span class="line"><span style="color: #D4D4D4">        .</span><span style="color: #DCDCAA">AddConsoleExporter</span><span style="color: #D4D4D4">((</span><span style="color: #9CDCFE">exporterOptions</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">metricReaderOptions</span><span style="color: #D4D4D4">) =&gt;</span></span>
+<span class="line"><span style="color: #D4D4D4">        {</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">metricReaderOptions</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">PeriodicExportingMetricReaderOptions</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">ExportIntervalMilliseconds</span><span style="color: #D4D4D4"> = </span><span style="color: #B5CEA8">2000</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">        }));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Services</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">AddControllers</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">app</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Build</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A9955">// Configure the HTTP request pipeline.</span></span>
+<span class="line"><span style="color: #C586C0">if</span><span style="color: #D4D4D4"> (</span><span style="color: #9CDCFE">app</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Environment</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">IsDevelopment</span><span style="color: #D4D4D4">())</span></span>
+<span class="line"><span style="color: #D4D4D4">{</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">app</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">UseSwagger</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">app</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">UseSwaggerUI</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"><span style="color: #D4D4D4">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A9955">// Basic Authentication</span></span>
+<span class="line"><span style="color: #9CDCFE">app</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">UseMiddleware</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">BasicAuthMiddleware</span><span style="color: #D4D4D4">&gt;();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #9CDCFE">app</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">MapPost</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"/upload"</span><span style="color: #D4D4D4">, </span><span style="color: #569CD6">async</span><span style="color: #D4D4D4"> (</span><span style="color: #4EC9B0">HttpContext</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">, </span><span style="color: #569CD6">string</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">) =&gt;</span></span>
+<span class="line"><span style="color: #D4D4D4">{</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">authHeader</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Request</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Headers</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Authorization</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">ToString</span><span style="color: #D4D4D4">().</span><span style="color: #DCDCAA">Split</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">' '</span><span style="color: #D4D4D4">)[</span><span style="color: #B5CEA8">1</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #C586C0">if</span><span style="color: #D4D4D4"> (!</span><span style="color: #DCDCAA">ValidateCredentials</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">authHeader</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">))</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">Results</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Unauthorized</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">s3Client</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">RequestServices</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetRequiredService</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">S3Client</span><span style="color: #D4D4D4">&gt;();</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">file</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Request</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Form</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Files</span><span style="color: #D4D4D4">[</span><span style="color: #B5CEA8">0</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">await</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">s3Client</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">UploadFileAsync</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">file</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">Results</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Ok</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"><span style="color: #D4D4D4">})</span></span>
+<span class="line"><span style="color: #D4D4D4">    .</span><span style="color: #DCDCAA">WithOpenApi</span><span style="color: #D4D4D4">()</span></span>
+<span class="line"><span style="color: #D4D4D4">    .</span><span style="color: #DCDCAA">WithDescription</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"Uploads a file to S3 bucket"</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A9955">// Download the file from S3</span></span>
+<span class="line"><span style="color: #9CDCFE">app</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">MapGet</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"/download"</span><span style="color: #D4D4D4">, </span><span style="color: #569CD6">async</span><span style="color: #D4D4D4"> (</span><span style="color: #4EC9B0">HttpContext</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">, </span><span style="color: #569CD6">string</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">) =&gt;</span></span>
+<span class="line"><span style="color: #D4D4D4">{</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">authHeader</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Request</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Headers</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Authorization</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">ToString</span><span style="color: #D4D4D4">().</span><span style="color: #DCDCAA">Split</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">' '</span><span style="color: #D4D4D4">)[</span><span style="color: #B5CEA8">1</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #C586C0">if</span><span style="color: #D4D4D4"> (!</span><span style="color: #DCDCAA">ValidateCredentials</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">authHeader</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">))</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">Results</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Unauthorized</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">s3Client</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">RequestServices</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetRequiredService</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">S3Client</span><span style="color: #D4D4D4">&gt;();</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">stream</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">await</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">s3Client</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">DownloadFileAsync</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">Results</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">File</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">stream</span><span style="color: #D4D4D4">, </span><span style="color: #CE9178">"application/octet-stream"</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">})</span></span>
+<span class="line"><span style="color: #D4D4D4">    .</span><span style="color: #DCDCAA">WithOpenApi</span><span style="color: #D4D4D4">()</span></span>
+<span class="line"><span style="color: #D4D4D4">    .</span><span style="color: #DCDCAA">WithDescription</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"Returns the file directly."</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A9955">// Download the valet URL</span></span>
+<span class="line"><span style="color: #9CDCFE">app</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">MapGet</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"/download-valet"</span><span style="color: #D4D4D4">, (</span><span style="color: #4EC9B0">HttpContext</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">, </span><span style="color: #569CD6">string</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">) =&gt;</span></span>
+<span class="line"><span style="color: #D4D4D4">{</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">authHeader</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Request</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Headers</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Authorization</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">ToString</span><span style="color: #D4D4D4">().</span><span style="color: #DCDCAA">Split</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">' '</span><span style="color: #D4D4D4">)[</span><span style="color: #B5CEA8">1</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #C586C0">if</span><span style="color: #D4D4D4"> (!</span><span style="color: #DCDCAA">ValidateCredentials</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">authHeader</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">))</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">Results</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Unauthorized</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">s3Client</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">app</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Services</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetRequiredService</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">S3Client</span><span style="color: #D4D4D4">&gt;();</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">url</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">s3Client</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetValetUrl</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">, </span><span style="color: #569CD6">null</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">Results</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Ok</span><span style="color: #D4D4D4">(</span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> { </span><span style="color: #9CDCFE">url</span><span style="color: #D4D4D4"> });</span></span>
+<span class="line"><span style="color: #D4D4D4">})</span></span>
+<span class="line"><span style="color: #D4D4D4">    .</span><span style="color: #DCDCAA">WithOpenApi</span><span style="color: #D4D4D4">()</span></span>
+<span class="line"><span style="color: #D4D4D4">    .</span><span style="color: #DCDCAA">WithDescription</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"Returns a time limited URL that can directly download the file."</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #569CD6">static</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">bool</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">ValidateCredentials</span><span style="color: #D4D4D4">(</span><span style="color: #569CD6">string</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">authHeader</span><span style="color: #D4D4D4">, </span><span style="color: #4EC9B0">WebApplicationBuilder</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">{</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">credentialBytes</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">Convert</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">FromBase64String</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">authHeader</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">credentials</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">Encoding</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">UTF8</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetString</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">credentialBytes</span><span style="color: #D4D4D4">).</span><span style="color: #DCDCAA">Split</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">':'</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">username</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">credentials</span><span style="color: #D4D4D4">[</span><span style="color: #B5CEA8">0</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">password</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">credentials</span><span style="color: #D4D4D4">[</span><span style="color: #B5CEA8">1</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">appSettings</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">builder</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Configuration</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetSection</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"BasicAuthSettings"</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">appUsername</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">appSettings</span><span style="color: #D4D4D4">[</span><span style="color: #CE9178">"Username"</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">appPassword</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">appSettings</span><span style="color: #D4D4D4">[</span><span style="color: #CE9178">"Password"</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">username</span><span style="color: #D4D4D4"> == </span><span style="color: #9CDCFE">appUsername</span><span style="color: #D4D4D4"> &amp;&amp; </span><span style="color: #9CDCFE">password</span><span style="color: #D4D4D4"> == </span><span style="color: #9CDCFE">appPassword</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #9CDCFE">app</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">MapControllers</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"><span style="color: #9CDCFE">app</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Run</span><span style="color: #D4D4D4">();</span></span></code></pre><span style="display:flex;align-items:flex-end;padding:10px;width:100%;justify-content:flex-end;background-color:#1E1E1E;color:#c7c7c7;font-size:12px;line-height:1;position:relative">C#</span></div>
+
+
+
+<p>As a security risk, this does use basic authentication only because it is the only method that was supported by the existing libraries in the PHP code base. Traefik is required so that the application is interacting with a signed certificate (<a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>) but making use of a slightly older version of 2.8 so that the PHP application can support TLS1.1</p>
+
+
+
+<p>Traefik also has been configured to use an IP whitelist of only the server that will be making requests. Additional code that will help to make a complete project, most was generated using Github Copilot.</p>
+
+
+
+<div class="wp-block-kevinbatdorf-code-block-pro padding-bottom-disabled cbp-has-line-numbers" data-code-block-pro-font-family="Code-Pro-JetBrains-Mono" style="font-size:.875rem;font-family:Code-Pro-JetBrains-Mono,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;--cbp-line-number-color:#D4D4D4;--cbp-line-number-width:calc(2 * 0.6 * .875rem);line-height:1.25rem;--cbp-tab-width:2;tab-size:var(--cbp-tab-width, 2)"><span style="display:flex;align-items:center;padding:10px 0px 10px 16px;margin-bottom:-2px;width:100%;text-align:left;background-color:#2b2b2b;color:#c7c7c7">BasicAuthenticationHandler.cs</span><span role="button" tabindex="0" data-code="using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.Options;
+using System.Net.Http.Headers;
+using System.Security.Claims;
+using System.Text;
+using System.Text.Encodings.Web;
+
+public class BasicAuthenticationHandler : AuthenticationHandler&lt;AuthenticationSchemeOptions&gt;
+{
+    private readonly IConfiguration _configuration;
+
+    public BasicAuthenticationHandler(
+        IOptionsMonitor&lt;AuthenticationSchemeOptions&gt; options,
+        ILoggerFactory logger,
+        UrlEncoder encoder,
+        ISystemClock clock,
+        IConfiguration configuration)
+        : base(options, logger, encoder, clock)
+    {
+        _configuration = configuration;
+    }
+
+    protected override async Task&lt;AuthenticateResult&gt; HandleAuthenticateAsync()
+    {
+        if (!Request.Headers.ContainsKey(&quot;Authorization&quot;))
+            return AuthenticateResult.Fail(&quot;Missing Authorization Header&quot;);
+
+        string username = null;
+        string password = null;
+        try
+        {
+            var authHeader = AuthenticationHeaderValue.Parse(Request.Headers[&quot;Authorization&quot;]);
+            var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
+            var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':');
+            username = credentials[0];
+            password = credentials[1];
+        }
+        catch
+        {
+            return AuthenticateResult.Fail(&quot;Invalid Authorization Header&quot;);
+        }
+
+        var appSettings = _configuration.GetSection(&quot;BasicAuthSettings&quot;);
+        var appUsername = appSettings[&quot;Username&quot;];
+        var appPassword = appSettings[&quot;Password&quot;];
+
+        if (username != appUsername || password != appPassword)
+            return AuthenticateResult.Fail(&quot;Invalid Username or Password&quot;);
+
+        var claims = new[] {
+            new Claim(ClaimTypes.NameIdentifier, username),
+            new Claim(ClaimTypes.Name, username),
+        };
+        var identity = new ClaimsIdentity(claims, Scheme.Name);
+        var principal = new ClaimsPrincipal(identity);
+        var ticket = new AuthenticationTicket(principal, Scheme.Name);
+
+        return AuthenticateResult.Success(ticket);
+    }
+}" style="color:#D4D4D4;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M16.5 8.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v8.25A2.25 2.25 0 006 16.5h2.25m8.25-8.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-7.5A2.25 2.25 0 018.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 00-2.25 2.25v6"></path></svg></span><pre class="shiki dark-plus" style="background-color: #1E1E1E" tabindex="0"><code><span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Microsoft</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">AspNetCore</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Authentication</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Microsoft</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Extensions</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Options</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">System</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Net</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Http</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Headers</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">System</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Security</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Claims</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">System</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Text</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">System</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Text</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Encodings</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Web</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #569CD6">public</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">class</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">BasicAuthenticationHandler</span><span style="color: #D4D4D4"> : </span><span style="color: #4EC9B0">AuthenticationHandler</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">AuthenticationSchemeOptions</span><span style="color: #D4D4D4">&gt;</span></span>
+<span class="line"><span style="color: #D4D4D4">{</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">private</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">readonly</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">IConfiguration</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">_configuration</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">public</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">BasicAuthenticationHandler</span><span style="color: #D4D4D4">(</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #4EC9B0">IOptionsMonitor</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">AuthenticationSchemeOptions</span><span style="color: #D4D4D4">&gt; </span><span style="color: #9CDCFE">options</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #4EC9B0">ILoggerFactory</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">logger</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #4EC9B0">UrlEncoder</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">encoder</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #4EC9B0">ISystemClock</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">clock</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #4EC9B0">IConfiguration</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">configuration</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">        : </span><span style="color: #569CD6">base</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">options</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">logger</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">encoder</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">clock</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">_configuration</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">configuration</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">protected</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">override</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">async</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Task</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">AuthenticateResult</span><span style="color: #D4D4D4">&gt; </span><span style="color: #DCDCAA">HandleAuthenticateAsync</span><span style="color: #D4D4D4">()</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">if</span><span style="color: #D4D4D4"> (!</span><span style="color: #9CDCFE">Request</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Headers</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">ContainsKey</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"Authorization"</span><span style="color: #D4D4D4">))</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">AuthenticateResult</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Fail</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"Missing Authorization Header"</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">string</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">username</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">null</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">string</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">password</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">null</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">try</span></span>
+<span class="line"><span style="color: #D4D4D4">        {</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">authHeader</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">AuthenticationHeaderValue</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Parse</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">Request</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Headers</span><span style="color: #D4D4D4">[</span><span style="color: #CE9178">"Authorization"</span><span style="color: #D4D4D4">]);</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">credentialBytes</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">Convert</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">FromBase64String</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">authHeader</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Parameter</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">credentials</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">Encoding</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">UTF8</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetString</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">credentialBytes</span><span style="color: #D4D4D4">).</span><span style="color: #DCDCAA">Split</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">':'</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">username</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">credentials</span><span style="color: #D4D4D4">[</span><span style="color: #B5CEA8">0</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">password</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">credentials</span><span style="color: #D4D4D4">[</span><span style="color: #B5CEA8">1</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">        }</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">catch</span></span>
+<span class="line"><span style="color: #D4D4D4">        {</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">AuthenticateResult</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Fail</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"Invalid Authorization Header"</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">appSettings</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">_configuration</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetSection</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"BasicAuthSettings"</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">appUsername</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">appSettings</span><span style="color: #D4D4D4">[</span><span style="color: #CE9178">"Username"</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">appPassword</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">appSettings</span><span style="color: #D4D4D4">[</span><span style="color: #CE9178">"Password"</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">if</span><span style="color: #D4D4D4"> (</span><span style="color: #9CDCFE">username</span><span style="color: #D4D4D4"> != </span><span style="color: #9CDCFE">appUsername</span><span style="color: #D4D4D4"> || </span><span style="color: #9CDCFE">password</span><span style="color: #D4D4D4"> != </span><span style="color: #9CDCFE">appPassword</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">AuthenticateResult</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Fail</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"Invalid Username or Password"</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">claims</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4">[] {</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Claim</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">ClaimTypes</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">NameIdentifier</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">username</span><span style="color: #D4D4D4">),</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Claim</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">ClaimTypes</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Name</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">username</span><span style="color: #D4D4D4">),</span></span>
+<span class="line"><span style="color: #D4D4D4">        };</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">identity</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">ClaimsIdentity</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">claims</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">Scheme</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Name</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">principal</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">ClaimsPrincipal</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">identity</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">ticket</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">AuthenticationTicket</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">principal</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">Scheme</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Name</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">AuthenticateResult</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Success</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">ticket</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"><span style="color: #D4D4D4">}</span></span></code></pre><span style="display:flex;align-items:flex-end;padding:10px;width:100%;justify-content:flex-end;background-color:#1E1E1E;color:#c7c7c7;font-size:12px;line-height:1;position:relative">C#</span></div>
+
+
+
+<div class="wp-block-kevinbatdorf-code-block-pro padding-bottom-disabled cbp-has-line-numbers" data-code-block-pro-font-family="Code-Pro-JetBrains-Mono" style="font-size:.875rem;font-family:Code-Pro-JetBrains-Mono,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;--cbp-line-number-color:#D4D4D4;--cbp-line-number-width:calc(2 * 0.6 * .875rem);line-height:1.25rem;--cbp-tab-width:2;tab-size:var(--cbp-tab-width, 2)"><span style="display:flex;align-items:center;padding:10px 0px 10px 16px;margin-bottom:-2px;width:100%;text-align:left;background-color:#2b2b2b;color:#c7c7c7">BasicAuthMiddleware.cs</span><span role="button" tabindex="0" data-code="using System.Net.Http.Headers;
+using System.Text;
+
+public class BasicAuthMiddleware
+{
+    private readonly RequestDelegate _next;
+    private readonly IConfiguration _configuration;
+
+    public BasicAuthMiddleware(RequestDelegate next, IConfiguration configuration)
+    {
+        _next = next;
+        _configuration = configuration;
+    }
+
+    public async Task InvokeAsync(HttpContext context)
+    {
+        if (!context.Request.Headers.ContainsKey(&quot;Authorization&quot;))
+        {
+            context.Response.StatusCode = 401;
+            return;
+        }
+
+        var authHeader = AuthenticationHeaderValue.Parse(context.Request.Headers[&quot;Authorization&quot;]);
+        var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
+        var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':');
+        var username = credentials[0];
+        var password = credentials[1];
+
+        var appSettings = _configuration.GetSection(&quot;BasicAuthSettings&quot;);
+        var appUsername = appSettings[&quot;Username&quot;];
+        var appPassword = appSettings[&quot;Password&quot;];
+
+        if (username != appUsername || password != appPassword)
+        {
+            context.Response.StatusCode = 401;
+            return;
+        }
+
+        await _next(context);
+    }
+
+}" style="color:#D4D4D4;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M16.5 8.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v8.25A2.25 2.25 0 006 16.5h2.25m8.25-8.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-7.5A2.25 2.25 0 018.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 00-2.25 2.25v6"></path></svg></span><pre class="shiki dark-plus" style="background-color: #1E1E1E" tabindex="0"><code><span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">System</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Net</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Http</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Headers</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">System</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Text</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #569CD6">public</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">class</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">BasicAuthMiddleware</span></span>
+<span class="line"><span style="color: #D4D4D4">{</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">private</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">readonly</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">RequestDelegate</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">_next</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">private</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">readonly</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">IConfiguration</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">_configuration</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">public</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">BasicAuthMiddleware</span><span style="color: #D4D4D4">(</span><span style="color: #4EC9B0">RequestDelegate</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">next</span><span style="color: #D4D4D4">, </span><span style="color: #4EC9B0">IConfiguration</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">configuration</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">_next</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">next</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">_configuration</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">configuration</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">public</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">async</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Task</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">InvokeAsync</span><span style="color: #D4D4D4">(</span><span style="color: #4EC9B0">HttpContext</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">if</span><span style="color: #D4D4D4"> (!</span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Request</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Headers</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">ContainsKey</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"Authorization"</span><span style="color: #D4D4D4">))</span></span>
+<span class="line"><span style="color: #D4D4D4">        {</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Response</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">StatusCode</span><span style="color: #D4D4D4"> = </span><span style="color: #B5CEA8">401</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">authHeader</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">AuthenticationHeaderValue</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">Parse</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Request</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Headers</span><span style="color: #D4D4D4">[</span><span style="color: #CE9178">"Authorization"</span><span style="color: #D4D4D4">]);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">credentialBytes</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">Convert</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">FromBase64String</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">authHeader</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Parameter</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">credentials</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">Encoding</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">UTF8</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetString</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">credentialBytes</span><span style="color: #D4D4D4">).</span><span style="color: #DCDCAA">Split</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">':'</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">username</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">credentials</span><span style="color: #D4D4D4">[</span><span style="color: #B5CEA8">0</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">password</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">credentials</span><span style="color: #D4D4D4">[</span><span style="color: #B5CEA8">1</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">appSettings</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">_configuration</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetSection</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"BasicAuthSettings"</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">appUsername</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">appSettings</span><span style="color: #D4D4D4">[</span><span style="color: #CE9178">"Username"</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">appPassword</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">appSettings</span><span style="color: #D4D4D4">[</span><span style="color: #CE9178">"Password"</span><span style="color: #D4D4D4">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">if</span><span style="color: #D4D4D4"> (</span><span style="color: #9CDCFE">username</span><span style="color: #D4D4D4"> != </span><span style="color: #9CDCFE">appUsername</span><span style="color: #D4D4D4"> || </span><span style="color: #9CDCFE">password</span><span style="color: #D4D4D4"> != </span><span style="color: #9CDCFE">appPassword</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">        {</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Response</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">StatusCode</span><span style="color: #D4D4D4"> = </span><span style="color: #B5CEA8">401</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">await</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">_next</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">context</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">}</span></span></code></pre><span style="display:flex;align-items:flex-end;padding:10px;width:100%;justify-content:flex-end;background-color:#1E1E1E;color:#c7c7c7;font-size:12px;line-height:1;position:relative">C#</span></div>
+
+
+
+<div class="wp-block-kevinbatdorf-code-block-pro padding-bottom-disabled cbp-has-line-numbers" data-code-block-pro-font-family="Code-Pro-JetBrains-Mono" style="font-size:.875rem;font-family:Code-Pro-JetBrains-Mono,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;--cbp-line-number-color:#D4D4D4;--cbp-line-number-width:calc(2 * 0.6 * .875rem);line-height:1.25rem;--cbp-tab-width:2;tab-size:var(--cbp-tab-width, 2)"><span style="display:flex;align-items:center;padding:10px 0px 10px 16px;margin-bottom:-2px;width:100%;text-align:left;background-color:#2b2b2b;color:#c7c7c7">S3Client.cs</span><span role="button" tabindex="0" data-code='&#65279;using Amazon.S3;
+using Amazon.S3.Transfer;
+
+
+public class S3Client
+{
+    private readonly IAmazonS3 _client;
+    private readonly string _bucketName = "Policies";
+    private readonly ILogger&lt;S3Client&gt; _logger;
+    private readonly double _expirationMinutes;
+
+    public S3Client(IConfiguration configuration, ILogger&lt;S3Client&gt; logger)
+    {
+        var awsOptions = configuration.GetAWSOptions();
+        _logger = logger;
+        _client = awsOptions.CreateServiceClient&lt;IAmazonS3&gt;();
+        _bucketName = configuration.GetValue&lt;string&gt;("BucketName") ?? "Policies";
+        _expirationMinutes = configuration.GetValue("ExpirationMinutes", 10);
+    }
+
+    public async Task&lt;string&gt; UploadFileAsync(string fileName)
+    {
+        var fileTransferUtility = new TransferUtility(_client);
+        await fileTransferUtility.UploadAsync(fileName, _bucketName);
+        _logger.LogInformation("File uploaded to S3");
+
+        return GetValetUrl(fileName, _expirationMinutes);
+    }
+
+    public async Task&lt;string&gt; UploadFileAsync(Stream fileStream, string fileName)
+    {
+        var fileTransferUtility = new TransferUtility(_client);
+        await fileTransferUtility.UploadAsync(fileStream, _bucketName, fileName);
+        _logger.LogInformation("File uploaded to S3");
+        
+        return GetValetUrl(fileName, _expirationMinutes);
+    }
+
+    public async Task&lt;Stream&gt; DownloadFileAsync(string fileName)
+    {
+        var fileUrl = $"https://{_bucketName}.s3.amazonaws.com/{fileName}";
+        var request = new Amazon.S3.Model.GetObjectRequest
+        {
+            BucketName = _bucketName,
+            Key = fileName
+        };
+
+        using var response = await _client.GetObjectAsync(request);
+        var stream = new MemoryStream();
+        await response.ResponseStream.CopyToAsync(stream);
+        stream.Position = 0;
+
+        return stream;
+    }
+    
+    public string GetValetUrl(string fileName, double? expirationMinutes)
+    {
+        expirationMinutes ??= _expirationMinutes;
+        var fileUrl = $"https://{_bucketName}.s3.amazonaws.com/{fileName}";
+        _logger.LogDebug($"File URL: {fileUrl}");
+        var request = new Amazon.S3.Model.GetPreSignedUrlRequest
+        {
+            BucketName = _bucketName,
+            Key = fileName,
+            Expires = DateTime.UtcNow.AddMinutes(expirationMinutes.Value)
+        };
+
+        var url = _client.GetPreSignedURL(request);
+
+        return url;
+    }
+}' style="color:#D4D4D4;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M16.5 8.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v8.25A2.25 2.25 0 006 16.5h2.25m8.25-8.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-7.5A2.25 2.25 0 018.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 00-2.25 2.25v6"></path></svg></span><pre class="shiki dark-plus" style="background-color: #1E1E1E" tabindex="0"><code><span class="line"><span style="color: #D4D4D4">&#65279;</span><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Amazon</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">S3</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Amazon</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">S3</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Transfer</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #569CD6">public</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">class</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">S3Client</span></span>
+<span class="line"><span style="color: #D4D4D4">{</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">private</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">readonly</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">IAmazonS3</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">_client</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">private</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">readonly</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">string</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">_bucketName</span><span style="color: #D4D4D4"> = </span><span style="color: #CE9178">"Policies"</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">private</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">readonly</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">ILogger</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">S3Client</span><span style="color: #D4D4D4">&gt; </span><span style="color: #9CDCFE">_logger</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">private</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">readonly</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">double</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">_expirationMinutes</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">public</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">S3Client</span><span style="color: #D4D4D4">(</span><span style="color: #4EC9B0">IConfiguration</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">configuration</span><span style="color: #D4D4D4">, </span><span style="color: #4EC9B0">ILogger</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">S3Client</span><span style="color: #D4D4D4">&gt; </span><span style="color: #9CDCFE">logger</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">awsOptions</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">configuration</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetAWSOptions</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">_logger</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">logger</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">_client</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">awsOptions</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">CreateServiceClient</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">IAmazonS3</span><span style="color: #D4D4D4">&gt;();</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">_bucketName</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">configuration</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetValue</span><span style="color: #D4D4D4">&lt;</span><span style="color: #569CD6">string</span><span style="color: #D4D4D4">&gt;(</span><span style="color: #CE9178">"BucketName"</span><span style="color: #D4D4D4">) ?? </span><span style="color: #CE9178">"Policies"</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">_expirationMinutes</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">configuration</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetValue</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"ExpirationMinutes"</span><span style="color: #D4D4D4">, </span><span style="color: #B5CEA8">10</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">public</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">async</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Task</span><span style="color: #D4D4D4">&lt;</span><span style="color: #569CD6">string</span><span style="color: #D4D4D4">&gt; </span><span style="color: #DCDCAA">UploadFileAsync</span><span style="color: #D4D4D4">(</span><span style="color: #569CD6">string</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileTransferUtility</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">TransferUtility</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">_client</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">await</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileTransferUtility</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">UploadAsync</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">_bucketName</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">_logger</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">LogInformation</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"File uploaded to S3"</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">GetValetUrl</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">_expirationMinutes</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">public</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">async</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Task</span><span style="color: #D4D4D4">&lt;</span><span style="color: #569CD6">string</span><span style="color: #D4D4D4">&gt; </span><span style="color: #DCDCAA">UploadFileAsync</span><span style="color: #D4D4D4">(</span><span style="color: #4EC9B0">Stream</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileStream</span><span style="color: #D4D4D4">, </span><span style="color: #569CD6">string</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileTransferUtility</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">TransferUtility</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">_client</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">await</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileTransferUtility</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">UploadAsync</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">fileStream</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">_bucketName</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">_logger</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">LogInformation</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"File uploaded to S3"</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">GetValetUrl</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">, </span><span style="color: #9CDCFE">_expirationMinutes</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">public</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">async</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Task</span><span style="color: #D4D4D4">&lt;</span><span style="color: #4EC9B0">Stream</span><span style="color: #D4D4D4">&gt; </span><span style="color: #DCDCAA">DownloadFileAsync</span><span style="color: #D4D4D4">(</span><span style="color: #569CD6">string</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileUrl</span><span style="color: #D4D4D4"> = </span><span style="color: #CE9178">$"https://{</span><span style="color: #9CDCFE">_bucketName</span><span style="color: #CE9178">}.s3.amazonaws.com/{</span><span style="color: #9CDCFE">fileName</span><span style="color: #CE9178">}"</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">request</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Amazon</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">S3</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Model</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">GetObjectRequest</span></span>
+<span class="line"><span style="color: #D4D4D4">        {</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">BucketName</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">_bucketName</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">Key</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">fileName</span></span>
+<span class="line"><span style="color: #D4D4D4">        };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">using</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">response</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">await</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">_client</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetObjectAsync</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">request</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">stream</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">MemoryStream</span><span style="color: #D4D4D4">();</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">await</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">response</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">ResponseStream</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">CopyToAsync</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">stream</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">stream</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Position</span><span style="color: #D4D4D4"> = </span><span style="color: #B5CEA8">0</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">stream</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #569CD6">public</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">string</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">GetValetUrl</span><span style="color: #D4D4D4">(</span><span style="color: #569CD6">string</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">, </span><span style="color: #569CD6">double</span><span style="color: #D4D4D4">? </span><span style="color: #9CDCFE">expirationMinutes</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">    {</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">expirationMinutes</span><span style="color: #D4D4D4"> ??= </span><span style="color: #9CDCFE">_expirationMinutes</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">fileUrl</span><span style="color: #D4D4D4"> = </span><span style="color: #CE9178">$"https://{</span><span style="color: #9CDCFE">_bucketName</span><span style="color: #CE9178">}.s3.amazonaws.com/{</span><span style="color: #9CDCFE">fileName</span><span style="color: #CE9178">}"</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">_logger</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">LogDebug</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">$"File URL: {</span><span style="color: #9CDCFE">fileUrl</span><span style="color: #CE9178">}"</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">request</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Amazon</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">S3</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">Model</span><span style="color: #D4D4D4">.</span><span style="color: #4EC9B0">GetPreSignedUrlRequest</span></span>
+<span class="line"><span style="color: #D4D4D4">        {</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">BucketName</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">_bucketName</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">Key</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">fileName</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">Expires</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">DateTime</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">UtcNow</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">AddMinutes</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">expirationMinutes</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">Value</span><span style="color: #D4D4D4">)</span></span>
+<span class="line"><span style="color: #D4D4D4">        };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">url</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">_client</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">GetPreSignedURL</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">request</span><span style="color: #D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #D4D4D4">        </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">url</span><span style="color: #D4D4D4">;</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"><span style="color: #D4D4D4">}</span></span></code></pre><span style="display:flex;align-items:flex-end;padding:10px;width:100%;justify-content:flex-end;background-color:#1E1E1E;color:#c7c7c7;font-size:12px;line-height:1;position:relative">C#</span></div>
+
+
+
+<div class="wp-block-kevinbatdorf-code-block-pro padding-bottom-disabled cbp-has-line-numbers" data-code-block-pro-font-family="Code-Pro-JetBrains-Mono" style="font-size:.875rem;font-family:Code-Pro-JetBrains-Mono,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;--cbp-line-number-color:#D4D4D4;--cbp-line-number-width:calc(2 * 0.6 * .875rem);line-height:1.25rem;--cbp-tab-width:2;tab-size:var(--cbp-tab-width, 2)"><span style="display:flex;align-items:center;padding:10px 0px 10px 16px;margin-bottom:-2px;width:100%;text-align:left;background-color:#2b2b2b;color:#c7c7c7">appsettings.json</span><span role="button" tabindex="0" data-code='{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "AWS": {
+    "Region": "&lt;region&gt;",
+    "AccessKey": "&lt;your-access-key&gt;",
+    "SecretAccessKey": "&lt;your-secret-access-key&gt;"
+  },
+  "BucketName": "&lt;bucket-name&gt;",
+  "BasicAuthSettings": {
+    "Username": "&lt;username&gt;",
+    "Password": "&lt;password&gt;"
+  },
+  "ExpirationMinutes": 10,
+  "CannedResponses": true
+}' style="color:#D4D4D4;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M16.5 8.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v8.25A2.25 2.25 0 006 16.5h2.25m8.25-8.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-7.5A2.25 2.25 0 018.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 00-2.25 2.25v6"></path></svg></span><pre class="shiki dark-plus" style="background-color: #1E1E1E" tabindex="0"><code><span class="line"><span style="color: #D4D4D4">{</span></span>
+<span class="line"><span style="color: #D4D4D4">  </span><span style="color: #9CDCFE">"Logging"</span><span style="color: #D4D4D4">: {</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">"LogLevel"</span><span style="color: #D4D4D4">: {</span></span>
+<span class="line"><span style="color: #D4D4D4">      </span><span style="color: #9CDCFE">"Default"</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">"Information"</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">      </span><span style="color: #9CDCFE">"Microsoft.AspNetCore"</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">"Warning"</span></span>
+<span class="line"><span style="color: #D4D4D4">    }</span></span>
+<span class="line"><span style="color: #D4D4D4">  },</span></span>
+<span class="line"><span style="color: #D4D4D4">  </span><span style="color: #9CDCFE">"AllowedHosts"</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">"*"</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">  </span><span style="color: #9CDCFE">"AWS"</span><span style="color: #D4D4D4">: {</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">"Region"</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">"&lt;region&gt;"</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">"AccessKey"</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">"&lt;your-access-key&gt;"</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">"SecretAccessKey"</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">"&lt;your-secret-access-key&gt;"</span></span>
+<span class="line"><span style="color: #D4D4D4">  },</span></span>
+<span class="line"><span style="color: #D4D4D4">  </span><span style="color: #9CDCFE">"BucketName"</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">"&lt;bucket-name&gt;"</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">  </span><span style="color: #9CDCFE">"BasicAuthSettings"</span><span style="color: #D4D4D4">: {</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">"Username"</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">"&lt;username&gt;"</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">"Password"</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">"&lt;password&gt;"</span></span>
+<span class="line"><span style="color: #D4D4D4">  },</span></span>
+<span class="line"><span style="color: #D4D4D4">  </span><span style="color: #9CDCFE">"ExpirationMinutes"</span><span style="color: #D4D4D4">: </span><span style="color: #B5CEA8">10</span><span style="color: #D4D4D4">,</span></span>
+<span class="line"><span style="color: #D4D4D4">  </span><span style="color: #9CDCFE">"CannedResponses"</span><span style="color: #D4D4D4">: </span><span style="color: #569CD6">true</span></span>
+<span class="line"><span style="color: #D4D4D4">}</span></span></code></pre><span style="display:flex;align-items:flex-end;padding:10px;width:100%;justify-content:flex-end;background-color:#1E1E1E;color:#c7c7c7;font-size:12px;line-height:1;position:relative">JSON</span></div>
+</div>
+
+
+<div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained"></div>
+</main>
+
+
+<footer class="wp-block-template-part">
+<div class="wp-block-group alignfull site-footer has-white-color has-senary-background-color has-text-color has-background has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style="padding-top:var(--wp--preset--spacing--xx-large);padding-bottom:var(--wp--preset--spacing--xx-large)">
+<div class="wp-block-columns alignwide is-layout-flex wp-container-core-columns-layout-2 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:60%">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-layout-1 wp-block-columns-is-layout-flex">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading has-white-color has-text-color has-large-font-size">SkywalkerIsNull</h2>
+
+
+
+<ul style="line-height:2;text-decoration:none" class="is-style-none">
+<li><a href="https://blog.skywalker.net.au/about-me/" data-type="page" data-id="104">About</a></li>
+
+
+
+<li><a href="#">Large Projects</a></li>
+</ul>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
+<h2 class="wp-block-heading has-white-color has-text-color has-large-font-size">Quick Links</h2>
+
+
+
+<ul style="line-height:2" class="is-style-none">
+<li><a href="#">Showcase</a></li>
+
+
+
+<li><a href="https://www.linkedin.com/in/skywalkerisnull/" target="_blank" rel="noreferrer noopener nofollow">Work with me</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:40%">
+<h2 class="wp-block-heading has-white-color has-text-color has-large-font-size">Quick About Me</h2>
+
+
+
+<p>Ashley Walker has a Master of Engineering Management from <a href="https://www.torrens.edu.au/" target="_blank" rel="noreferrer noopener">Torrens University</a> and a wide professional experience from engineering, aviation, mining, agriculture, software engineering, IT, startups and more!</p>
+
+
+
+<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-default is-content-justification-left is-layout-flex wp-container-core-social-links-layout-1 wp-block-social-links-is-layout-flex"><li style="color: #ffffff; " class="wp-social-link wp-social-link-instagram has-white-color wp-block-social-link"><a rel=" noopener nofollow" target="_blank" href="https://www.instagram.com/skywalkerisnull/" class="wp-block-social-link-anchor"><svg width="24" height="24" viewbox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M12,4.622c2.403,0,2.688,0.009,3.637,0.052c0.877,0.04,1.354,0.187,1.671,0.31c0.42,0.163,0.72,0.358,1.035,0.673 c0.315,0.315,0.51,0.615,0.673,1.035c0.123,0.317,0.27,0.794,0.31,1.671c0.043,0.949,0.052,1.234,0.052,3.637 s-0.009,2.688-0.052,3.637c-0.04,0.877-0.187,1.354-0.31,1.671c-0.163,0.42-0.358,0.72-0.673,1.035 c-0.315,0.315-0.615,0.51-1.035,0.673c-0.317,0.123-0.794,0.27-1.671,0.31c-0.949,0.043-1.233,0.052-3.637,0.052 s-2.688-0.009-3.637-0.052c-0.877-0.04-1.354-0.187-1.671-0.31c-0.42-0.163-0.72-0.358-1.035-0.673 c-0.315-0.315-0.51-0.615-0.673-1.035c-0.123-0.317-0.27-0.794-0.31-1.671C4.631,14.688,4.622,14.403,4.622,12 s0.009-2.688,0.052-3.637c0.04-0.877,0.187-1.354,0.31-1.671c0.163-0.42,0.358-0.72,0.673-1.035 c0.315-0.315,0.615-0.51,1.035-0.673c0.317-0.123,0.794-0.27,1.671-0.31C9.312,4.631,9.597,4.622,12,4.622 M12,3 C9.556,3,9.249,3.01,8.289,3.054C7.331,3.098,6.677,3.25,6.105,3.472C5.513,3.702,5.011,4.01,4.511,4.511 c-0.5,0.5-0.808,1.002-1.038,1.594C3.25,6.677,3.098,7.331,3.054,8.289C3.01,9.249,3,9.556,3,12c0,2.444,0.01,2.751,0.054,3.711 c0.044,0.958,0.196,1.612,0.418,2.185c0.23,0.592,0.538,1.094,1.038,1.594c0.5,0.5,1.002,0.808,1.594,1.038 c0.572,0.222,1.227,0.375,2.185,0.418C9.249,20.99,9.556,21,12,21s2.751-0.01,3.711-0.054c0.958-0.044,1.612-0.196,2.185-0.418 c0.592-0.23,1.094-0.538,1.594-1.038c0.5-0.5,0.808-1.002,1.038-1.594c0.222-0.572,0.375-1.227,0.418-2.185 C20.99,14.751,21,14.444,21,12s-0.01-2.751-0.054-3.711c-0.044-0.958-0.196-1.612-0.418-2.185c-0.23-0.592-0.538-1.094-1.038-1.594 c-0.5-0.5-1.002-0.808-1.594-1.038c-0.572-0.222-1.227-0.375-2.185-0.418C14.751,3.01,14.444,3,12,3L12,3z M12,7.378 c-2.552,0-4.622,2.069-4.622,4.622S9.448,16.622,12,16.622s4.622-2.069,4.622-4.622S14.552,7.378,12,7.378z M12,15 c-1.657,0-3-1.343-3-3s1.343-3,3-3s3,1.343,3,3S13.657,15,12,15z M16.804,6.116c-0.596,0-1.08,0.484-1.08,1.08 s0.484,1.08,1.08,1.08c0.596,0,1.08-0.484,1.08-1.08S17.401,6.116,16.804,6.116z"></path></svg><span class="wp-block-social-link-label screen-reader-text">Instagram</span></a></li>
+
+<li style="color: #ffffff; " class="wp-social-link wp-social-link-mastodon has-white-color wp-block-social-link"><a rel=" noopener nofollow" target="_blank" href="https://mas.to/@SkywalkerIsNull" class="wp-block-social-link-anchor"><svg width="24" height="24" viewbox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M23.193 7.879c0-5.206-3.411-6.732-3.411-6.732C18.062.357 15.108.025 12.041 0h-.076c-3.068.025-6.02.357-7.74 1.147 0 0-3.411 1.526-3.411 6.732 0 1.192-.023 2.618.015 4.129.124 5.092.934 10.109 5.641 11.355 2.17.574 4.034.695 5.535.612 2.722-.15 4.25-.972 4.25-.972l-.09-1.975s-1.945.613-4.129.539c-2.165-.074-4.449-.233-4.799-2.891a5.499 5.499 0 0 1-.048-.745s2.125.52 4.817.643c1.646.075 3.19-.097 4.758-.283 3.007-.359 5.625-2.212 5.954-3.905.517-2.665.475-6.507.475-6.507zm-4.024 6.709h-2.497V8.469c0-1.29-.543-1.944-1.628-1.944-1.2 0-1.802.776-1.802 2.312v3.349h-2.483v-3.35c0-1.536-.602-2.312-1.802-2.312-1.085 0-1.628.655-1.628 1.944v6.119H4.832V8.284c0-1.289.328-2.313.987-3.07.68-.758 1.569-1.146 2.674-1.146 1.278 0 2.246.491 2.886 1.474L12 6.585l.622-1.043c.64-.983 1.608-1.474 2.886-1.474 1.104 0 1.994.388 2.674 1.146.658.757.986 1.781.986 3.07v6.304z"></path></svg><span class="wp-block-social-link-label screen-reader-text">Mastodon</span></a></li>
+
+<li style="color: #ffffff; " class="wp-social-link wp-social-link-linkedin has-white-color wp-block-social-link"><a rel=" noopener nofollow" target="_blank" href="https://www.linkedin.com/in/skywalkerisnull" class="wp-block-social-link-anchor"><svg width="24" height="24" viewbox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M19.7,3H4.3C3.582,3,3,3.582,3,4.3v15.4C3,20.418,3.582,21,4.3,21h15.4c0.718,0,1.3-0.582,1.3-1.3V4.3 C21,3.582,20.418,3,19.7,3z M8.339,18.338H5.667v-8.59h2.672V18.338z M7.004,8.574c-0.857,0-1.549-0.694-1.549-1.548 c0-0.855,0.691-1.548,1.549-1.548c0.854,0,1.547,0.694,1.547,1.548C8.551,7.881,7.858,8.574,7.004,8.574z M18.339,18.338h-2.669 v-4.177c0-0.996-0.017-2.278-1.387-2.278c-1.389,0-1.601,1.086-1.601,2.206v4.249h-2.667v-8.59h2.559v1.174h0.037 c0.356-0.675,1.227-1.387,2.526-1.387c2.703,0,3.203,1.779,3.203,4.092V18.338z"></path></svg><span class="wp-block-social-link-label screen-reader-text">LinkedIn</span></a></li></ul>
+</div>
+</div>
+</div>
+
+
+
+<div class="wp-block-group alignfull site-footer has-white-color has-senary-background-color has-text-color has-background has-global-padding is-layout-constrained wp-block-group-is-layout-constrained" style="border-top-color:#ffffff21;border-top-width:1px;border-right-style:none;border-right-width:0px;border-bottom-style:none;border-bottom-width:0px;border-left-style:none;border-left-width:0px;margin-top:0px;margin-bottom:0px;padding-top:var(--wp--preset--spacing--small);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--small);padding-left:var(--wp--preset--spacing--30)">
+<p class="has-text-align-center"> Copyright &copy; Ashley Walker 2024. All Rights Reserved.</p>
+</div>
+</footer></div>
+<script src="https://blog.skywalker.net.au/wp-content/plugins/code-block-pro/build/front/front.js?ver=3753b142d9458e73e42a" id="kevinbatdorf-code-block-pro-view-script-js" data-wp-strategy="defer"></script>
+<script id="kevinbatdorf-code-block-pro-view-script-js-after">
+window.codeBlockPro = {"pluginUrl":"https:\/\/blog.skywalker.net.au\/wp-content\/plugins\/code-block-pro\/"};
+</script>
+<script id="wp-block-template-skip-link-js-after">
+	( function() {
+		var skipLinkTarget = document.querySelector( 'main' ),
+			sibling,
+			skipLinkTargetID,
+			skipLink;
+
+		// Early exit if a skip-link target can't be located.
+		if ( ! skipLinkTarget ) {
+			return;
+		}
+
+		/*
+		 * Get the site wrapper.
+		 * The skip-link will be injected in the beginning of it.
+		 */
+		sibling = document.querySelector( '.wp-site-blocks' );
+
+		// Early exit if the root element was not found.
+		if ( ! sibling ) {
+			return;
+		}
+
+		// Get the skip-link target's ID, and generate one if it doesn't exist.
+		skipLinkTargetID = skipLinkTarget.id;
+		if ( ! skipLinkTargetID ) {
+			skipLinkTargetID = 'wp--skip-link--target';
+			skipLinkTarget.id = skipLinkTargetID;
+		}
+
+		// Create the skip link.
+		skipLink = document.createElement( 'a' );
+		skipLink.classList.add( 'skip-link', 'screen-reader-text' );
+		skipLink.href = '#' + skipLinkTargetID;
+		skipLink.innerHTML = 'Skip to content';
+
+		// Inject the skip link.
+		sibling.parentElement.insertBefore( skipLink, sibling );
+	}() );
+	
+</script>
+</body>
+</html>
+<!-- Powered by Staatic (https://staatic.com/) -->
