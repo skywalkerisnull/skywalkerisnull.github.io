@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet type='text/xsl' href='https://blog.skywalker.net.au/wp-content/plugins/google-sitemap-generator/sitemap.xsl'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.19' -->
-<!-- generated-on='February 14, 2024 8:51 am' -->
+<!-- generated-on='February 20, 2024 9:22 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/2024/02/</loc>
-		<lastmod>2024-02-13T08:28:22+00:00</lastmod>
+		<lastmod>2024-02-20T03:59:57+00:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: 4011cbc76fe1504d1e1714a358358616; Queries for sitemap: 2; Total queries: 24; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 10MB -->
+</urlset><!-- Request ID: e18622ad900612e421402cd86dc3bf97; Queries for sitemap: 2; Total queries: 24; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 10MB -->
