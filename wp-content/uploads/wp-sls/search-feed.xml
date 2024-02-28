@@ -27,13 +27,13 @@
 
 <channel>
 	<title>Ashley Walker&#039;s Blog</title>
-	<link>https://blog.skywalker.net.au</link>
+	<link>http://192.168.21.199:8000</link>
 	<description></description>
 	<pubDate>Thu, 15 Feb 2024 09:47:41 +0000</pubDate>
 	<language>en-AU</language>
 	<wp:wxr_version>1.2</wp:wxr_version>
-	<wp:base_site_url>https://blog.skywalker.net.au</wp:base_site_url>
-	<wp:base_blog_url>https://blog.skywalker.net.au</wp:base_blog_url>
+	<wp:base_site_url>http://192.168.21.199:8000</wp:base_site_url>
+	<wp:base_blog_url>http://192.168.21.199:8000</wp:base_blog_url>
 
 		<wp:author><wp:author_id>1</wp:author_id><wp:author_login><![CDATA[SkywalkerIsNull]]></wp:author_login><wp:author_email><![CDATA[ashley@skywalker.net.au]]></wp:author_email><wp:author_display_name><![CDATA[SkywalkerIsNull]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
 
@@ -41,19 +41,19 @@
 	<generator>https://wordpress.org/?v=6.4.3</generator>
 
 <image>
-	<url>https://blog.skywalker.net.au/wp-content/uploads/2024/02/cropped-Logo-512x512-1-32x32.png</url>
+	<url>http://192.168.21.199:8000/wp-content/uploads/2024/02/cropped-Logo-512x512-1-32x32.png</url>
 	<title>Ashley Walker&#039;s Blog</title>
-	<link>https://blog.skywalker.net.au</link>
+	<link>http://192.168.21.199:8000</link>
 	<width>32</width>
 	<height>32</height>
 </image> 
 
 		<item>
 		<title><![CDATA[Interacting with Legacy Systems]]></title>
-		<link>https://blog.skywalker.net.au/2024/02/10/interacting-with-legacy-systems/</link>
+		<link>http://192.168.21.199:8000/2024/02/10/interacting-with-legacy-systems/</link>
 		<pubDate>Sat, 10 Feb 2024 07:48:47 +0000</pubDate>
 		<dc:creator><![CDATA[SkywalkerIsNull]]></dc:creator>
-		<guid isPermaLink="false">https://blog.skywalker.net.au/?p=41</guid>
+		<guid isPermaLink="false">http://192.168.21.199:8000/?p=41</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>In the year 2024, I did not expect to come across systems that were developed while I was still in Primary School. Windows Server 2003, and SQL Server 2000. This system is running multiple business-critical system. It is the how the company makes money. </p>
@@ -102,10 +102,10 @@
 							</item>
 					<item>
 		<title><![CDATA[My Camera - 2024]]></title>
-		<link>https://blog.skywalker.net.au/2024/02/11/my-camera-2024/</link>
+		<link>http://192.168.21.199:8000/2024/02/11/my-camera-2024/</link>
 		<pubDate>Sun, 11 Feb 2024 00:05:34 +0000</pubDate>
 		<dc:creator><![CDATA[SkywalkerIsNull]]></dc:creator>
-		<guid isPermaLink="false">https://blog.skywalker.net.au/?p=85</guid>
+		<guid isPermaLink="false">http://192.168.21.199:8000/?p=85</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>My camera that I use is a Sony Alpha 7 RII, I have had this camera since shortly after it was released in 2015! I have a small collection of lenses that I use most in the following order:</p>
@@ -164,10 +164,10 @@
 							</item>
 					<item>
 		<title><![CDATA[BirdNET - Detecting the birds in the backyard]]></title>
-		<link>https://blog.skywalker.net.au/2024/02/11/birdnet-detecting-the-birds-in-the-backyard/</link>
+		<link>http://192.168.21.199:8000/2024/02/11/birdnet-detecting-the-birds-in-the-backyard/</link>
 		<pubDate>Sun, 11 Feb 2024 00:49:18 +0000</pubDate>
 		<dc:creator><![CDATA[SkywalkerIsNull]]></dc:creator>
-		<guid isPermaLink="false">https://blog.skywalker.net.au/?p=96</guid>
+		<guid isPermaLink="false">http://192.168.21.199:8000/?p=96</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>What started as a way to know when the little flock of <span data-cite-text="https://en.wikipedia.org/wiki/Superb_fairywren" class="js--wpm-format-cite">Superb Fairywrens</span> would visit the garden, soon turned into something to know what birds are visiting. I could not spend all my time looking out the window waiting for the little fluff balls to chirp and hop about. </p>
@@ -178,7 +178,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"lightbox":{"enabled":true},"id":97,"sizeSlug":"large","linkDestination":"none"} -->
-<figure class="wp-block-image size-large"><img src="https://blog.skywalker.net.au/wp-content/uploads/2024/02/202381471_207901351188527_8839420194217890024_n-1024x1024.jpg" alt="A male Superb Fairywren foraging for insects in the grass of my back yard." class="wp-image-97"/><figcaption class="wp-element-caption">A male Superb Fairywren foraging for insects in the grass of my back yard.</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="http://192.168.21.199:8000/wp-content/uploads/2024/02/202381471_207901351188527_8839420194217890024_n-1024x1024.jpg" alt="A male Superb Fairywren foraging for insects in the grass of my back yard." class="wp-image-97"/><figcaption class="wp-element-caption">A male Superb Fairywren foraging for insects in the grass of my back yard.</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:columns -->
@@ -223,10 +223,10 @@
 							</item>
 					<item>
 		<title><![CDATA[How to use dotnet and Traefik to connect a legacy PHP application to AWS S3]]></title>
-		<link>https://blog.skywalker.net.au/2024/02/13/legacy-system-connecting-to-s3-storage/</link>
+		<link>http://192.168.21.199:8000/2024/02/13/legacy-system-connecting-to-s3-storage/</link>
 		<pubDate>Tue, 13 Feb 2024 08:28:22 +0000</pubDate>
 		<dc:creator><![CDATA[SkywalkerIsNull]]></dc:creator>
-		<guid isPermaLink="false">https://blog.skywalker.net.au/?p=142</guid>
+		<guid isPermaLink="false">http://192.168.21.199:8000/?p=142</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>One of the legacy systems that I needed to assist a client on, has a business-critical application written in PHP 5.2 hosted on a CentOS 6 VM. This host machine has an old version of OpenSSL and does not connect to many modern endpoints that require strong ciphers and TLS 1.2 or higher. Further, loading dependencies such as the AWS SDK to interact with the S3 buckets is even more difficult as the package managers no longer function. The key issues that I faced were:</p>
