@@ -1,60 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet type='text/xsl' href='https://blog.skywalker.net.au/wp-content/plugins/google-sitemap-generator/sitemap.xsl'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.19' -->
-<!-- generated-on='February 28, 2024 9:16 am' -->
+<!-- generated-on='March 2, 2024 2:21 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
-		<loc>https://blog.skywalker.net.au/recipe-dietary/</loc>
-		<lastmod>2024-02-28T08:30:49+00:00</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.6</priority>
-	</url>
-	<url>
-		<loc>https://blog.skywalker.net.au/recipe-badges/</loc>
-		<lastmod>2024-02-28T08:30:49+00:00</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.6</priority>
-	</url>
-	<url>
-		<loc>https://blog.skywalker.net.au/recipe-tags/</loc>
-		<lastmod>2024-02-28T08:30:49+00:00</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.6</priority>
-	</url>
-	<url>
-		<loc>https://blog.skywalker.net.au/recipe-keys/</loc>
-		<lastmod>2024-02-28T08:30:49+00:00</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.6</priority>
-	</url>
-	<url>
-		<loc>https://blog.skywalker.net.au/recipe-cuisines/</loc>
-		<lastmod>2024-02-28T08:30:49+00:00</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.6</priority>
-	</url>
-	<url>
-		<loc>https://blog.skywalker.net.au/recipe-cooking-methods/</loc>
-		<lastmod>2024-02-28T08:30:49+00:00</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.6</priority>
-	</url>
-	<url>
-		<loc>https://blog.skywalker.net.au/recipe-courses/</loc>
-		<lastmod>2024-02-28T08:30:49+00:00</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.6</priority>
-	</url>
-	<url>
-		<loc>https://blog.skywalker.net.au/recipe-search/</loc>
-		<lastmod>2024-02-28T08:30:46+00:00</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.6</priority>
-	</url>
-	<url>
-		<loc>https://blog.skywalker.net.au/recipe-dashboard/</loc>
-		<lastmod>2024-02-28T08:30:46+00:00</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.6</priority>
-	</url>
-	<url>
 		<loc>https://blog.skywalker.net.au/large-projects/</loc>
 		<lastmod>2024-02-25T03:12:52+00:00</lastmod>
 		<changefreq>weekly</changefreq>
@@ -108,4 +54,4 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.6</priority>
 	</url>
-</urlset><!-- Request ID: bbecb6f187ee3ce989d57d66655430a0; Queries for sitemap: 4; Total queries: 26; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 10MB -->
+</urlset><!-- Request ID: 5d046d1bf41934700450b17a612e83c9; Queries for sitemap: 4; Total queries: 26; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 10MB -->
