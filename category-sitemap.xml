@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet type='text/xsl' href='https://blog.skywalker.net.au/wp-content/plugins/google-sitemap-generator/sitemap.xsl'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.19' -->
-<!-- generated-on='March 2, 2024 2:21 am' -->
+<!-- generated-on='March 3, 2024 10:00 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/category/personal-interests/cooking-and-gardening/gardening/</loc>
 		<lastmod>2024-02-11T10:49:18+00:00</lastmod>
@@ -8,13 +8,13 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/personal-interests/home-automation/</loc>
-		<lastmod>2024-02-25T12:53:44+00:00</lastmod>
+		<lastmod>2024-03-02T19:03:08+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/it-management/</loc>
-		<lastmod>2024-03-02T12:02:27+00:00</lastmod>
+		<lastmod>2024-03-03T19:43:28+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -32,32 +32,32 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/</loc>
-		<lastmod>2024-03-02T12:02:27+00:00</lastmod>
+		<lastmod>2024-03-03T19:43:28+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/security/</loc>
-		<lastmod>2024-03-02T12:02:27+00:00</lastmod>
+		<lastmod>2024-03-02T19:03:08+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/</loc>
-		<lastmod>2024-03-02T12:02:27+00:00</lastmod>
+		<lastmod>2024-03-03T19:43:28+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/stories/</loc>
-		<lastmod>2024-02-20T13:59:57+00:00</lastmod>
+		<lastmod>2024-03-02T13:31:31+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/systems-architecture/</loc>
-		<lastmod>2024-03-02T12:02:27+00:00</lastmod>
+		<lastmod>2024-03-03T19:43:28+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: bcafb75adcffcd196316ace526b926c8; Queries for sitemap: 13; Total queries: 35; Seconds: 0.04; Memory for sitemap: 1KB; Total memory: 10MB -->
+</urlset><!-- Request ID: 5aeb8b5736d2f6ac36fdd01c9fdf17d8; Queries for sitemap: 13; Total queries: 36; Seconds: 0.04; Memory for sitemap: 1KB; Total memory: 10MB -->
