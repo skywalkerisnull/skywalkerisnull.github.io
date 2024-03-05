@@ -54,7 +54,9 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14
 <style id="wp-block-image-theme-inline-css">
 .wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-image{margin:0 0 1em}
 </style>
-<link rel="stylesheet" id="citations-css" href="https://blog.skywalker.net.au/wp-content/plugins/citations//dist/css/style.min.css?ver=0.2.1" media="all">
+<style id="wp-block-footnotes-inline-css">
+.editor-styles-wrapper,.entry-content{counter-reset:footnotes}a[data-fn].fn{counter-increment:footnotes;display:inline-flex;font-size:smaller;text-decoration:none;text-indent:-9999999px;vertical-align:super}a[data-fn].fn:after{content:"[" counter(footnotes) "]";float:left;text-indent:0}
+</style>
 <style id="wp-block-columns-inline-css">
 .wp-block-columns{align-items:normal!important;box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}
 </style>
@@ -182,11 +184,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 
 <div class="entry-content wp-block-post-content has-global-padding is-layout-constrained wp-block-post-content-is-layout-constrained">
-<p>What started as a way to know when the little flock of <span data-cite-text="https://en.wikipedia.org/wiki/Superb_fairywren" class="js--wpm-format-cite">Superb Fairywrens<a href="#wpm-citation-source-1" id="wpm-citation-1" class="js--wpm-format-cite-link">[1]</a></span> would visit the garden, soon turned into something to know what birds are visiting. I could not spend all my time looking out the window waiting for the little fluff balls to chirp and hop about. </p>
+<p>What started as a way to know when the little flock of <span data-cite-text="https://en.wikipedia.org/wiki/Superb_fairywren" class="js--wpm-format-cite">Superb Fairywrens</span><sup data-fn="fa743f60-92ec-446d-ab1e-16afe5038270" class="fn"><a href="#fa743f60-92ec-446d-ab1e-16afe5038270" id="fa743f60-92ec-446d-ab1e-16afe5038270-link">1</a></sup> would visit the garden, soon turned into something to know what birds are visiting. I could not spend all my time looking out the window waiting for the little fluff balls to chirp and hop about. </p>
 
 
 
-<p>I had a thought that there had to be a way to use a microphone to detect the chirps of the Fairywrens, and then notify me so I could grab my camera. After some web searching, I came across a project that used machine learning to identify birds based on their sounds. <span data-cite-text="https://github.com/kahst/BirdNET-Analyzer" class="js--wpm-format-cite">BirdNET <a href="#wpm-citation-source-2" id="wpm-citation-2" class="js--wpm-format-cite-link">[2]</a></span>looked to be a perfect weekend project to put together.</p>
+<p>I had a thought that there had to be a way to use a microphone to detect the chirps of the Fairywrens, and then notify me so I could grab my camera. After some web searching, I came across a project that used machine learning to identify birds based on their sounds. <span data-cite-text="https://github.com/kahst/BirdNET-Analyzer" class="js--wpm-format-cite">BirdNET</span><sup data-fn="0c5481d2-7df9-49b3-aa4b-ba584bc3af8b" class="fn"><a href="#0c5481d2-7df9-49b3-aa4b-ba584bc3af8b" id="0c5481d2-7df9-49b3-aa4b-ba584bc3af8b-link">2</a></sup><span data-cite-text="https://github.com/kahst/BirdNET-Analyzer" class="js--wpm-format-cite"> </span>looked to be a perfect weekend project to put together.</p>
 
 
 
@@ -227,37 +229,10 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 <div class="wp-block-columns is-layout-flex wp-container-core-columns-layout-1 wp-block-columns-is-layout-flex">
 <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:100%">
-<p>The even better part of looking through the BirdNET repo, was that there was already a project that called <span data-cite-text="https://github.com/mcguirepr89/BirdNET-Pi&lt;a href=" id="wpm-citation-3" class="js--wpm-format-cite-link">[3]&rdquo; class=&rdquo;js&ndash;wpm-format-cite&rdquo;&gt;BirdNET-Pi<a href="#wpm-citation-source-3" id="wpm-citation-3" class="js--wpm-format-cite-link">[3]</a></span> runs on a Raspberry Pi, effectively I just needed to plug in a microphone, clone the repo, and configure.</p>
+<p>The even better part of looking through the BirdNET repo, was that there was already a project that called <span data-cite-text="https://github.com/mcguirepr89/BirdNET-Pi" class="js--wpm-format-cite">BirdNET-Pi</span><sup data-fn="ce8edf88-a7dd-4fff-9b77-1340a933a56a" class="fn"><a href="#ce8edf88-a7dd-4fff-9b77-1340a933a56a" id="ce8edf88-a7dd-4fff-9b77-1340a933a56a-link">3</a></sup> runs on a Raspberry Pi, effectively I just needed to plug in a microphone, clone the repo, and configure.</p>
 
 
-
-<div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained"><div class="lh-block-lh-bibliography lh-bibliography-block wp-block-lh-bibliography">
-	<ul class="lh-bibliography-block--citations">
-					<li class="lh-bibliography-block--citation" id="wpm-citation-source-1">
-				<a class="lh-bibliography-block--citation-link" href="#wpm-citation-1">
-					[1]
-				</a>
-				<span class="lh-bibliography-block--citation-text">
-					https://en.wikipedia.org/wiki/Superb_fairywren				</span>
-			</li>
-					<li class="lh-bibliography-block--citation" id="wpm-citation-source-2">
-				<a class="lh-bibliography-block--citation-link" href="#wpm-citation-2">
-					[2]
-				</a>
-				<span class="lh-bibliography-block--citation-text">
-					https://github.com/kahst/BirdNET-Analyzer				</span>
-			</li>
-					<li class="lh-bibliography-block--citation" id="wpm-citation-source-3">
-				<a class="lh-bibliography-block--citation-link" href="#wpm-citation-3">
-					[3]
-				</a>
-				<span class="lh-bibliography-block--citation-text">
-					https://github.com/mcguirepr89/BirdNET-Pi				</span>
-			</li>
-			</ul>
-</div>
-</div>
-</div>
+<ol class="wp-block-footnotes"><li id="fa743f60-92ec-446d-ab1e-16afe5038270">https://en.wikipedia.org/wiki/Superb_fairywren <a href="#fa743f60-92ec-446d-ab1e-16afe5038270-link" aria-label="Jump to footnote reference 1">&#8617;&#65038;</a></li><li id="0c5481d2-7df9-49b3-aa4b-ba584bc3af8b">https://github.com/kahst/BirdNET-Analyzer <a href="#0c5481d2-7df9-49b3-aa4b-ba584bc3af8b-link" aria-label="Jump to footnote reference 2">&#8617;&#65038;</a></li><li id="ce8edf88-a7dd-4fff-9b77-1340a933a56a">https://github.com/mcguirepr89/BirdNET-Pi <a href="#ce8edf88-a7dd-4fff-9b77-1340a933a56a-link" aria-label="Jump to footnote reference 3">&#8617;&#65038;</a></li></ol></div>
 </div>
 </div>
 
