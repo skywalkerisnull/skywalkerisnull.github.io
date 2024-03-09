@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet type='text/xsl' href='https://blog.skywalker.net.au/wp-content/plugins/google-sitemap-generator/sitemap.xsl'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.19' -->
-<!-- generated-on='March 5, 2024 9:44 am' -->
+<!-- generated-on='March 9, 2024 3:50 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/category/personal-interests/cooking-and-gardening/gardening/</loc>
 		<lastmod>2024-02-11T10:49:18+00:00</lastmod>
@@ -14,7 +14,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/it-management/</loc>
-		<lastmod>2024-03-05T19:14:36+00:00</lastmod>
+		<lastmod>2024-03-09T13:39:01+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -32,13 +32,13 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/</loc>
-		<lastmod>2024-03-05T19:14:36+00:00</lastmod>
+		<lastmod>2024-03-09T13:39:01+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/security/</loc>
-		<lastmod>2024-03-05T19:14:36+00:00</lastmod>
+		<lastmod>2024-03-09T13:39:01+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -50,7 +50,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/stories/</loc>
-		<lastmod>2024-03-02T13:31:31+00:00</lastmod>
+		<lastmod>2024-03-09T13:39:01+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -60,4 +60,4 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: 49222969879bf2152c5fa699d93d248d; Queries for sitemap: 13; Total queries: 37; Seconds: 0.04; Memory for sitemap: 1KB; Total memory: 10MB -->
+</urlset><!-- Request ID: 6d1a1ca8875af93250e7ee7f1ed861f7; Queries for sitemap: 13; Total queries: 37; Seconds: 0.05; Memory for sitemap: 1KB; Total memory: 10MB -->
