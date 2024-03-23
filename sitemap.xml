@@ -1,16 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet type='text/xsl' href='https://blog.skywalker.net.au/wp-content/plugins/google-sitemap-generator/sitemap.xsl'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.19' -->
-<!-- generated-on='March 19, 2024 8:56 am' -->
+<!-- generated-on='March 23, 2024 3:00 am' -->
 <sitemapindex xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<sitemap>
 		<loc>https://blog.skywalker.net.au/sitemap-misc.xml</loc>
-		<lastmod>2024-03-19T08:55:31+00:00</lastmod>
+		<lastmod>2024-03-23T02:46:29+00:00</lastmod>
 	</sitemap>
 	<sitemap>
 		<loc>https://blog.skywalker.net.au/category-sitemap.xml</loc>
-		<lastmod>2024-03-19T08:55:31+00:00</lastmod>
+		<lastmod>2024-03-23T02:46:29+00:00</lastmod>
 	</sitemap>
 	<sitemap>
 		<loc>https://blog.skywalker.net.au/post-sitemap.xml</loc>
-		<lastmod>2024-03-19T08:55:31+00:00</lastmod>
+		<lastmod>2024-03-23T02:46:29+00:00</lastmod>
 	</sitemap>
 	<sitemap>
 		<loc>https://blog.skywalker.net.au/page-sitemap.xml</loc>
@@ -18,6 +18,6 @@
 	</sitemap>
 	<sitemap>
 		<loc>https://blog.skywalker.net.au/archives-sitemap.xml</loc>
-		<lastmod>2024-03-19T08:55:31+00:00</lastmod>
+		<lastmod>2024-03-23T02:46:29+00:00</lastmod>
 	</sitemap>
-</sitemapindex><!-- Request ID: 08cfc74657611419fd838acd8486d0ad; Queries for sitemap: 7; Total queries: 29; Seconds: 0.02; Memory for sitemap: 1KB; Total memory: 10MB -->
+</sitemapindex><!-- Request ID: 72d4150fff836644e70aa7660617460b; Queries for sitemap: 7; Total queries: 29; Seconds: 0.02; Memory for sitemap: 1KB; Total memory: 10MB -->

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet type='text/xsl' href='https://blog.skywalker.net.au/wp-content/plugins/google-sitemap-generator/sitemap.xsl'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.19' -->
-<!-- generated-on='March 19, 2024 8:56 am' -->
+<!-- generated-on='March 23, 2024 3:01 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/artificial-intelligence/</loc>
 		<lastmod>2024-03-16T15:45:20+00:00</lastmod>
@@ -44,7 +44,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/</loc>
-		<lastmod>2024-03-18T19:50:04+00:00</lastmod>
+		<lastmod>2024-03-23T12:46:29+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -56,20 +56,20 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/</loc>
-		<lastmod>2024-03-18T19:50:04+00:00</lastmod>
+		<lastmod>2024-03-23T13:00:37+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/stories/</loc>
-		<lastmod>2024-03-13T18:01:38+00:00</lastmod>
+		<lastmod>2024-03-20T18:38:49+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/systems-architecture/</loc>
-		<lastmod>2024-03-18T19:50:04+00:00</lastmod>
+		<lastmod>2024-03-23T13:00:37+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: ae4f80e59542488d13675bb62f181865; Queries for sitemap: 15; Total queries: 37; Seconds: 0.05; Memory for sitemap: 1KB; Total memory: 10MB -->
+</urlset><!-- Request ID: 8082baff2838a05dc9e89def8e57daa9; Queries for sitemap: 15; Total queries: 37; Seconds: 0.05; Memory for sitemap: 1KB; Total memory: 10MB -->
