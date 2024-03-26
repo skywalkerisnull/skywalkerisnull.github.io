@@ -264,11 +264,11 @@ end</pre><pre class="visualizeMermaid__error visualizeMermaid__error--hidden js-
 
 
 
-<li><strong>Database:</strong> This is the service, infrastructure, or system to store binary files. This could be Azure Blobs, Amazon S3, Disk Drives, or any location where a file can be stored.</li>
+<li><strong>Database:</strong> This is the service, infrastructure, or system to store the meta data. This could be a relational DB such as Postgres, Microsoft SQL Server, Maria DB, or it could be a document DB such as Mongo DB, CouchDB, or Azure Cosmos DB.</li>
 
 
 
-<li><strong>Data Service</strong>: This is the service that consumer applications interact with. It is the external-facing API surface area that provides the fa&ccedil;ade to the operations and processes behind it.</li>
+<li><strong>Data Service</strong>: This is the service that consumer applications interact with. It is the external-facing API surface area that provides the fa&ccedil;ade, or <a href="https://blog.skywalker.net.au/2024/03/24/interfaces/" data-type="post" data-id="16">interface</a><sup data-fn="89ae074d-6fd7-43c3-8dda-7c292247dd5a" class="fn"><a href="#89ae074d-6fd7-43c3-8dda-7c292247dd5a" id="89ae074d-6fd7-43c3-8dda-7c292247dd5a-link">3</a></sup> to the operations and processes behind it.</li>
 
 
 
@@ -285,7 +285,7 @@ end</pre><pre class="visualizeMermaid__error visualizeMermaid__error--hidden js-
 
 
 
-<p>However, removing direct access to the blob storage can lead to issues if not handled correctly. For instance, if the Valet Pattern<sup data-fn="53544486-88e0-4be7-9c6d-bea7cfffa2b2" class="fn"><a href="#53544486-88e0-4be7-9c6d-bea7cfffa2b2" id="53544486-88e0-4be7-9c6d-bea7cfffa2b2-link">3</a></sup> is not implemented, when a consumer requests data, it must first be downloaded (or proxied) via the data service. The valet pattern allows the consumer to request a URL that is pre-signed and will enable the download of data by just using the URL. This is hugely powerful as simple HTTP requests can be made without needing to use specific packages for Azure Blobs, Amazon S3, or others.</p>
+<p>However, removing direct access to the blob storage can lead to issues if not handled correctly. For instance, if the Valet Pattern<sup data-fn="53544486-88e0-4be7-9c6d-bea7cfffa2b2" class="fn"><a href="#53544486-88e0-4be7-9c6d-bea7cfffa2b2" id="53544486-88e0-4be7-9c6d-bea7cfffa2b2-link">4</a></sup> is not implemented, when a consumer requests data, it must first be downloaded (or proxied) via the data service. The valet pattern allows the consumer to request a URL that is pre-signed and will enable the download of data by just using the URL. This is hugely powerful as simple HTTP requests can be made without needing to use specific packages for Azure Blobs, Amazon S3, or others.</p>
 
 
 
@@ -300,7 +300,7 @@ end</pre><pre class="visualizeMermaid__error visualizeMermaid__error--hidden js-
 <p>Part 2 will contain additional considerations to be made during the implementation of a Data Repository.</p>
 
 
-<ol class="wp-block-footnotes"><li id="6e438077-5eb4-48a5-ac4c-88dadce8e526"><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-properties-metadata" target="_blank" rel="noreferrer noopener">Manage properties and metadata for a blob with .NET &ndash; Azure Storage | Microsoft Learn</a> <a href="#6e438077-5eb4-48a5-ac4c-88dadce8e526-link" aria-label="Jump to footnote reference 1">&#8617;&#65038;</a></li><li id="440d5c57-cdbc-4862-8de9-5d967d7eb839"><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-tags" target="_blank" rel="noreferrer noopener">Use blob index tags to manage and find data with .NET &ndash; Azure Storage | Microsoft Learn</a> <a href="#440d5c57-cdbc-4862-8de9-5d967d7eb839-link" aria-label="Jump to footnote reference 2">&#8617;&#65038;</a></li><li id="53544486-88e0-4be7-9c6d-bea7cfffa2b2"><a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/valet-key">Valet Key pattern &ndash; Azure Architecture Center | Microsoft Learn</a> <a href="#53544486-88e0-4be7-9c6d-bea7cfffa2b2-link" aria-label="Jump to footnote reference 3">&#8617;&#65038;</a></li></ol></div>
+<ol class="wp-block-footnotes"><li id="6e438077-5eb4-48a5-ac4c-88dadce8e526"><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-properties-metadata" target="_blank" rel="noreferrer noopener">Manage properties and metadata for a blob with .NET &ndash; Azure Storage | Microsoft Learn</a> <a href="#6e438077-5eb4-48a5-ac4c-88dadce8e526-link" aria-label="Jump to footnote reference 1">&#8617;&#65038;</a></li><li id="440d5c57-cdbc-4862-8de9-5d967d7eb839"><a href="https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-tags" target="_blank" rel="noreferrer noopener">Use blob index tags to manage and find data with .NET &ndash; Azure Storage | Microsoft Learn</a> <a href="#440d5c57-cdbc-4862-8de9-5d967d7eb839-link" aria-label="Jump to footnote reference 2">&#8617;&#65038;</a></li><li id="89ae074d-6fd7-43c3-8dda-7c292247dd5a"><a href="https://blog.skywalker.net.au/2024/03/24/interfaces/" data-type="post" data-id="16">Interface</a> <a href="#89ae074d-6fd7-43c3-8dda-7c292247dd5a-link" aria-label="Jump to footnote reference 3">&#8617;&#65038;</a></li><li id="53544486-88e0-4be7-9c6d-bea7cfffa2b2"><a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/valet-key">Valet Key pattern &ndash; Azure Architecture Center | Microsoft Learn</a> <a href="#53544486-88e0-4be7-9c6d-bea7cfffa2b2-link" aria-label="Jump to footnote reference 4">&#8617;&#65038;</a></li></ol></div>
 
 
 <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained"></div>
