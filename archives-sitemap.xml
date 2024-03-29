@@ -1,8 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet type='text/xsl' href='https://blog.skywalker.net.au/wp-content/plugins/google-sitemap-generator/sitemap.xsl'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.19' -->
-<!-- generated-on='March 26, 2024 5:02 am' -->
+<?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet type='text/xsl' href='https://blog.skywalker.net.au/wp-content/plugins/google-sitemap-generator/sitemap.xsl'><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.19' -->
+<!-- generated-on='March 29, 2024 12:06 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/2024/03/</loc>
-		<lastmod>2024-03-24T03:46:40+00:00</lastmod>
+		<lastmod>2024-03-29T00:02:20+00:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -12,4 +12,4 @@
 		<changefreq>yearly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: 094bb9eb006f752518c23e29d8ad4d92; Queries for sitemap: 2; Total queries: 24; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 10MB -->
+</urlset><!-- Request ID: cdc9d5b3fc36924a816dc64f8287dc27; Queries for sitemap: 2; Total queries: 27; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 10MB -->

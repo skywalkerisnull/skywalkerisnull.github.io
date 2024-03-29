@@ -67,6 +67,7 @@ ol,ul{box-sizing:border-box}ol.has-background,ul.has-background{padding:1.25em 2
 .wp-block-columns{align-items:normal!important;box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}
 </style>
 <link rel="stylesheet" id="wp-block-social-links-css" href="https://blog.skywalker.net.au/wp-includes/blocks/social-links/style.min.css?ver=6.4.3" media="all">
+<link rel="stylesheet" id="wprm-public-css" href="https://blog.skywalker.net.au/wp-content/plugins/wp-recipe-maker/dist/public-modern.css?ver=9.3.1" media="all">
 <style id="wp-emoji-styles-inline-css">
 
 	img.wp-smiley, img.emoji {
@@ -127,7 +128,275 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <script src="https://blog.skywalker.net.au/wp-includes/blocks/navigation/view.min.js?ver=e3d6f3216904b5b42831" id="wp-block-navigation-view-js" defer data-wp-strategy="defer"></script>
 <link rel="https://api.w.org/" href="https://blog.skywalker.net.au/wp-json/"><link rel="alternate" type="application/json" href="https://blog.skywalker.net.au/wp-json/wp/v2/categories/15"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blog.skywalker.net.au/xmlrpc.php?rsd">
 <meta name="generator" content="WordPress 6.4.3">
-<style id="wp-fonts-local">
+<style type="text/css"> .tippy-box[data-theme~="wprm"] { background-color: #333333; color: #FFFFFF; } .tippy-box[data-theme~="wprm"][data-placement^="top"] > .tippy-arrow::before { border-top-color: #333333; } .tippy-box[data-theme~="wprm"][data-placement^="bottom"] > .tippy-arrow::before { border-bottom-color: #333333; } .tippy-box[data-theme~="wprm"][data-placement^="left"] > .tippy-arrow::before { border-left-color: #333333; } .tippy-box[data-theme~="wprm"][data-placement^="right"] > .tippy-arrow::before { border-right-color: #333333; } .tippy-box[data-theme~="wprm"] a { color: #FFFFFF; } .wprm-comment-rating svg { width: 18px !important; height: 18px !important; } img.wprm-comment-rating { width: 90px !important; height: 18px !important; } body { --comment-rating-star-color: #343434; } body { --wprm-popup-font-size: 16px; } body { --wprm-popup-background: #ffffff; } body { --wprm-popup-title: #000000; } body { --wprm-popup-content: #444444; } body { --wprm-popup-button-background: #444444; } body { --wprm-popup-button-text: #ffffff; }</style><style type="text/css">.wprm-glossary-term {color: #5A822B;text-decoration: underline;cursor: help;}</style><style type="text/css">.wprm-recipe-template-snippet-basic-buttons {
+    font-family: inherit; /* wprm_font_family type=font */
+    font-size: 0.9em; /* wprm_font_size type=font_size */
+    text-align: center; /* wprm_text_align type=align */
+    margin-top: 0px; /* wprm_margin_top type=size */
+    margin-bottom: 10px; /* wprm_margin_bottom type=size */
+}
+.wprm-recipe-template-snippet-basic-buttons a  {
+    margin: 5px; /* wprm_margin_button type=size */
+    margin: 5px; /* wprm_margin_button type=size */
+}
+
+.wprm-recipe-template-snippet-basic-buttons a:first-child {
+    margin-left: 0;
+}
+.wprm-recipe-template-snippet-basic-buttons a:last-child {
+    margin-right: 0;
+}.wprm-recipe-template-ashley {
+    margin: 20px auto;
+    background-color: #fafafa; /*wprm_background type=color*/
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /*wprm_main_font_family type=font*/
+    font-size: 0.9em; /*wprm_main_font_size type=font_size*/
+    line-height: 1.5em !important; /*wprm_main_line_height type=font_size*/
+    color: #333333; /*wprm_main_text type=color*/
+    max-width: 650px; /*wprm_max_width type=size*/
+}
+.wprm-recipe-template-ashley a {
+    color: #3498db; /*wprm_link type=color*/
+}
+.wprm-recipe-template-ashley p, .wprm-recipe-template-ashley li {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /*wprm_main_font_family type=font*/
+    font-size: 1em !important;
+    line-height: 1.5em !important; /*wprm_main_line_height type=font_size*/
+}
+.wprm-recipe-template-ashley li {
+    margin: 0 0 0 32px !important;
+    padding: 0 !important;
+}
+.rtl .wprm-recipe-template-ashley li {
+    margin: 0 32px 0 0 !important;
+}
+.wprm-recipe-template-ashley ol, .wprm-recipe-template-ashley ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.wprm-recipe-template-ashley br {
+    display: none;
+}
+.wprm-recipe-template-ashley .wprm-recipe-name,
+.wprm-recipe-template-ashley .wprm-recipe-header {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /*wprm_header_font_family type=font*/
+    color: #212121; /*wprm_header_text type=color*/
+    line-height: 1.3em; /*wprm_header_line_height type=font_size*/
+}
+.wprm-recipe-template-ashley h1,
+.wprm-recipe-template-ashley h2,
+.wprm-recipe-template-ashley h3,
+.wprm-recipe-template-ashley h4,
+.wprm-recipe-template-ashley h5,
+.wprm-recipe-template-ashley h6 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /*wprm_header_font_family type=font*/
+    color: #212121; /*wprm_header_text type=color*/
+    line-height: 1.3em; /*wprm_header_line_height type=font_size*/
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.wprm-recipe-template-ashley .wprm-recipe-header {
+    margin-top: 1.2em !important;
+}
+.wprm-recipe-template-ashley h1 {
+    font-size: 2em; /*wprm_h1_size type=font_size*/
+}
+.wprm-recipe-template-ashley h2 {
+    font-size: 1.8em; /*wprm_h2_size type=font_size*/
+}
+.wprm-recipe-template-ashley h3 {
+    font-size: 1.2em; /*wprm_h3_size type=font_size*/
+}
+.wprm-recipe-template-ashley h4 {
+    font-size: 1em; /*wprm_h4_size type=font_size*/
+}
+.wprm-recipe-template-ashley h5 {
+    font-size: 1em; /*wprm_h5_size type=font_size*/
+}
+.wprm-recipe-template-ashley h6 {
+    font-size: 1em; /*wprm_h6_size type=font_size*/
+}.wprm-recipe-template-ashley {
+	border-style: solid; /*wprm_border_style type=border*/
+	border-width: 1px; /*wprm_border_width type=size*/
+	border-color: #777777; /*wprm_border type=color*/
+	border-radius: 0px; /*wprm_border_radius type=size*/
+	padding: 10px;
+}.wprm-recipe-template-compact-howto {
+    margin: 20px auto;
+    background-color: #fafafa; /* wprm_background type=color */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /* wprm_main_font_family type=font */
+    font-size: 0.9em; /* wprm_main_font_size type=font_size */
+    line-height: 1.5em; /* wprm_main_line_height type=font_size */
+    color: #333333; /* wprm_main_text type=color */
+    max-width: 650px; /* wprm_max_width type=size */
+}
+.wprm-recipe-template-compact-howto a {
+    color: #3498db; /* wprm_link type=color */
+}
+.wprm-recipe-template-compact-howto p, .wprm-recipe-template-compact-howto li {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /* wprm_main_font_family type=font */
+    font-size: 1em !important;
+    line-height: 1.5em !important; /* wprm_main_line_height type=font_size */
+}
+.wprm-recipe-template-compact-howto li {
+    margin: 0 0 0 32px !important;
+    padding: 0 !important;
+}
+.rtl .wprm-recipe-template-compact-howto li {
+    margin: 0 32px 0 0 !important;
+}
+.wprm-recipe-template-compact-howto ol, .wprm-recipe-template-compact-howto ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.wprm-recipe-template-compact-howto br {
+    display: none;
+}
+.wprm-recipe-template-compact-howto .wprm-recipe-name,
+.wprm-recipe-template-compact-howto .wprm-recipe-header {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /* wprm_header_font_family type=font */
+    color: #000000; /* wprm_header_text type=color */
+    line-height: 1.3em; /* wprm_header_line_height type=font_size */
+}
+.wprm-recipe-template-compact-howto h1,
+.wprm-recipe-template-compact-howto h2,
+.wprm-recipe-template-compact-howto h3,
+.wprm-recipe-template-compact-howto h4,
+.wprm-recipe-template-compact-howto h5,
+.wprm-recipe-template-compact-howto h6 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /* wprm_header_font_family type=font */
+    color: #212121; /* wprm_header_text type=color */
+    line-height: 1.3em; /* wprm_header_line_height type=font_size */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.wprm-recipe-template-compact-howto .wprm-recipe-header {
+    margin-top: 1.2em !important;
+}
+.wprm-recipe-template-compact-howto h1 {
+    font-size: 2em; /* wprm_h1_size type=font_size */
+}
+.wprm-recipe-template-compact-howto h2 {
+    font-size: 1.8em; /* wprm_h2_size type=font_size */
+}
+.wprm-recipe-template-compact-howto h3 {
+    font-size: 1.2em; /* wprm_h3_size type=font_size */
+}
+.wprm-recipe-template-compact-howto h4 {
+    font-size: 1em; /* wprm_h4_size type=font_size */
+}
+.wprm-recipe-template-compact-howto h5 {
+    font-size: 1em; /* wprm_h5_size type=font_size */
+}
+.wprm-recipe-template-compact-howto h6 {
+    font-size: 1em; /* wprm_h6_size type=font_size */
+}.wprm-recipe-template-compact-howto {
+	border-style: solid; /* wprm_border_style type=border */
+	border-width: 1px; /* wprm_border_width type=size */
+	border-color: #777777; /* wprm_border type=color */
+	border-radius: 0px; /* wprm_border_radius type=size */
+	padding: 10px;
+}.wprm-recipe-template-chic {
+    margin: 20px auto;
+    background-color: #fafafa; /* wprm_background type=color */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /* wprm_main_font_family type=font */
+    font-size: 0.9em; /* wprm_main_font_size type=font_size */
+    line-height: 1.5em; /* wprm_main_line_height type=font_size */
+    color: #333333; /* wprm_main_text type=color */
+    max-width: 650px; /* wprm_max_width type=size */
+}
+.wprm-recipe-template-chic a {
+    color: #3498db; /* wprm_link type=color */
+}
+.wprm-recipe-template-chic p, .wprm-recipe-template-chic li {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /* wprm_main_font_family type=font */
+    font-size: 1em !important;
+    line-height: 1.5em !important; /* wprm_main_line_height type=font_size */
+}
+.wprm-recipe-template-chic li {
+    margin: 0 0 0 32px !important;
+    padding: 0 !important;
+}
+.rtl .wprm-recipe-template-chic li {
+    margin: 0 32px 0 0 !important;
+}
+.wprm-recipe-template-chic ol, .wprm-recipe-template-chic ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.wprm-recipe-template-chic br {
+    display: none;
+}
+.wprm-recipe-template-chic .wprm-recipe-name,
+.wprm-recipe-template-chic .wprm-recipe-header {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /* wprm_header_font_family type=font */
+    color: #000000; /* wprm_header_text type=color */
+    line-height: 1.3em; /* wprm_header_line_height type=font_size */
+}
+.wprm-recipe-template-chic h1,
+.wprm-recipe-template-chic h2,
+.wprm-recipe-template-chic h3,
+.wprm-recipe-template-chic h4,
+.wprm-recipe-template-chic h5,
+.wprm-recipe-template-chic h6 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /* wprm_header_font_family type=font */
+    color: #212121; /* wprm_header_text type=color */
+    line-height: 1.3em; /* wprm_header_line_height type=font_size */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.wprm-recipe-template-chic .wprm-recipe-header {
+    margin-top: 1.2em !important;
+}
+.wprm-recipe-template-chic h1 {
+    font-size: 2em; /* wprm_h1_size type=font_size */
+}
+.wprm-recipe-template-chic h2 {
+    font-size: 1.8em; /* wprm_h2_size type=font_size */
+}
+.wprm-recipe-template-chic h3 {
+    font-size: 1.2em; /* wprm_h3_size type=font_size */
+}
+.wprm-recipe-template-chic h4 {
+    font-size: 1em; /* wprm_h4_size type=font_size */
+}
+.wprm-recipe-template-chic h5 {
+    font-size: 1em; /* wprm_h5_size type=font_size */
+}
+.wprm-recipe-template-chic h6 {
+    font-size: 1em; /* wprm_h6_size type=font_size */
+}.wprm-recipe-template-chic {
+    font-size: 1em; /* wprm_main_font_size type=font_size */
+	border-style: solid; /* wprm_border_style type=border */
+	border-width: 1px; /* wprm_border_width type=size */
+	border-color: #E0E0E0; /* wprm_border type=color */
+    padding: 10px;
+    background-color: #ffffff; /* wprm_background type=color */
+    max-width: 950px; /* wprm_max_width type=size */
+}
+.wprm-recipe-template-chic a {
+    color: #5A822B; /* wprm_link type=color */
+}
+.wprm-recipe-template-chic .wprm-recipe-name {
+    line-height: 1.3em;
+    font-weight: bold;
+}
+.wprm-recipe-template-chic .wprm-template-chic-buttons {
+	clear: both;
+    font-size: 0.9em;
+    text-align: center;
+}
+.wprm-recipe-template-chic .wprm-template-chic-buttons .wprm-recipe-icon {
+    margin-right: 5px;
+}
+.wprm-recipe-template-chic .wprm-recipe-header {
+	margin-bottom: 0.5em !important;
+}
+.wprm-recipe-template-chic .wprm-nutrition-label-container {
+	font-size: 0.9em;
+}
+.wprm-recipe-template-chic .wprm-call-to-action {
+	border-radius: 3px;
+}</style><style id="wp-fonts-local">
 @font-face{font-family:Inter;font-style:normal;font-weight:100 900;font-display:block;src:url('https://blog.skywalker.net.au/wp-content/themes/jadro/assets/fonts/Inter-Variable.woff2') format('woff2');font-stretch:normal;}
 @font-face{font-family:Figtree;font-style:normal;font-weight:300 900;font-display:block;src:url('https://blog.skywalker.net.au/wp-content/themes/jadro/assets/fonts/Figtree-Variable.woff2') format('woff2');font-stretch:normal;}
 @font-face{font-family:Outfit;font-style:normal;font-weight:100 900;font-display:block;src:url('https://blog.skywalker.net.au/wp-content/themes/jadro/assets/fonts/Outfit-Variable.woff2') format('woff2');font-stretch:normal;}
@@ -330,6 +599,10 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 </div>
 </footer>
 </div>
+<script id="wprm-public-js-extra">
+var wprm_public = {"endpoints":{"analytics":"https:\/\/blog.skywalker.net.au\/wp-json\/wp-recipe-maker\/v1\/analytics","manage":"https:\/\/blog.skywalker.net.au\/wp-json\/wp-recipe-maker\/v1\/manage"},"settings":{"features_comment_ratings":true,"template_color_comment_rating":"#343434","instruction_media_toggle_default":"on","video_force_ratio":false,"analytics_enabled":false,"google_analytics_enabled":false,"print_new_tab":false},"post_id":"418","home_url":"https:\/\/blog.skywalker.net.au\/","print_slug":"wprm_print","permalinks":"\/%year%\/%monthnum%\/%day%\/%postname%\/","ajax_url":"https:\/\/blog.skywalker.net.au\/wp-admin\/admin-ajax.php","nonce":"3a915bd09c","api_nonce":"553f2ebcd5","translations":[]};
+</script>
+<script src="https://blog.skywalker.net.au/wp-content/plugins/wp-recipe-maker/dist/public-modern.js?ver=9.3.1" id="wprm-public-js"></script>
 <script id="wp-block-template-skip-link-js-after">
 	( function() {
 		var skipLinkTarget = document.querySelector( 'main' ),
