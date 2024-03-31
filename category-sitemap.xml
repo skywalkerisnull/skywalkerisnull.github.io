@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><?xml-stylesheet type='text/xsl' href='https://blog.skywalker.net.au/wp-content/plugins/google-sitemap-generator/sitemap.xsl'><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.19' -->
-<!-- generated-on='March 29, 2024 1:37 am' -->
+<!-- generated-on='March 31, 2024 1:12 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/artificial-intelligence/</loc>
 		<lastmod>2024-03-16T15:45:20+00:00</lastmod>
@@ -32,7 +32,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/it-management/</loc>
-		<lastmod>2024-03-29T11:37:20+00:00</lastmod>
+		<lastmod>2024-03-31T11:11:17+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -56,7 +56,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/</loc>
-		<lastmod>2024-03-29T11:37:20+00:00</lastmod>
+		<lastmod>2024-03-31T11:11:17+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -68,20 +68,20 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/</loc>
-		<lastmod>2024-03-29T11:37:20+00:00</lastmod>
+		<lastmod>2024-03-31T11:11:17+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/stories/</loc>
-		<lastmod>2024-03-29T11:37:20+00:00</lastmod>
+		<lastmod>2024-03-31T11:11:17+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/systems-architecture/</loc>
-		<lastmod>2024-03-24T13:46:40+00:00</lastmod>
+		<lastmod>2024-03-31T11:11:17+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: 1a78ba2f0ea69406edd531d1aa4f9eb7; Queries for sitemap: 17; Total queries: 42; Seconds: 0.06; Memory for sitemap: 1KB; Total memory: 10MB -->
+</urlset><!-- Request ID: b217db39700d8c38dcf6ae8874968fed; Queries for sitemap: 17; Total queries: 42; Seconds: 0.05; Memory for sitemap: 1KB; Total memory: 10MB -->
