@@ -3,3 +3,9 @@ Disallow: /wp-admin/
 Allow: /wp-admin/admin-ajax.php
 
 Sitemap: https://blog.skywalker.net.au/sitemap.xml
+
+User-agent: GPTbot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
