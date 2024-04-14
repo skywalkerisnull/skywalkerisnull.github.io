@@ -1,6 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.19' -->
-<!-- generated-on='April 11, 2024 8:45 am' -->
+<!-- generated-on='April 14, 2024 12:27 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
+		<loc>https://blog.skywalker.net.au/2024/04/14/unravelling-the-roles-software-engineer-developer-scientist/</loc>
+		<lastmod>2024-04-14T00:26:28+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
 		<loc>https://blog.skywalker.net.au/2024/03/31/technical-debt/</loc>
 		<lastmod>2024-03-31T01:11:17+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -114,4 +120,4 @@
 		<changefreq>monthly</changefreq>
 		<priority>1.0</priority>
 	</url>
-</urlset><!-- Request ID: 70b95c1d6b4d7ae06e1b7051cabe3095; Queries for sitemap: 2; Total queries: 21; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 8MB -->
+</urlset><!-- Request ID: 9a6810d992dd8a635eb1bbed6eb8c520; Queries for sitemap: 2; Total queries: 21; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 8MB -->
