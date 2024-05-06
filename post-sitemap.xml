@@ -1,6 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.19' -->
-<!-- generated-on='April 19, 2024 12:25 am' -->
+<!-- generated-on='May 6, 2024 12:02 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
+		<loc>https://blog.skywalker.net.au/2024/05/06/pizza-base-dough/</loc>
+		<lastmod>2024-05-06T00:01:25+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
 		<loc>https://blog.skywalker.net.au/2024/04/19/demystifying-vpns-their-relevance-and-advantages-in-contemporary-it/</loc>
 		<lastmod>2024-04-19T00:24:35+00:00</lastmod>
 		<changefreq>monthly</changefreq>
@@ -138,4 +144,4 @@
 		<changefreq>monthly</changefreq>
 		<priority>1.0</priority>
 	</url>
-</urlset><!-- Request ID: cd42d6e71459dd7a41467d1919e7a67c; Queries for sitemap: 2; Total queries: 21; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 8MB -->
+</urlset><!-- Request ID: 85adb17614d3207785668a2116c88dcd; Queries for sitemap: 2; Total queries: 21; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 8MB -->
