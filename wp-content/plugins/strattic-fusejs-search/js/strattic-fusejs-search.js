@@ -1,5 +1,5 @@
-window.onload=function() {
-	const content = document.getElementById( 'main' );
+document.addEventListener("DOMContentLoaded", function() {
+    const content = document.getElementById( 'main' );
 	const excerpt_template = `
 	<article id="post-{{id}}" class="post-{{id}} page type-page status-publish hentry entry">
 		<header class="entry-header">
@@ -156,5 +156,4 @@ window.onload=function() {
 
 		show_results( search_template, content, results, excerpt_template );
 	}
-
-}
+});
