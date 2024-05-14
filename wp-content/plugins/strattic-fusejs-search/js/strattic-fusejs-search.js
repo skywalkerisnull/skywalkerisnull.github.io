@@ -1,31 +1,48 @@
 document.addEventListener("DOMContentLoaded", function() {
     const content = document.getElementById( 'main' );
+	// const excerpt_template = `
+	// <article id="post-{{id}}" class="post-{{id}} page type-page status-publish hentry entry">
+	// 	<header class="entry-header">
+	// 		<h2 class="entry-title default-max-width">
+	// 			<a href="{{home_url}}{{path}}">
+	// 				{{title}}
+	// 			</a>
+	// 		</h2>
+	// 	</header><!-- .entry-header -->
+
+	// 	<div class="entry-content">
+	// 		<p>
+	// 			{{excerpt}} &hellip; 
+	// 			<a class="more-link" href="{{home_url}}{{path}}">
+	// 				Continue reading 
+	// 				<span class="screen-reader-text">
+	// 					{{title}}
+	// 				</span>
+	// 			</a>
+	// 		</p>
+	// 	</div><!-- .entry-content -->
+
+	// 	<footer class="entry-footer default-max-width">
+	// 	</footer><!-- .entry-footer -->
+	// </article><!-- #post-{{id}} -->`;
+
 	const excerpt_template = `
-	<article id="post-{{id}}" class="post-{{id}} page type-page status-publish hentry entry">
-		<header class="entry-header">
-			<h2 class="entry-title default-max-width">
-				<a href="{{home_url}}{{path}}">
-					{{title}}
-				</a>
-			</h2>
-		</header><!-- .entry-header -->
+    <li class="wp-block-post post-{{id}} page type-page status-publish format-standard has-post-thumbnail hentry category-it-management category-professional category-software-engineering tag-development tag-management tag-roles tag-software">
+        <figure class="wp-block-post-featured-image">
+            <a href="{{home_url}}{{path}}" target="_self">
+                <img width="1024" height="1024" src="{{image_url}}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="{{title}}" style="object-fit:cover;" decoding="async" fetchpriority="high" srcset="{{image_url}} 1024w, {{image_url}} 300w, {{image_url}} 150w, {{image_url}} 768w, {{image_url}} 500w" sizes="(max-width: 1024px) 100vw, 1024px">
+            </a>
+        </figure>
 
-		<div class="entry-content">
-			<p>
-				{{excerpt}} &hellip; 
-				<a class="more-link" href="{{home_url}}{{path}}">
-					Continue reading 
-					<span class="screen-reader-text">
-						{{title}}
-					</span>
-				</a>
-			</p>
-		</div><!-- .entry-content -->
+        <div class="wp-block-post-date has-small-font-size">
+            <time datetime="{{date}}">{{date}}</time>
+        </div>
 
-		<footer class="entry-footer default-max-width">
-		</footer><!-- .entry-footer -->
-	</article><!-- #post-{{id}} -->`;
-
+        <h3 class="wp-block-post-title">
+            <a href="{{home_url}}{{path}}" target="_self">{{title}}</a>
+        </h3>
+    </li>`;
+	
 	const fusejs_options = {
 		// isCaseSensitive: false,
 		includeScore: true,
