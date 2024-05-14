@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <li class="wp-block-post post-{{id}} page type-page status-publish format-standard has-post-thumbnail hentry category-it-management category-professional category-software-engineering tag-development tag-management tag-roles tag-software">
         <figure class="wp-block-post-featured-image">
             <a href="{{home_url}}{{path}}" target="_self">
-                <img width="1024" height="1024" src="{{image_url}}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="{{title}}" style="object-fit:cover;" decoding="async" fetchpriority="high" srcset="{{image_url}} 1024w, {{image_url}} 300w, {{image_url}} 150w, {{image_url}} 768w, {{image_url}} 500w" sizes="(max-width: 1024px) 100vw, 1024px">
+                <img width="1024" height="1024" src="{{hero_image}}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="{{title}}" style="object-fit:cover;" decoding="async" fetchpriority="high" srcset="{{hero_image}} 1024w, {{hero_image}} 300w, {{hero_image}} 150w, {{hero_image}} 768w, {{hero_image}} 500w" sizes="(max-width: 1024px) 100vw, 1024px">
             </a>
         </figure>
 
@@ -114,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			result.date          = date( index.date_format, results[ i ]['timestamp'] );
 			result.modified_date = results[ i ]['modified_timestamp'];
 			result.term_ids      = results[ i ]['term_ids'];
+			result.hero_image    = results[ i ]['hero_image']; 
 
 			// Authors.
 			let author_id              = results[ i ]['author_id'];
