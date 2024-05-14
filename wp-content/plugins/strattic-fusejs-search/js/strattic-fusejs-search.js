@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <li class="wp-block-post post-{{id}} page type-page status-publish format-standard has-post-thumbnail hentry category-it-management category-professional category-software-engineering tag-development tag-management tag-roles tag-software">
         <figure class="wp-block-post-featured-image">
             <a href="{{home_url}}{{path}}" target="_self">
-                <img width="150" height="150" src="{{hero_image}}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="{{title}}" style="object-fit:cover;" decoding="async" fetchpriority="high" sizes="(max-width: 150px) 100vw, 150px">
+                <img width="150" height="150" src="{{hero_image}}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="{{title}}" style="object-fit:cover;" decoding="async" fetchpriority="high">
             </a>
         </figure>
 
