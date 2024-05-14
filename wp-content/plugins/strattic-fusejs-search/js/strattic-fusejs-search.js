@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 
 		let rendered_content = wrapper_template.replace( '{{main_content}}', page_content );
-		content.innerHTML    = rendered_content;
+		content.innerHTML = rendered_content;
 	}
 
 	/**
@@ -140,6 +140,16 @@ document.addEventListener("DOMContentLoaded", function() {
 		let plural = '';
 		if ( i !== 1 ) {
 			plural = 's';
+		}
+
+		// Get the content element
+		let content = document.getElementById('content');
+
+		// Check if content is not null before calling show_results
+		if (content !== null) {
+			show_results(wrapper_template, content, results, template);
+		} else {
+			console.error('Content element not found');
 		}
 
 		let search_template  = `
