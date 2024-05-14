@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function() {
         <figure class="wp-block-post-featured-image">
             <a href="{{home_url}}{{path}}" target="_self">
                 <img width="150" height="150" src="{{hero_image}}" 
-				class="attachment-post-thumbnail size-post-thumbnail wp-post-image" 
-				alt="{{title}}" 
-				style="object-fit:cover;" 
-				decoding="async" 
-				fetchpriority="high">
+                class="attachment-post-thumbnail size-post-thumbnail wp-post-image" 
+                alt="{{title}}" 
+                style="object-fit:cover; width:150px; height:auto;" 
+                decoding="async" 
+                fetchpriority="high">
             </a>
         </figure>
 
