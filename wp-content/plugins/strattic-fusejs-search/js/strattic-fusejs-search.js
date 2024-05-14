@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		{{main_content}}`;
 	
 		// Get the content element
-		let content = document.getElementById('content');
+		let content = document.getElementById('wp--skip-link--target');
 	
 		// Check if content is not null before calling show_results
 		if (content !== null) {
