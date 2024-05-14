@@ -126,44 +126,42 @@ document.addEventListener("DOMContentLoaded", function() {
 	function show_search_page() {
 
 		fuse = new Fuse( index.posts, fusejs_options );
-
+	
 		// Get results.
 		let fuse_results = fuse.search( get_search_param() );
-
+	
 		let results = [];
 		let i;
 		for ( i = 0; i < fuse_results.length; i++ ) {
 			results[ i ] = fuse_results[ i ]['item'];
 		}
-
+	
 		// Set whether there is a plural number of results.
 		let plural = '';
 		if ( i !== 1 ) {
 			plural = 's';
 		}
-
-		// Get the content element
-		let content = document.getElementById('content');
-
-		// Check if content is not null before calling show_results
-		if (content !== null) {
-			show_results(wrapper_template, content, results, template);
-		} else {
-			console.error('Content element not found');
-		}
-
+	
 		let search_template  = `
 		<header class="page-header alignwide">
 			<h1 class="page-title">
-				Results for &quot;<span class="page-description search-term">` + get_search_param() + `</span>&quot;		</h1>
+				Results for &quot;<span class="page-description search-term">` + get_search_param() + `</span>&quot;     </h1>
 		</header><!-- .page-header -->
-
+	
 		<div class="search-result-count default-max-width">
 			We found ` + i + ` result` + plural + ` for your search.
 		</div><!-- .search-result-count -->
-
+	
 		{{main_content}}`;
-
-		show_results( search_template, content, results, excerpt_template );
+	
+		// Get the content element
+		let content = document.getElementById('content');
+	
+		// Check if content is not null before calling show_results
+		if (content !== null) {
+			show_results( search_template, content, results, excerpt_template );
+		} else {
+			console.error('Content element not found');
+		}
 	}
 });
