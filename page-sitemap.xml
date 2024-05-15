@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.19' -->
-<!-- generated-on='May 15, 2024 9:20 am' -->
+<!-- generated-on='May 15, 2024 9:27 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/large-projects/</loc>
 		<lastmod>2024-02-25T03:12:52+00:00</lastmod>
@@ -54,4 +54,4 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.6</priority>
 	</url>
-</urlset><!-- Request ID: 2d00d0a7293c7fd891b238d1309408bc; Queries for sitemap: 3; Total queries: 46; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 6MB -->
+</urlset><!-- Request ID: 516d367b822c3d701216ebaaa99eaf89; Queries for sitemap: 3; Total queries: 46; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 8MB -->
