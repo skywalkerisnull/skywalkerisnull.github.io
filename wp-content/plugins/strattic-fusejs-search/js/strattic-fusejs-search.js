@@ -135,7 +135,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		let results = [];
 		let i;
 		for ( i = 0; i < fuse_results.length; i++ ) {
-			results[ i ] = fuse_results[ i ]['item'];
+			if (fuse_results[i]['item']['hero_image']) {
+				results.push(fuse_results[i]['item']);
+			}
 		}
 	
 		// Set whether there is a plural number of results.
