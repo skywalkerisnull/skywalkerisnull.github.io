@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				<div tabindex="0" class="block-editor-block-list__block wp-block wp-elements-3 alignwide wp-block-group block-editor-block-list__layout wp-container-core-group-is-layout-3 is-layout-constrained wp-block-group-is-layout-constrained" id="block-2eedd86d-53cb-459a-9719-33cef7fd7670" role="document" aria-label="Block: Group" data-block="2eedd86d-53cb-459a-9719-33cef7fd7670" data-type="core/group" data-title="Group" data-is-drop-zone="true" style="margin-top: 0px; margin-bottom: 0px;">
 					<div tabindex="0" class="block-editor-block-list__block wp-block alignwide wp-block-query block-editor-block-list__layout is-layout-flow wp-block-query-is-layout-flow" id="block-e1c48b0f-b66a-4318-9e5e-f1d348971099" role="document" aria-label="Block: Query Loop" data-block="e1c48b0f-b66a-4318-9e5e-f1d348971099" data-type="core/query" data-title="Query Loop" data-is-drop-zone="true">
 						<ul tabindex="0" class="block-editor-block-list__block wp-block wp-container-core-post-template-is-layout-5 is-layout-grid wp-block-post-template-is-layout-grid columns-3 wp-block-post-template is-hovered" id="block-0c50532a-38e2-427d-b2e0-466e692df002" role="document" aria-label="Block: Post Template" data-block="0c50532a-38e2-427d-b2e0-466e692df002" data-type="core/post-template" data-title="Post Template">
-							{{results}}
+							{{main_content}}
 						</ul>
 					</div>
 				</div>
