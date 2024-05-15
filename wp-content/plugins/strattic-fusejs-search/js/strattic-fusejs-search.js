@@ -2,23 +2,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const content = document.getElementById( 'main' );
 
 	const excerpt_template = `
-    <li class="wp-block-post post-{{id}} page type-page status-publish format-standard has-post-thumbnail hentry">
-        <figure class="wp-block-post-featured-image">
-            <a href="{{home_url}}{{path}}" target="_self">
-                <img width="364" height="364" src="{{hero_image}}" 
-                class="attachment-post-thumbnail size-post-thumbnail wp-post-image" 
-                alt="{{title}}" 
-                style="object-fit:cover; width:364px; height:auto;" 
-                decoding="async" 
-                fetchpriority="high">
+    <li class="wp-block-post block-editor-block-list__layout" data-is-drop-zone="true">
+        <figure tabindex="0" class="block-editor-block-list__block wp-block wp-block-post-featured-image"
+            id="block-ab784456-2067-4b07-85ed-28274387299d" role="document"
+            aria-label="Block: Featured Image" data-block="ab784456-2067-4b07-85ed-28274387299d"
+            data-type="core/post-featured-image" data-title="Featured Image">
+            <a href="{{home_url}}{{path}}" target="_self" aria-disabled="true">
+                <img src="{{hero_image}}" alt="Featured image" style="object-fit:cover; width:150px; height:auto;">
             </a>
         </figure>
-
-        <div class="wp-block-post-date has-small-font-size">
+        <div tabindex="0"
+            class="block-editor-block-list__block wp-block has-small-font-size wp-block-post-date"
+            id="block-5f8cf677-b422-427c-ac71-26aa0260ae82" role="document" aria-label="Block: Date"
+            data-block="5f8cf677-b422-427c-ac71-26aa0260ae82" data-type="core/post-date" data-title="Date"
+            style="font-size: clamp(var(--wp--custom--typography--small-min), calc(var(--wp--custom--typography--fluid-size) / var(--wp--custom--typography--scale)), var(--wp--custom--typography--small-max));">
             <time datetime="{{date}}">{{date}}</time>
         </div>
-
-        <h3 class="wp-block-post-title">
+        <h3 tabindex="0" class="block-editor-block-list__block wp-block wp-block-post-title"
+            id="block-cd068980-6d63-440c-9cd3-8fa6cb250269" role="document" aria-label="Block: Title"
+            data-block="cd068980-6d63-440c-9cd3-8fa6cb250269" data-type="core/post-title"
+            data-title="Title">
             <a href="{{home_url}}{{path}}" target="_self">{{title}}</a>
         </h3>
     </li>`;
