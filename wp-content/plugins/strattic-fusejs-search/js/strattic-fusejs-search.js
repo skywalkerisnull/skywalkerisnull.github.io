@@ -144,19 +144,21 @@ document.addEventListener("DOMContentLoaded", function() {
 			plural = 's';
 		}
 	
-		let search_template  = `
-			<header class="page-header alignwide">
-				<h1 class="page-title">
-					Results for &quot;<span class="page-description search-term">` + get_search_param() + `</span>&quot;     </h1>
-			</header><!-- .page-header -->
-
-			<div class="search-result-count default-max-width">
-				We found ` + i + ` result` + plural + ` for your search.
-			</div><!-- .search-result-count -->
-
-			<div class="results-container">
-				{{main_content}}
-			</div>`;
+		let search_template = `
+		<main tabindex="0" class="block-editor-block-list__block wp-block has-child-selected wp-elements-0 wp-block-group block-editor-block-list__layout wp-container-core-group-is-layout-0 is-layout-flow wp-block-group-is-layout-flow" id="block-03f7e4e1-1179-4697-bfff-7265c50ceae1" role="document" aria-label="Block: Group" data-block="03f7e4e1-1179-4697-bfff-7265c50ceae1" data-type="core/group" data-title="Group" data-is-drop-zone="true" style="margin-top: 0px; margin-bottom: 0px; padding: 0px;">
+			<div tabindex="0" class="block-editor-block-list__block wp-block wp-elements-1 wp-block-group block-editor-block-list__layout wp-container-core-group-is-layout-1 is-layout-constrained wp-block-group-is-layout-constrained" id="block-970906c8-6201-4811-8d1a-4f72947c3672" role="document" aria-label="Block: Group" data-block="970906c8-6201-4811-8d1a-4f72947c3672" data-type="core/group" data-title="Group" data-is-drop-zone="true" style="margin-top: 0px; margin-bottom: 0px; padding-top: 64px; padding-bottom: 8px;">
+				<h1 role="document" aria-multiline="true" aria-label="Block: Heading" aria-readonly="false" class="block-editor-rich-text__editable block-editor-block-list__block wp-block has-text-align-center wp-block-heading rich-text" id="block-12ccee84-dfa5-4030-b66e-f2977144c0d5" data-block="12ccee84-dfa5-4030-b66e-f2977144c0d5" data-type="core/heading" data-title="Heading" contenteditable="true" data-wp-block-attribute-key="content" style="white-space: pre-wrap; min-width: 1px;">Search results</h1>
+			</div>
+			<div tabindex="0" class="block-editor-block-list__block wp-block is-selected wp-elements-2 wp-block-group block-editor-block-list__layout wp-container-core-group-is-layout-2 is-layout-constrained wp-block-group-is-layout-constrained" id="block-0744e68c-1b57-453d-84c3-6c6edc65a892" role="document" aria-label="Block: Group" data-block="0744e68c-1b57-453d-84c3-6c6edc65a892" data-type="core/group" data-title="Group" data-is-drop-zone="true" style="margin-top: 0px; margin-bottom: 0px; padding: 64px 0px;">
+				<div tabindex="0" class="block-editor-block-list__block wp-block wp-elements-3 alignwide wp-block-group block-editor-block-list__layout wp-container-core-group-is-layout-3 is-layout-constrained wp-block-group-is-layout-constrained" id="block-2eedd86d-53cb-459a-9719-33cef7fd7670" role="document" aria-label="Block: Group" data-block="2eedd86d-53cb-459a-9719-33cef7fd7670" data-type="core/group" data-title="Group" data-is-drop-zone="true" style="margin-top: 0px; margin-bottom: 0px;">
+					<div tabindex="0" class="block-editor-block-list__block wp-block alignwide wp-block-query block-editor-block-list__layout is-layout-flow wp-block-query-is-layout-flow" id="block-e1c48b0f-b66a-4318-9e5e-f1d348971099" role="document" aria-label="Block: Query Loop" data-block="e1c48b0f-b66a-4318-9e5e-f1d348971099" data-type="core/query" data-title="Query Loop" data-is-drop-zone="true">
+						<ul tabindex="0" class="block-editor-block-list__block wp-block wp-container-core-post-template-is-layout-5 is-layout-grid wp-block-post-template-is-layout-grid columns-3 wp-block-post-template is-hovered" id="block-0c50532a-38e2-427d-b2e0-466e692df002" role="document" aria-label="Block: Post Template" data-block="0c50532a-38e2-427d-b2e0-466e692df002" data-type="core/post-template" data-title="Post Template">
+							{{results}}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</main>`;
 	
 		// Get the content element
 		let content = document.getElementById('wp--skip-link--target');
