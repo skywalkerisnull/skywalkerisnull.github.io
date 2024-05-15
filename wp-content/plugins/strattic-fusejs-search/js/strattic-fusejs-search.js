@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function() {
     <li class="wp-block-post post-{{id}} page type-page status-publish format-standard has-post-thumbnail hentry">
         <figure class="wp-block-post-featured-image">
             <a href="{{home_url}}{{path}}" target="_self">
-                <img width="150" height="150" src="{{hero_image}}" 
+                <img width="364" height="364" src="{{hero_image}}" 
                 class="attachment-post-thumbnail size-post-thumbnail wp-post-image" 
                 alt="{{title}}" 
-                style="object-fit:cover; width:150px; height:auto;" 
+                style="object-fit:cover; width:364px; height:auto;" 
                 decoding="async" 
                 fetchpriority="high">
             </a>
@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 			page_content = page_content + Mustache.render( template, result );
 		}
+		page_content = `<div class="block-editor-block-list__block wp-block alignwide wp-block-query block-editor-block-list__layout is-layout-flow wp-block-query-is-layout-flow">${page_content}</div>`;
 
 		let rendered_content = wrapper_template.replace( '{{main_content}}', page_content );
 		content.innerHTML = rendered_content;
@@ -141,16 +142,18 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	
 		let search_template  = `
-		<header class="page-header alignwide">
-			<h1 class="page-title">
-				Results for &quot;<span class="page-description search-term">` + get_search_param() + `</span>&quot;     </h1>
-		</header><!-- .page-header -->
-	
-		<div class="search-result-count default-max-width">
-			We found ` + i + ` result` + plural + ` for your search.
-		</div><!-- .search-result-count -->
-	
-		{{main_content}}`;
+			<header class="page-header alignwide">
+				<h1 class="page-title">
+					Results for &quot;<span class="page-description search-term">` + get_search_param() + `</span>&quot;     </h1>
+			</header><!-- .page-header -->
+
+			<div class="search-result-count default-max-width">
+				We found ` + i + ` result` + plural + ` for your search.
+			</div><!-- .search-result-count -->
+
+			<div class="results-container">
+				{{main_content}}
+			</div>`;
 	
 		// Get the content element
 		let content = document.getElementById('wp--skip-link--target');
