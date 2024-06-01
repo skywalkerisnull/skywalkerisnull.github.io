@@ -65,6 +65,9 @@ h1.has-background,h2.has-background,h3.has-background,h4.has-background,h5.has-b
 <style id="wp-block-image-theme-inline-css">
 .wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:#ffffffa6}.wp-block-image{margin:0 0 1em}
 </style>
+<style id="wp-block-footnotes-inline-css">
+.editor-styles-wrapper,.entry-content{counter-reset:footnotes}a[data-fn].fn{counter-increment:footnotes;display:inline-flex;font-size:smaller;text-decoration:none;text-indent:-9999999px;vertical-align:super}a[data-fn].fn:after{content:"[" counter(footnotes) "]";float:left;text-indent:0}
+</style>
 <style id="wp-block-columns-inline-css">
 .wp-block-columns{align-items:normal!important;box-sizing:border-box;display:flex;flex-wrap:wrap!important}@media (min-width:782px){.wp-block-columns{flex-wrap:nowrap!important}}.wp-block-columns.are-vertically-aligned-top{align-items:flex-start}.wp-block-columns.are-vertically-aligned-center{align-items:center}.wp-block-columns.are-vertically-aligned-bottom{align-items:flex-end}@media (max-width:781px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:100%!important}}@media (min-width:782px){.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis]{flex-grow:0}}.wp-block-columns.is-not-stacked-on-mobile{flex-wrap:nowrap!important}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column{flex-basis:0;flex-grow:1}.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column[style*=flex-basis]{flex-grow:0}:where(.wp-block-columns){margin-bottom:1.75em}:where(.wp-block-columns.has-background){padding:1.25em 2.375em}.wp-block-column{flex-grow:1;min-width:0;overflow-wrap:break-word;word-break:break-word}.wp-block-column.is-vertically-aligned-top{align-self:flex-start}.wp-block-column.is-vertically-aligned-center{align-self:center}.wp-block-column.is-vertically-aligned-bottom{align-self:flex-end}.wp-block-column.is-vertically-aligned-stretch{align-self:stretch}.wp-block-column.is-vertically-aligned-bottom,.wp-block-column.is-vertically-aligned-center,.wp-block-column.is-vertically-aligned-top{width:100%}
 </style>
@@ -507,7 +510,7 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 <div class="wp-block-group alignfull is-layout-constrained wp-container-core-group-is-layout-9 wp-block-group-is-layout-constrained" style="margin-top:0px;margin-bottom:0px;padding-top:64px;padding-bottom:64px"><div class="entry-content wp-block-post-content is-layout-constrained wp-block-post-content-is-layout-constrained">
-<p>Software Development Lifecycle (SDL) is the set of processes that aid in the creation of high-quality software. Formal or defined SDLs are nothing new, they have been around in one form or another since the 1960&rsquo;s. If you are a user of software, you probably have some understanding of the aspects that make software high-quality. This includes:</p>
+<p>Software Development Lifecycle (SDL) is the set of processes that aid in the creation of high-quality software. Formal or defined SDLs are nothing new, they have been around in one form or another since the 1970&rsquo;s<sup data-fn="65ef91df-c168-4ece-95ef-acb55133f804" class="fn"><a href="#65ef91df-c168-4ece-95ef-acb55133f804" id="65ef91df-c168-4ece-95ef-acb55133f804-link">1</a></sup>. If you are a user of software, you probably have some understanding of the aspects that make software high-quality. This includes:</p>
 
 
 
@@ -563,7 +566,11 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 
-<p><em>Note: For the moment, we are not considering Security, which can be explored in the Secure Software Development Lifecycle (SSDL), as security is cross cutting and part of all steps of the SDL.</em></p>
+<p>These &ldquo;ilities&rdquo; are considered in addition to what the end users need from the system.</p>
+
+
+
+<p><em>Note: For the moment, we are not considering Security, which can be explored in the <a href="https://blog.skywalker.net.au/2024/06/01/secure-software-development-lifecycle-ssdlc/" data-type="post" data-id="796">Secure Software Development Lifecycle (SSDLC)</a>, as security is cross cutting and part of all steps of the SDL.</em></p>
 
 
 
@@ -571,7 +578,7 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 
-<p>In my experience, there are generally two types of software development projects:</p>
+<p>In my experience, there are generally three types of software development projects:</p>
 
 
 
@@ -581,11 +588,15 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 <li><strong>Modernization projects</strong>: These involve updating existing software systems to align with contemporary development practices, and these projects have well-founded long-term viability. These need to ensure that the software that is produced is stable and reliable.</li>
+
+
+
+<li><strong>Digitisation projects</strong>: These projects usually take an existing manual, or analogue process and turn them into a digital process. These usually have well known processes, and the requirement of the new process is to be more efficient, stable, and reliable. These may be in the form of digitial transformation, evolution, or revolution projects.</li>
 </ol>
 
 
 
-<p>Both types have unique requirements from the lifecycle and different needs regarding their process maturity. However, both necessitate a software development lifecycle.</p>
+<p>All three types have unique requirements from the lifecycle and different needs regarding their process maturity. However, all have the requirement to have a software development lifecycle implelemented.</p>
 
 
 
@@ -635,11 +646,15 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 
-<p>I think you get the picture by now. You have come across software that has these sorts of issues, and more. When the software has multiple of these sorts of issues, it becomes even more evident that the SDL does not exist for this piece of software. Software Development Lifecycle will never eliminate these issues, but it will greatly reduce them.</p>
+<p>I think you get the picture by now. You have come across software that has these sorts of issues, and more. When the software has multiple of these sorts of issues, it becomes even more evident that the SDL does not exist for this piece of software. </p>
 
 
 
-<p>The documentation of the requirements, and the evaluation that the implementation has actually meet this requirement is really a communications piece. It helps all the stakeholders understand what was agreed upon to be implemented, and how the implementation was tested to successfully get what is needed.</p>
+<p><em>A Software Development Lifecycle will never eliminate these issues, but it will greatly reduce them.</em></p>
+
+
+
+<p>The SDL checks the documentation of the requirements, and then evaluates that the implementation has been done to see if the implementation actually meets the requirements. It is is really a communications tool to inform stakeholders. It helps all the stakeholders understand what was agreed upon to be implemented, and how the implementation was tested to successfully get what is desired<sup data-fn="2731aa0c-1c5d-4971-b782-729a21a764c7" class="fn"><a href="#2731aa0c-1c5d-4971-b782-729a21a764c7" id="2731aa0c-1c5d-4971-b782-729a21a764c7-link">2</a></sup>.</p>
 
 
 
@@ -647,7 +662,7 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 
-<p>From my experience in organisations that have low maturity for SDL, they typically gather the minimum requirements, jump right to implementation, and then do the most minimal testing on the developer&rsquo;s machine before shipping it. This can work effectively for trivial applications, bootstrapping, or experimenting. However, this will fall short for long term viability of the system and falls down even more when more than one developer is part of the project.</p>
+<p>From my experience in organisations that have low maturity for SDL, they typically gather the minimum requirements, jump right to implementation, and then do the most minimal testing on the developer&rsquo;s machine before shipping it. This can work effectively for trivial applications, bootstrapping, or experimenting. However, this will fall short for long term viability of the system and falls down even more when more than one developer is part of the project. Without a SDL, the developers can end up creating something with <a href="https://blog.skywalker.net.au/2024/02/20/legacy-code-with-technical-debt/" data-type="post" data-id="169">poor overal architecture</a>.</p>
 
 
 
@@ -749,7 +764,7 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 
-<p>The point of this stage is to document and agree upon what the system needs to do. Ensuring that the stakeholders, and the development team have the same understanding. This may include the terminology, jargon, and lexicons to ensure that the everyone is speaking the same language.</p>
+<p>The point of this stage is to document and agree upon what the system needs to do. Ensuring that the stakeholders, and the development team have the same clear understanding of what the system needs to do. This may include the terminology, jargon, and lexicons to ensure that the everyone is speaking the same language.</p>
 
 
 
@@ -769,7 +784,7 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 
-<p>Any non-trivial project needs planning. But even trivial projects need to have a plan about where the system is going to be deployed, who is responsible for its lifecycle, and who is involved in the project.</p>
+<p>Any non-trivial project needs planning; however, even trivial projects need to have a plan about where the system is going to be deployed, who is responsible for it throughout the lifecycle, and who is involved in the project.</p>
 
 
 
@@ -777,15 +792,17 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 
-<p><strong>Resource Identification</strong>: This involves identifying the resources needed for the project, including the software development team, hardware, software tools, and budget. For instance, the team might need a project manager to oversee the project, software developers to write the code, and testers to test the software. They might also need hardware like servers and software tools like integrated development environments (IDEs). This also may be the time that the methods for development (Waterfall, or specific Agile) are determined for this project based on the requirements.</p>
+<ul>
+<li><strong>Resource Identification</strong>: This involves identifying the resources needed for the project, including the software development team, hardware, software tools, and budget. For instance, the team might need a project manager to oversee the project, software developers to write the code, and testers to test the software. They might also need hardware like servers and software tools like integrated development environments (IDEs). This also may be the time that the methods for development (Waterfall, or specific Agile) are determined for this project based on the requirements.</li>
 
 
 
-<p><strong>Timeline Setting</strong>: The timeline sets out when each stage of the project should be completed. It helps keep the project on track and ensures that all team members know what they should be working on and when. For example, the timeline might specify that the requirements gathering stage should be completed by the end of the first month, the design stage by the end of the second month, and so on.</p>
+<li><strong>Timeline Setting</strong>: The timeline sets out when each stage of the project should be completed. It helps keep the project on track and ensures that all team members know what they should be working on and when. For example, the timeline might specify that the requirements gathering stage should be completed by the end of the first month, the design stage by the end of the second month, and so on.</li>
 
 
 
-<p><strong>Risk Analysis</strong>: Every project comes with risks, and it&rsquo;s important to identify these risks early on and plan for how to mitigate them. Risks might include things like team members leaving, budget overruns, or technical challenges that are harder to overcome than anticipated.</p>
+<li><strong>Risk Analysis</strong>: Every project comes with risks, and it&rsquo;s important to identify these risks early on and plan for how to mitigate them. Risks might include things like team members leaving, budget overruns, or technical challenges that are harder to overcome than anticipated.</li>
+</ul>
 
 
 
@@ -801,23 +818,25 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 
-<p><strong>System Architecture</strong>: This is a high-level overview of the system&rsquo;s structure. It outlines the system&rsquo;s main components and how they interact with each other. For example, in a restaurant reservation app, the system architecture might include components like the user interface, the database, and the server.</p>
+<ul>
+<li><strong>System Architecture</strong>: This is a high-level overview of the system&rsquo;s structure. It outlines the system&rsquo;s main components and how they interact with each other. For example, in a restaurant reservation app, the system architecture might include components like the user interface, the database, and the server.</li>
 
 
 
-<p><strong>User Interface Design</strong>: This involves designing the system&rsquo;s user interface (UI). The UI is what the user interacts with when they use the system. It needs to be intuitive and user-friendly. For example, the UI design for a restaurant reservation app might include a calendar for selecting the reservation date, a list of available time slots, and a form for entering the user&rsquo;s contact information. The UI can also be confused with UX (User eXperience) which focuses on the overall flow through the system rather than the specific visual elements.</p>
+<li><strong>User Interface Design</strong>: This involves designing the system&rsquo;s user interface (UI). The UI is what the user interacts with when they use the system. It needs to be intuitive and user-friendly. For example, the UI design for a restaurant reservation app might include a calendar for selecting the reservation date, a list of available time slots, and a form for entering the user&rsquo;s contact information. The UI can also be confused with UX (User eXperience) which focuses on the overall flow through the system rather than the specific visual elements.</li>
 
 
 
-<p><strong>Data Design</strong>: This involves designing the system&rsquo;s data. This includes the models that are used in the data, and the various methods to actually store the data, how the data is retrieved, and the trade-offs with the different storage systems. The considerations should not be limited to the use of a SQL database, but also where logs and audit trails would be stored.</p>
+<li><strong>Data Design</strong>: This involves designing the system&rsquo;s data. This includes the models that are used in the data, and the various methods to actually store the data, how the data is retrieved, and the trade-offs with the different storage systems. The considerations should not be limited to the use of a SQL database, but also where logs and audit trails would be stored.</li>
 
 
 
-<p><strong>Network Design</strong>: This involves planning for how the system will communicate with other systems. This is especially important for systems that need to interact with external services or APIs. For example, an insurance quoting system may need to communicate with the businesses accounting package to issue invoices.</p>
+<li><strong>Network Design</strong>: This involves planning for how the system will communicate with other systems. This is especially important for systems that need to interact with external services or APIs. For example, an insurance quoting system may need to communicate with the businesses accounting package to issue invoices.</li>
 
 
 
-<p><strong>Error Handling Design</strong>: This involves planning for how the system will handle errors. This includes both system errors (like a server crash) and user errors (like entering invalid data). For example, the error handling design for a restaurant reservation app might include features like error messages (to inform the user when something goes wrong) and error logs (to help developers diagnose and fix problems).</p>
+<li><strong>Error Handling Design</strong>: This involves planning for how the system will handle errors. This includes both system errors (like a server crash) and user errors (like entering invalid data). For example, the error handling design for a restaurant reservation app might include features like error messages (to inform the user when something goes wrong) and error logs (to help developers diagnose and fix problems).</li>
+</ul>
 
 
 
@@ -833,7 +852,13 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 
-<p><strong>Coding</strong>: This is the process of writing the actual code for the system. The development team uses the design documents as a guide and writes code in the chosen programming language.</p>
+<ul>
+<li><strong>Mocks</strong>: This is where quick and dirty examples of the final system may be developed. This could be as functional as a prototype, or as nonfunctional as a render from a design package.</li>
+
+
+
+<li><strong>Coding</strong>: This is the process of writing the actual code for the system. The development team uses the design documents as a guide and writes code in the chosen programming language.</li>
+</ul>
 
 
 
@@ -849,19 +874,21 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 
-<p><strong>Unit Testing</strong>: This involves testing each individual component of the system to ensure it works correctly in isolation. For example, a unit test for an e-commerce website might check that the shopping cart correctly updates when a product is added.</p>
+<ul>
+<li><strong>Unit Testing</strong>: This involves testing each individual component of the system to ensure it works correctly in isolation. For example, a unit test for an e-commerce website might check that the shopping cart correctly updates when a product is added.</li>
 
 
 
-<p><strong>Integration Testing</strong>: This involves testing the system as a whole to ensure that the components work correctly together. For example, an integration test for an e-commerce website might check that adding a product to the shopping cart updates the total price correctly.</p>
+<li><strong>Integration Testing</strong>: This involves testing the system as a whole to ensure that the components work correctly together. For example, an integration test for an e-commerce website might check that adding a product to the shopping cart updates the total price correctly.</li>
 
 
 
-<p><strong>System Testing</strong>: This involves testing the entire system, including any integrations with external systems. For example, a system test for an e-commerce website might check that the payment processing system correctly charges the customer&rsquo;s credit card when a purchase is made.</p>
+<li><strong>System Testing</strong>: This involves testing the entire system, including any integrations with external systems. For example, a system test for an e-commerce website might check that the payment processing system correctly charges the customer&rsquo;s credit card when a purchase is made.</li>
 
 
 
-<p><strong>User Acceptance Testing (UAT)</strong>: This involves having actual users test the system to ensure it meets their needs and expectations. For example, UAT for an e-commerce website might involve having users try out the website and provide feedback on their experience.</p>
+<li><strong>User Acceptance Testing (UAT)</strong>: This involves having actual users test the system to ensure it meets their needs and expectations. For example, UAT for an e-commerce website might involve having users try out the website and provide feedback on their experience.</li>
+</ul>
 
 
 
@@ -898,7 +925,39 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 
 
 <p>The Deployment and Maintenance stage is where the system is delivered to the users and maintained over its lifetime. It&rsquo;s a crucial stage that ensures the system continues to meet user needs and operate effectively in its environment. It&rsquo;s like the building&rsquo;s opening day and ongoing upkeep &ndash; it ensures that the building is ready for use and continues to serve its purpose over time. Without it, the system might not be used effectively, or it could become outdated or unreliable. With it, the system can continue to provide value to its users for years to come.</p>
-</div></div>
+
+
+
+<h2 class="wp-block-heading">TL; DR &ndash; <strong>Why is SDL Required?</strong></h2>
+
+
+
+<p>The Software Development Lifecycle is required because:<sup data-fn="780acc09-1e49-4649-847b-0d0a8f6b8f55" class="fn"><a href="#780acc09-1e49-4649-847b-0d0a8f6b8f55" id="780acc09-1e49-4649-847b-0d0a8f6b8f55-link">3</a></sup></p>
+
+
+
+<ul>
+<li>It keeps stakeholders upto date on what is happening in the project.</li>
+
+
+
+<li>Identifies, and reduces risk in the project.</li>
+
+
+
+<li>Strucutured approach to development.</li>
+
+
+
+<li>Ability to measure and track goals.</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">References</h2>
+
+
+<ol class="wp-block-footnotes"><li id="65ef91df-c168-4ece-95ef-acb55133f804"><a href="https://en.wikipedia.org/wiki/Software_development_process">https://en.wikipedia.org/wiki/Software_development_process</a> <a href="#65ef91df-c168-4ece-95ef-acb55133f804-link" aria-label="Jump to footnote reference 1">&#8617;&#65038;</a></li><li id="2731aa0c-1c5d-4971-b782-729a21a764c7"><a href="https://www.pmi.org/learning/library/software-development-life-cycle-11412">What IT Project Managers Need To Know about the Software Development Life Cycle (pmi.org)</a> <a href="#2731aa0c-1c5d-4971-b782-729a21a764c7-link" aria-label="Jump to footnote reference 2">&#8617;&#65038;</a></li><li id="780acc09-1e49-4649-847b-0d0a8f6b8f55"><a href="https://resources.github.com/software-development/what-is-sdlc/">Understanding the SDLC: Software Development Lifecycle Explained | GitHub Resources &ndash; GitHub Resources</a> <a href="#780acc09-1e49-4649-847b-0d0a8f6b8f55-link" aria-label="Jump to footnote reference 3">&#8617;&#65038;</a></li></ol></div></div>
 </main>
 
 
@@ -954,7 +1013,7 @@ ol a:where(:not(.wp-element-button)):hover,ul a:where(:not(.wp-element-button)):
 </div>
 </footer></div>
 <script id="wprm-public-js-extra">
-var wprm_public = {"user":"0","endpoints":{"analytics":"https:\/\/blog.skywalker.net.au\/wp-json\/wp-recipe-maker\/v1\/analytics","manage":"https:\/\/blog.skywalker.net.au\/wp-json\/wp-recipe-maker\/v1\/manage"},"settings":{"features_comment_ratings":true,"template_color_comment_rating":"#343434","instruction_media_toggle_default":"on","video_force_ratio":false,"analytics_enabled":false,"google_analytics_enabled":false,"print_new_tab":false,"print_recipe_identifier":"slug"},"post_id":"798","home_url":"https:\/\/blog.skywalker.net.au\/","print_slug":"wprm_print","permalinks":"\/%year%\/%monthnum%\/%day%\/%postname%\/","ajax_url":"https:\/\/blog.skywalker.net.au\/wp-admin\/admin-ajax.php","nonce":"127740e8b5","api_nonce":"e065e74bb1","translations":[]};
+var wprm_public = {"user":"0","endpoints":{"analytics":"https:\/\/blog.skywalker.net.au\/wp-json\/wp-recipe-maker\/v1\/analytics","manage":"https:\/\/blog.skywalker.net.au\/wp-json\/wp-recipe-maker\/v1\/manage"},"settings":{"features_comment_ratings":true,"template_color_comment_rating":"#343434","instruction_media_toggle_default":"on","video_force_ratio":false,"analytics_enabled":false,"google_analytics_enabled":false,"print_new_tab":false,"print_recipe_identifier":"slug"},"post_id":"798","home_url":"https:\/\/blog.skywalker.net.au\/","print_slug":"wprm_print","permalinks":"\/%year%\/%monthnum%\/%day%\/%postname%\/","ajax_url":"https:\/\/blog.skywalker.net.au\/wp-admin\/admin-ajax.php","nonce":"7156f4c2f9","api_nonce":"fd67dc530f","translations":[]};
 </script>
 <script src="https://blog.skywalker.net.au/wp-content/plugins/wp-recipe-maker/dist/public-modern.js?ver=9.4.3" id="wprm-public-js"></script>
 <script id="wp-block-template-skip-link-js-after">
