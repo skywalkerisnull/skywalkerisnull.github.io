@@ -27,3 +27,4 @@ User-agent: omgilibot
 User-agent: PerplexityBot
 User-agent: YouBot
 Disallow: /
+Allow: /terms-and-conditions-bots/
