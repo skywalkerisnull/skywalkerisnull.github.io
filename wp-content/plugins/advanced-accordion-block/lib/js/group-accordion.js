@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+
 (function ($) {
 	// Accordion
 	const groupAccordions = $('.wp-block-aab-group-accordion.click');
@@ -26,7 +27,7 @@
 				const parent = $(this).parent();
 				// get panel
 				const panel = parent.children('.aagb__accordion_body');
-				// console.log("this is panel selector: ", panel);
+
 				// icon
 				const $icon = $(this).find('.aagb__icon');
 
@@ -145,7 +146,7 @@
 
 	// Separate Accordion
 	const separateAccordions = $('.aab__accordion_container');
-	// console.log(separateAccordions)
+
 
 	// Keyboard Navigation for Accordion
 	separateAccordions.each(function () {
@@ -485,7 +486,35 @@
 
 
 
+
+
+// Checklist
+	const accordionItemsChecklist = $('.aagb__accordion_container.check-list');
+	if(accordionItemsChecklist.length){
+
+		$.each(accordionItemsChecklist, function(index, item){
+
+			const accordionHeading = $(item).find('.aagb__accordion_heading');
+
+			accordionHeading.prepend("<input type='checkbox' class='checklist-box'></input>")
+		});
+
+
+	}
+
+
+
+
+
 })(jQuery);
+
+
+
+
+
+
+
+
 
 
 

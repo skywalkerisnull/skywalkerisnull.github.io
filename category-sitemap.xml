@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='July 23, 2024 5:38 am' -->
+<!-- generated-on='August 3, 2024 2:43 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/artificial-intelligence/</loc>
 		<lastmod>2024-03-16T15:45:20+00:00</lastmod>
@@ -32,7 +32,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/it-management/</loc>
-		<lastmod>2024-07-21T12:06:41+00:00</lastmod>
+		<lastmod>2024-08-03T12:31:14+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -56,7 +56,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/</loc>
-		<lastmod>2024-07-21T12:06:41+00:00</lastmod>
+		<lastmod>2024-08-03T12:31:14+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -68,7 +68,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/</loc>
-		<lastmod>2024-07-21T11:59:19+00:00</lastmod>
+		<lastmod>2024-08-03T12:31:14+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -80,8 +80,8 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/systems-architecture/</loc>
-		<lastmod>2024-06-01T12:13:38+00:00</lastmod>
+		<lastmod>2024-08-03T12:31:14+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: 6b6d37be3da9f230b01e185d3efe2a9e; Queries for sitemap: 22; Total queries: 52; Seconds: 0.06; Memory for sitemap: 1KB; Total memory: 8MB -->
+</urlset><!-- Request ID: 29525e851e660050ca44dc2027f67233; Queries for sitemap: 22; Total queries: 52; Seconds: 0.06; Memory for sitemap: 1KB; Total memory: 6MB -->

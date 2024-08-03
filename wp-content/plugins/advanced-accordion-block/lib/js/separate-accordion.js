@@ -81,7 +81,7 @@
 				},
 				success: function (response) {
 					// Handle the response from the server (if needed)
-					console.log('Response from server: ' + response);
+
 					// add active with cookie id
 					$(
 						'.feedback-btn-wrap .feedback-btn[data-id="' +
