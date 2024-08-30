@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='August 30, 2024 11:27 pm' -->
+<!-- generated-on='August 30, 2024 11:55 pm' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/artificial-intelligence/</loc>
 		<lastmod>2024-03-16T15:45:20+00:00</lastmod>
@@ -50,7 +50,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/personal-interests/</loc>
-		<lastmod>2024-08-17T11:05:21+00:00</lastmod>
+		<lastmod>2024-08-31T09:51:03+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -62,7 +62,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/</loc>
-		<lastmod>2024-08-31T09:26:27+00:00</lastmod>
+		<lastmod>2024-08-31T09:51:03+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -80,7 +80,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/stories/</loc>
-		<lastmod>2024-08-24T10:11:25+00:00</lastmod>
+		<lastmod>2024-08-31T09:51:03+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -90,4 +90,4 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: ee65d40fd7379e8249fdb3f121a9001c; Queries for sitemap: 21; Total queries: 53; Seconds: 0.06; Memory for sitemap: 1KB; Total memory: 8MB -->
+</urlset><!-- Request ID: b9ebb475cc5dff220447b8e0023928c5; Queries for sitemap: 21; Total queries: 53; Seconds: 0.06; Memory for sitemap: 1KB; Total memory: 8MB -->
