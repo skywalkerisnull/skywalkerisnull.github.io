@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='August 24, 2024 2:19 am' -->
+<!-- generated-on='August 30, 2024 11:27 pm' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/artificial-intelligence/</loc>
 		<lastmod>2024-03-16T15:45:20+00:00</lastmod>
@@ -32,7 +32,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/it-management/</loc>
-		<lastmod>2024-08-17T10:34:21+00:00</lastmod>
+		<lastmod>2024-08-31T09:26:27+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -62,19 +62,19 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/</loc>
-		<lastmod>2024-08-24T10:37:02+00:00</lastmod>
+		<lastmod>2024-08-31T09:26:27+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/security/</loc>
-		<lastmod>2024-08-17T10:34:21+00:00</lastmod>
+		<lastmod>2024-08-31T09:26:27+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/</loc>
-		<lastmod>2024-08-17T10:34:21+00:00</lastmod>
+		<lastmod>2024-08-31T09:26:27+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -86,8 +86,8 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/systems-architecture/</loc>
-		<lastmod>2024-08-17T10:34:21+00:00</lastmod>
+		<lastmod>2024-08-31T09:26:27+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: 87f61e1061fcfba351a23894dedd7a38; Queries for sitemap: 21; Total queries: 51; Seconds: 0.06; Memory for sitemap: 1KB; Total memory: 6MB -->
+</urlset><!-- Request ID: ee65d40fd7379e8249fdb3f121a9001c; Queries for sitemap: 21; Total queries: 53; Seconds: 0.06; Memory for sitemap: 1KB; Total memory: 8MB -->
