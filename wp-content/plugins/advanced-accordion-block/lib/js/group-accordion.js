@@ -149,23 +149,27 @@
 
 
 	// Keyboard Navigation for Accordion
-	separateAccordions.each(function () {
-		accordionHead = $(this).find(".aab__accordion_head");
+	// separateAccordions.each(function () {
+	// 	accordionHead = $(this).find(".aab__accordion_head");
+	//
+	// 	console.log(accordionHead)
+	//
+	// 	// Ensure the element is focusable
+	// 	accordionHead.attr('tabindex', '0');
+	//
+	// 	accordionHead.on('keydown', function (e) {
+	// 		if (e.key === 'Enter' || e.key === ' '){
+	// 			e.preventDefault();
+	// 			$(this).click();
+	// 		}
+	// 	});
+	//
+	// });
+	// test here
 
-		// Ensure the element is focusable
-		accordionHead.attr('tabindex', '0');
+	// test here end
 
-		accordionHead.on('keydown', function (e) {
-			if (e.key === 'Enter' || e.key === ' '){
-				e.preventDefault();
-				$(this).click();
-			}
-		});
-
-
-	});
-
-	// Keyboard Navigation for Accordion
+	// Keyboard Navigation for Group Accordion
 	groupAccordions.each(function () {
 		const accordionHeads = $(this).find('.aagb__accordion_head');
 

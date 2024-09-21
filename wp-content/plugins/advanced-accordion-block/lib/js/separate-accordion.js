@@ -200,8 +200,46 @@
 
 		// adding active class
 		$($this).toggleClass('active');
-		
 	});
+
+
+	// Keyboard Navigation for Accordion
+	$('.aab__accordion_container.separate-accordion').each(function() {
+		const accordionContainer = $(this);
+		const accordionHeads = accordionContainer.find('.aab__accordion_head');
+
+		accordionHeads.each(function(index) {
+			const accordionHead = $(this);
+
+			// Add tabindex and class for keyboard accessibility
+			accordionHead.attr('tabindex', '0');
+			accordionHead.addClass('aab__accordion_head--keyboard');
+
+			// Handle keydown events for keyboard navigation and interaction
+			accordionHead.on('keydown', function(e) {
+				switch (e.key) {
+					case 'Enter':
+					case ' ':
+						e.preventDefault();
+						accordionHead.click(); // Trigger the click event
+						break;
+				}
+			});
+
+			// Add class to the container when focus is on the accordion head
+			accordionHead.on('focus', function() {
+				accordionContainer.addClass('keyboard-active');
+			});
+
+			// Remove class from the container when focus is lost
+			accordionHead.on('blur', function() {
+				accordionContainer.removeClass('keyboard-active');
+			});
+		});
+	});
+
 })(jQuery);
+
+
 
 

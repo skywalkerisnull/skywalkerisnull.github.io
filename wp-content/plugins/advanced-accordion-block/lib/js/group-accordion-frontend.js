@@ -78,7 +78,6 @@
                             nextIndex++;
                         }
                     }
-
                 }
             })
         })
@@ -87,17 +86,10 @@
         const lastAccordionItem = accordionItems.last();
         const lastAccordionItemStepText = lastAccordionItem.find('.step-text'); // Select the content of the last accordion item
 
-
-
         if (lastAccordionItemStepText.length > 0) { // Check if the last child element exists
             lastAccordionItemStepText.text("End"); // Change its text content
         }
-
     })
-
-
-
-
 
 
     function allAccordionsCompleted(status, items) {
@@ -108,7 +100,6 @@
         }
         return true;
     }
-
 
     // Check list
     const accordionCheckListItems = $('.wp-block-aab-accordion-item.aagb__accordion_container.check-list');
@@ -147,9 +138,6 @@
 
             }
 
-
-
-
             checklistBox.change(function () {
                 aagb__accordion_title.toggleClass('line-through');
                 isChecked = checklistBox.is(':checked');
@@ -158,17 +146,35 @@
 
                 setCookie('aab-accordion-check-list-status', JSON.stringify(checklistItems), 30);
 
-
-
             });
-
         });
 
-
     }
-
-
     // end of check list
+
+
+    // Read More button
+    // Set the maximum number of characters to display initially
+    const textMax = aagb_group_accordion_text_max;
+
+    $(".aagb__accordion_component.read-more-btn").each(function() {
+        const paragraph = $(this).find("p:first");
+        const fullText = paragraph.text();
+
+        const slicedText = fullText.slice(0, textMax);
+
+        paragraph.text(slicedText).show();
+
+        paragraph.data("full-text", fullText);
+
+        $(this).siblings(".aagb_button_toggle").click(function(e) {
+            e.preventDefault();
+            paragraph.text(fullText).hide().slideDown("slow");
+            $(this).fadeOut("slow");
+            $(this).closest(".aagb__accordion_body").find(".aagb_overlay").fadeOut("slow");
+        });
+    });
+    //End of Read More button
 
     function setCookie(name, value, days) {
         let expires = "";
