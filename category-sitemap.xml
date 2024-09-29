@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='September 29, 2024 12:49 am' -->
+<!-- generated-on='September 29, 2024 3:23 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/artificial-intelligence/</loc>
 		<lastmod>2024-03-16T15:45:20+00:00</lastmod>
@@ -62,7 +62,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/</loc>
-		<lastmod>2024-08-31T11:14:47+00:00</lastmod>
+		<lastmod>2024-09-29T12:26:53+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -74,7 +74,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/</loc>
-		<lastmod>2024-08-31T11:14:47+00:00</lastmod>
+		<lastmod>2024-09-29T12:26:53+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -86,14 +86,14 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/systems-architecture/</loc>
-		<lastmod>2024-08-31T11:14:47+00:00</lastmod>
+		<lastmod>2024-09-29T12:26:53+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/uncategorized/</loc>
-		<lastmod>2024-09-29T10:49:43+00:00</lastmod>
+		<lastmod>2024-09-29T12:40:20+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: ae684711834edc23f47bdf552a1bba3c; Queries for sitemap: 21; Total queries: 53; Seconds: 0.07; Memory for sitemap: 1KB; Total memory: 8MB -->
+</urlset><!-- Request ID: 6d0d21979db7aa4533b513d146f44ee9; Queries for sitemap: 21; Total queries: 53; Seconds: 0.07; Memory for sitemap: 1KB; Total memory: 8MB -->
