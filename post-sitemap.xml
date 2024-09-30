@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='September 30, 2024 3:31 am' -->
+<!-- generated-on='September 30, 2024 3:41 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/2024/02/10/interacting-with-legacy-systems/</loc>
 		<lastmod>2024-03-05T08:54:29+00:00</lastmod>
@@ -270,4 +270,4 @@
 		<changefreq>monthly</changefreq>
 		<priority>1.0</priority>
 	</url>
-</urlset><!-- Request ID: c3700ed1141c471bfe4c1d6aa0d5519d; Queries for sitemap: 3; Total queries: 35; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 8MB -->
+</urlset><!-- Request ID: f89b83a79086ed061e7673cda7d734de; Queries for sitemap: 3; Total queries: 35; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 8MB -->
