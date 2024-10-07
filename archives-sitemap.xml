@@ -1,9 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='September 30, 2024 3:41 am' -->
+<!-- generated-on='October 7, 2024 5:23 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
+		<loc>https://blog.skywalker.net.au/2024/10/</loc>
+		<lastmod>2024-10-07T05:20:34+00:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
 		<loc>https://blog.skywalker.net.au/2024/09/</loc>
 		<lastmod>2024-09-29T02:26:53+00:00</lastmod>
-		<changefreq>daily</changefreq>
+		<changefreq>yearly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
@@ -48,4 +54,4 @@
 		<changefreq>yearly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: e46a243b86cda02e7de7656ae7d56a91; Queries for sitemap: 2; Total queries: 34; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 8MB -->
+</urlset><!-- Request ID: 0c4de9405d08e98669c3cfbbd42a6ef9; Queries for sitemap: 2; Total queries: 34; Seconds: 0.01; Memory for sitemap: 1KB; Total memory: 8MB -->
