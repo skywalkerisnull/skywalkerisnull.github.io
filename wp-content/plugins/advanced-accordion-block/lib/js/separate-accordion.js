@@ -2,7 +2,71 @@
 	'use strict';
 
 	$(document).ready(function () {
-		// Function to get a cookie's value by name
+		// Initialize counters based on stored cookies
+		$('.feedback-btn-wrap').each(function () {
+			const $wrap = $(this);
+			const feedbackId = $wrap.data('id');
+			const yesCount = getCookie(`voted_${feedbackId}_yes`) || 0;
+			const noCount = getCookie(`voted_${feedbackId}_no`) || 0;
+			const userVote = getCookie(`voted_${feedbackId}`);
+
+			$wrap.find('button[data-value="yes"] .count').text(yesCount);
+			$wrap.find('button[data-value="no"] .count').text(noCount);
+
+			if (userVote) {
+				$wrap.find(`button[data-value="${userVote}"]`).addClass('active');
+			}
+		});
+	
+		// Handle feedback button click
+		$('.feedback-btn').on('click', function () {
+			const $button = $(this);
+			const $feedbackWrap = $button.closest('.feedback-btn-wrap');
+			const feedbackId = $feedbackWrap.data('id');
+			const voteValue = $button.data('value');
+			const cookieName = `voted_${feedbackId}`;
+			const countCookieName = `voted_${feedbackId}_${voteValue}`;
+			
+	
+			// Check if user has already voted
+			const existingVote = getCookie(cookieName);
+			if (existingVote) {
+				$('body').append(
+					'<div class="aagb-feedback-thankyou">You have already voted.</div>'
+				);
+				setTimeout(function () {
+					$('.aagb-feedback-thankyou').hide();
+				}, 1000);
+				return;
+			}
+			// add class active
+			$button.addClass('active');
+            // Remove active class from other buttons
+            $feedbackWrap.find('.feedback-btn').not($button).removeClass('active');
+	
+			// Set cookie for the vote
+			setCookie(cookieName, voteValue); // Vote valid for 7 days
+	
+			// Update the count and store it in a cookie
+			const $countSpan = $button.find('.count');
+			const currentCount = parseInt($countSpan.text(), 10) || 0;
+			const newCount = currentCount + 1;
+			$countSpan.text(newCount);
+			setCookie(countCookieName, newCount); // Store the updated count
+	
+			// Disable other buttons
+			// $feedbackWrap.find('.feedback-btn').prop('disabled', true);
+	
+			$('body').append(
+				'<div class="aagb-feedback-thankyou">Thank you for your feedback!</div>'
+			);
+			setTimeout(function () {
+				$('.aagb-feedback-thankyou').hide();
+			}, 1000);
+
+		});
+	
+		// Cookie utility functions
 		function getCookie(name) {
 			const cookies = document.cookie.split(';');
 			for (let i = 0; i < cookies.length; i++) {
@@ -13,146 +77,12 @@
 			}
 			return null;
 		}
-
-		// Function to set a cookie
-		function setCookie(name, value, days) {
-			const expires = new Date();
-			expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-			document.cookie =
-				name + '=' + value + '; expires=' + expires.toUTCString();
+	
+		function setCookie(name, value) {
+			// Permanent cookie with no expiration (lasts until manually deleted)
+			document.cookie = name + '=' + value + '; path=/';
 		}
-
-		// Function to check if the user has voted for the opposite option
-		function hasVotedForOppositeOption(dataId, value) {
-			const oppositeValue = value === 'yes' ? 'no' : 'yes';
-			const oppositeOptionKey = 'voted_' + dataId + '_' + oppositeValue;
-			return getCookie(oppositeOptionKey) === '1';
-		}
-
-		// Function to update the counter and store data in cookies
-		function updateCounter(btn, value) {
-			const dataId = btn.attr('data-id');
-			const values = btn.attr('data-value');
-			const countElement = btn.find('.count');
-			const votedKey = 'voted_' + dataId + '_' + value;
-
-			// Check if the user has voted for the opposite option
-			if (hasVotedForOppositeOption(dataId, value)) {
-				setTimeout(function () {
-					$('body').append(
-						'<div class="aagb-feedback-thankyou">You can only vote for one option.</div>'
-					);
-				}, 500);
-				setTimeout(function () {
-					$('.aagb-feedback-thankyou').remove();
-				}, 3000);
-				return;
-			}
-
-			// Check if the user has already voted for this option
-			if (getCookie(votedKey)) {
-				setTimeout(function () {
-					$('body').append(
-						'<div class="aagb-feedback-thankyou">You have already voted</div>'
-					);
-				}, 500);
-				setTimeout(function () {
-					$('.aagb-feedback-thankyou').remove();
-				}, 3000);
-				return;
-			}
-
-			let count = parseInt(countElement.text(), 10);
-			count++;
-			countElement.text(count);
-
-			// Store a cookie to indicate that the user has voted for this option
-			setCookie(votedKey, '1', 365); // Store the cookie for 365 days
-
-			// Send an AJAX request to update the post meta
-			$.ajax({
-				type: 'POST',
-				url: aagb_local_object.ajax_url, // This global variable is defined by WordPress and points to admin-ajax.php
-				data: {
-					action: 'update_post_meta_action', // Custom AJAX action name
-					post_id: dataId,
-					value: value,
-					count: count,
-				},
-				success: function (response) {
-					// Handle the response from the server (if needed)
-
-					// add active with cookie id
-					$(
-						'.feedback-btn-wrap .feedback-btn[data-id="' +
-							dataId +
-							'"][data-value="' +
-							values +
-							'"]'
-					).addClass('active');
-
-					setTimeout(function () {
-						$('body').append(
-							'<div class="aagb-feedback-thankyou">Thank you for your feedback!</div>'
-						);
-					}, 500);
-					setTimeout(function () {
-						$('.aagb-feedback-thankyou').remove();
-					}, 3000);
-				},
-			});
-		}
-
-		// Attach click event handlers to all feedback buttons
-		const feedbackButtons = $('.feedback-btn');
-		feedbackButtons.each(function () {
-			$(this).on('click', function (e) {
-				const value = $(this).data('value');
-				updateCounter($(this), value);
-			});
-		});
-
-		$('.feedback-btn-wrap .feedback-btn').each(function () {
-			var data_id = $(this).data('id');
-			var data_val = $(this).data('value');
-
-			// Send an AJAX request to retrieve post meta data based on data_id
-			$.ajax({
-				url: aagb_local_object.ajax_url, // This should be set by WordPress and points to admin-ajax.php
-				type: 'POST',
-				data: {
-					action: 'get_post_meta_by_id',
-					data_id: data_id,
-				},
-				success: function (response) {
-					// response return ''
-					if (response[data_val] == '') {
-						response[data_val] = 0;
-					}
-
-					$(
-						'.feedback-btn-wrap .feedback-btn[data-id="' +
-							data_id +
-							'"][data-value="' +
-							data_val +
-							'"] .count'
-					).text(response[data_val]);
-
-					const votedKey = 'voted_' + data_id + '_' + data_val;
-					if (getCookie(votedKey)) {
-						$(
-							'.feedback-btn-wrap .feedback-btn[data-id="' +
-								data_id +
-								'"][data-value="' +
-								data_val +
-								'"]'
-						).addClass('active');
-						return;
-					}
-				},
-			});
-		});
-	});
+	});	
 
 	// show body on click head
 	$(document).on('click', '.aab__accordion_head', function () {
@@ -239,7 +169,3 @@
 	});
 
 })(jQuery);
-
-
-
-
