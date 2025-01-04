@@ -4,12 +4,11 @@
 /*
 * Style Works for both Editor and Frontend
 */
-.aab__accordion_container.separate-accordion.keyboard-active {
-  outline: none;
-  border: 1px solid #007BFF;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
+/*.aab__accordion_container.separate-accordion.keyboard-active {
+	outline: none;
+	border: 1px solid #007BFF;
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}*/
 .wp-block-aab-accordion-block {
   overflow: hidden;
 }
@@ -58,7 +57,7 @@
   flex: 1;
 }
 .wp-block-aab-accordion-block .aab__accordion_head .aab__accordion_heading.aab_left_icon {
-  margin-left: 20px;
+  margin-left: 16px;
   flex: 1;
 }
 .wp-block-aab-accordion-block .aab__accordion_head .aab__accordion_heading.aab_right_link {
@@ -95,6 +94,9 @@
 }
 .wp-block-aab-accordion-block .aab__accordion_head .aab__accordion_heading:hover a {
   opacity: 1;
+}
+.wp-block-aab-accordion-block .aab__accordion_head .aab__accordion_title {
+  padding-top: 0px;
 }
 .wp-block-aab-accordion-block .collapse-icon span {
   display: block;
@@ -180,10 +182,6 @@
   position: relative;
   padding: 10px 15px;
 }
-.wp-block-aab-accordion-block.is-style-qa :where(.wp-site-blocks *:focus) {
-  outline-width: 1px;
-  outline-style: none;
-}
 .wp-block-aab-accordion-block.is-style-qa .aab__accordion_head {
   display: flex;
   justify-content: space-between;
@@ -249,6 +247,11 @@
 
 .aab__accordion_container.is-style-qa .aab__accordion_head.aab_left_icon + .aab__accordion_body {
   padding-left: 128px;
+}
+
+.wp-block-aab-accordion-block.is-style-qa :where(.wp-site-blocks *:focus) {
+  outline-width: 1px;
+  outline-style: none;
 }
 
 :where(.wp-site-blocks *:focus) {

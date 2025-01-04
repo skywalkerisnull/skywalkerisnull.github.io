@@ -38,7 +38,9 @@
 
 
                     if(allAccordionsCompleted(accordionCompletionStatus, accordionItems)) {
-                         $("#" + accordionId).append('<span class="step-result">Congratulations, you are done!</span>');
+                         $("#" + accordionId).find('.step-result').css('display','block');
+                    }else{
+                        $("#" + accordionId).find('.step-result').hide();
                     }
                 }
             }else{
@@ -55,10 +57,9 @@
                 setCookie('aab-accordion-completion-status-' + accordionId , JSON.stringify(accordionCompletionStatus), 30);
 
                 if(allAccordionsCompleted(accordionCompletionStatus, accordionItems)) {
-                    $("#" + accordionId).append('<span class="step-result">Congratulations, you are done!</span>');
+                    $("#" + accordionId).find('.step-result').css('display','block');
                 }else{
                     let nextIndex = index + 1;
-                    console.log(index, nextIndex)
 
                     while(nextIndex < accordionItems.length){
                         if (!accordionCompletionStatus[nextIndex]) {
@@ -155,23 +156,25 @@
 
     // Read More button
     // Set the maximum number of characters to display initially
-    const textMax = aagb_group_accordion_text_max;
+
 
     $(".aagb__accordion_component.read-more-btn").each(function() {
+        const textMax = $(this).data('contentcount');
         const paragraph = $(this).find("p:first");
         const fullText = paragraph.text();
-
         const slicedText = fullText.slice(0, textMax);
-
-        paragraph.text(slicedText).show();
+        paragraph.text(slicedText + '...').show();
 
         paragraph.data("full-text", fullText);
 
+        $(this).children().not(paragraph).fadeOut();
+
         $(this).siblings(".aagb_button_toggle").click(function(e) {
             e.preventDefault();
-            paragraph.text(fullText).hide().slideDown("slow");
+            paragraph.text(fullText).slideDown("slow");
+            $(this).closest(".aagb__accordion_body").find(".aagb__accordion_component").children().not(paragraph).fadeIn();
             $(this).fadeOut("slow");
-            $(this).closest(".aagb__accordion_body").find(".aagb_overlay").fadeOut("slow");
+            $(this).closest(".aagb__accordion_body").find(".aagb_overlay").removeClass("aagb_overlay");
         });
     });
     //End of Read More button

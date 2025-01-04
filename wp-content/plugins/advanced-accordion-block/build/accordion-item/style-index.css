@@ -18,6 +18,9 @@
   cursor: pointer;
   outline: 0;
 }
+.wp-block-aab-accordion-item .aagb__accordion_head:focus {
+  border: none;
+}
 .wp-block-aab-accordion-item .aagb__accordion_head #complete-sign {
   background-color: #66CDA3;
   color: #fff;
@@ -71,6 +74,10 @@
 .wp-block-aab-accordion-item .aagb__accordion_head .aagb__accordion_heading .aagb__accordion_title.line-through {
   text-decoration: line-through;
 }
+.wp-block-aab-accordion-item .aagb__accordion_head .aagb__accordion_heading .aagb__accordion_title {
+  padding-top: 0;
+  padding-bottom: 0;
+}
 .wp-block-aab-accordion-item .aagb__accordion_head .aagb__accordion_heading a {
   text-decoration: none;
   color: #333333;
@@ -89,6 +96,7 @@
 }
 .wp-block-aab-accordion-item .aagb__accordion_body {
   display: none;
+  padding-right: 10px;
 }
 .wp-block-aab-accordion-item .aagb__accordion_body .continue {
   background: #41a9f8;
@@ -110,6 +118,24 @@
   width: 20px;
   height: 20px;
 }
+.wp-block-aab-accordion-item .aagb__accordion_body .aagb__accordion_component p {
+  margin-bottom: 20px;
+}
+.wp-block-aab-accordion-item .aagb__accordion_body .aagb__accordion_component.aagb_overlay > p:first-child {
+  position: relative;
+  z-index: 1;
+}
+.wp-block-aab-accordion-item .aagb__accordion_body .aagb__accordion_component.aagb_overlay > p:first-child::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9));
+  height: 50px;
+  right: 0;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
 
 .wp-block-aab-accordion-item.aagb__accordion_active {
   overflow: hidden;
@@ -119,8 +145,8 @@
 }
 
 .aagb_form_inner {
-  max-width: 100%;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   margin: 0 auto 40px;
   text-align: center;
 }
@@ -144,16 +170,18 @@
   height: 60px;
   font-size: 18px;
   color: #333;
+  padding-right: 55px;
+}
+.aagb_form_inner input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: searchfield-cancel-button !important;
+  height: 18px;
+  width: 18px;
+  margin-left: 0.4em;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27%23777%27><path d=%27M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z%27/></svg>");
+  cursor: pointer;
 }
 .aagb_form_inner .help-block {
   font-size: 16px;
-}
-
-.aagb_overlay {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff 75%);
-  height: 50px;
-  margin-top: -50px;
-  position: relative;
 }
 
 .aagb_accordion_wrapper_btn {
@@ -210,7 +238,7 @@
 
 .wp-block-aab-group-accordion .step-result {
   border: 1px solid #3e94b2;
-  display: block;
+  display: none;
   padding: 20px;
 }
 
@@ -228,17 +256,19 @@
   background: #505050;
   color: #fff;
   width: 80px;
-  line-height: 40px;
+  line-height: 43px;
   font-size: 25px;
   text-align: center;
   border-radius: 3px;
   font-weight: 500;
+  position: relative;
+  z-index: 2;
 }
 .wp-block-aab-accordion-item.aagb__accordion_container.style-qa .aagb__accordion_head .aagb__accordion_heading .icon-container .icon-a {
   background: #f5a623;
   color: #fff;
   width: 80px;
-  line-height: 40px;
+  line-height: 43px;
   font-size: 25px;
   text-align: center;
   border-radius: 3px;
@@ -247,9 +277,10 @@
   top: 0;
   left: 0;
   opacity: 0;
+  transition: all 0.4s ease-in-out;
+  z-index: 1;
 }
 .wp-block-aab-accordion-item.aagb__accordion_container.style-qa .aagb__accordion_body {
-  padding: 0 0 0 104px;
   border-top: none !important;
 }
 .wp-block-aab-accordion-item.aagb__accordion_container.style-qa .aagb__accordion_body .block-editor-inner-blocks .block-editor-block-list__layout :first-child {
@@ -270,9 +301,8 @@
   border-bottom: none !important;
 }
 .wp-block-aab-accordion-item.aagb__accordion_container.style-qa.aagb__accordion_active .aagb__accordion_head .aagb__accordion_heading .icon-container .icon-a {
-  top: 40px;
+  top: 43px;
   opacity: 1;
-  z-index: 101;
 }
 .wp-block-aab-accordion-item.aagb__accordion_container.style-qa.aagb__accordion_active .aagb__accordion_head--keyboard:focus {
   border: none !important;
