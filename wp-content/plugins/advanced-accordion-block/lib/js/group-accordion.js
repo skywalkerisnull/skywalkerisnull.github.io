@@ -28,10 +28,17 @@
                 // get panel
                 const panel = parent.children('.aagb__accordion_body');
 
+                // adding active class
+
+
                 // icon
                 const $icon = $(this).find('.aagb__icon');
 
                 if (panel.hasClass('aagb__accordion_body--show')) {
+
+
+                    $(this).removeClass('active');
+
                     // active class to parent
                     parent.removeClass('aagb__accordion_active');
                     panel.removeClass('aagb__accordion_body--show');
@@ -69,6 +76,14 @@
                         $icon.addClass('dashicons-insert');
                     }
                 } else {
+
+                    accordionHeads.each(function () {
+                        if ($(this).hasClass('active')) {
+                            $(this).removeClass('active');
+                        }
+                    });
+                    $(this).addClass('active');
+
                     accordionContents.each(function () {
                         if ($(this).hasClass('aagb__accordion_body--show')) {
                             $(this).removeClass('aagb__accordion_body--show');
@@ -143,31 +158,6 @@
             });
         });
     });
-
-    // Separate Accordion
-    const separateAccordions = $('.aab__accordion_container');
-
-
-    // Keyboard Navigation for Accordion
-    // separateAccordions.each(function () {
-    // 	accordionHead = $(this).find(".aab__accordion_head");
-    //
-    // 	console.log(accordionHead)
-    //
-    // 	// Ensure the element is focusable
-    // 	accordionHead.attr('tabindex', '0');
-    //
-    // 	accordionHead.on('keydown', function (e) {
-    // 		if (e.key === 'Enter' || e.key === ' '){
-    // 			e.preventDefault();
-    // 			$(this).click();
-    // 		}
-    // 	});
-    //
-    // });
-    // test here
-
-    // test here end
 
     // Keyboard Navigation for Group Accordion
     groupAccordions.each(function () {
@@ -426,10 +416,28 @@
         targetAccordion.find($('.aagb__accordion_body'))
             .addClass('aagb__accordion_body--show')
             .slideDown();
-        targetAccordion.find($('.aagb__icon'))
-            .removeClass('dashicons-plus-alt2')
-            .addClass('dashicons-minus');
         targetAccordion.find('.panel').addClass('aagb__accordion_active');
+        targetAccordion.find('.hasSubHeading').addClass('active');
+
+        // icon
+        const $icon = targetAccordion.find('.aagb__icon');
+
+        if ($icon.hasClass('dashicons-plus-alt2')) {
+            $icon.removeClass('dashicons-plus-alt2');
+            $icon.addClass('dashicons-minus');
+        } else if ($icon.hasClass('dashicons-arrow-down-alt2')) {
+            $icon.removeClass('dashicons-arrow-down-alt2');
+            $icon.addClass('dashicons-arrow-up-alt2');
+        } else if ($icon.hasClass('dashicons-arrow-down')) {
+            $icon.removeClass('dashicons-arrow-down');
+            $icon.addClass('dashicons-arrow-up');
+        } else if ($icon.hasClass('dashicons-plus-alt')) {
+            $icon.removeClass('dashicons-plus-alt');
+            $icon.addClass('dashicons-dismiss');
+        }  else if ($icon.hasClass('dashicons-insert')) {
+            $icon.removeClass('dashicons-insert');
+            $icon.addClass('dashicons-remove');
+        }
     });
     $('.content-accordion__close-all').on('click', function (e) {
         e.preventDefault();
@@ -437,10 +445,28 @@
         targetAccordion.find($('.aagb__accordion_body'))
             .removeClass('aagb__accordion_body--show')
             .slideUp();
-        targetAccordion.find($('.aagb__icon'))
-            .removeClass('dashicons-minus')
-            .addClass('dashicons-plus-alt2');
         targetAccordion.find('.panel').removeClass('aagb__accordion_active');
+        targetAccordion.find('.hasSubHeading').removeClass('active');
+
+
+        const $icon = targetAccordion.find('.aagb__icon');
+
+         if ($icon.hasClass('dashicons-minus')) {
+            $icon.removeClass('dashicons-minus');
+            $icon.addClass('dashicons-plus-alt2');
+        } else if ($icon.hasClass('dashicons-arrow-up-alt2')) {
+            $icon.removeClass('dashicons-arrow-up-alt2');
+            $icon.addClass('dashicons-arrow-down-alt2');
+        } else if ($icon.hasClass('dashicons-arrow-up')) {
+            $icon.removeClass('dashicons-arrow-up');
+            $icon.addClass('dashicons-arrow-down');
+        } else if ($icon.hasClass('dashicons-dismiss')) {
+            $icon.removeClass('dashicons-dismiss');
+            $icon.addClass('dashicons-plus-alt');
+        }  else if ($icon.hasClass('dashicons-remove')) {
+            $icon.removeClass('dashicons-remove');
+            $icon.addClass('dashicons-insert');
+        }
     });
 
     $('.noEnterSubmit').keypress(function (e) {
@@ -506,6 +532,8 @@
 
 
     }
+
+
 
 
 })(jQuery);

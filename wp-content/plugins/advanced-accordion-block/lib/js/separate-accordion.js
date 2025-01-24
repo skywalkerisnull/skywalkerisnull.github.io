@@ -32,10 +32,10 @@
 			const existingVote = getCookie(cookieName);
 			if (existingVote) {
 				$('body').append(
-					'<div class="aagb-feedback-thankyou">You have already voted.</div>'
+					'<div class="aab-feedback-thankyou">You have already voted.</div>'
 				);
 				setTimeout(function () {
-					$('.aagb-feedback-thankyou').hide();
+					$('.aab-feedback-thankyou').hide();
 				}, 1000);
 				return;
 			}
@@ -58,10 +58,10 @@
 			// $feedbackWrap.find('.feedback-btn').prop('disabled', true);
 	
 			$('body').append(
-				'<div class="aagb-feedback-thankyou">Thank you for your feedback!</div>'
+				'<div class="aab-feedback-thankyou">Thank you for your feedback!</div>'
 			);
 			setTimeout(function () {
-				$('.aagb-feedback-thankyou').hide();
+				$('.aab-feedback-thankyou').hide();
 			}, 1000);
 
 		});

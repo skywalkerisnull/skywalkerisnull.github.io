@@ -172,12 +172,8 @@
         }
 
         if (this.options.placement === 'left') {
-          anchor.style.position = 'absolute';
-          anchor.style.marginLeft = '-1em';
-          anchor.style.paddingRight = '0.5em';
           elements[i].insertBefore(anchor, elements[i].firstChild);
         } else { // if the option provided is `right` (or anything else).
-          anchor.style.paddingLeft = '0.375em';
           elements[i].appendChild(anchor);
         }
       }

@@ -1,41 +1,41 @@
 /* eslint-disable no-undef */
 (function ($) {
+
+
     // genereate unique id
     const groupAccordions=  $(".wp-block-aab-group-accordion");
     let id = 0;
 
-   $.each(groupAccordions, function(index, item) {
-       id++;
-       $(item).attr('id', 'group-accordion-' + id)
-    })
+   // $.each(groupAccordions, function(index, item) {
+   //     id++;
+   //     $(item).attr('id', 'group-accordion-' + id)
+   //  })
 
     // step
     $.each(groupAccordions, function(index, item) {
         const accordionId = $(item).attr('id');
-        const parentDiv = $(`#${accordionId}`)
+        const parentDiv = $(`#${accordionId}`);
+
         const accordionItems = $(parentDiv).find('.wp-block-aab-accordion-item.aagb__accordion_container.step');
 
         const accordionCompletionStatus= {};
-        const accordionStatusCookie = JSON.parse( getCookie(`aab-accordion-completion-status-${accordionId}`) );
-
+        const accordionStatusCookie = JSON.parse( getCookie(`aab-completion-status-${accordionId}`) );
 
         $.each(accordionItems, function (index, accordionItem){
             const accordionHead = $(accordionItem).find('.aagb__accordion_head');
             const accordionBody = $(accordionItem).find('.aagb__accordion_body');
             const accordionBodyContinue = $(accordionBody).find('.continue');
-            const completeSign = $(accordionHead).find('#complete-sign');
+            const completeSign = $(accordionHead).find('.complete-sign');
             const aagbIcon = $(accordionHead).find('.aagb__icon');
 
 
             /* cookie work's here */
             if(accordionStatusCookie !== null){
                 accordionCompletionStatus[index] = accordionStatusCookie[index] || false;
-
                 if(accordionCompletionStatus[index]){
                     completeSign.show();
                     aagbIcon.hide();
                     accordionBodyContinue.hide();
-
 
                     if(allAccordionsCompleted(accordionCompletionStatus, accordionItems)) {
                          $("#" + accordionId).find('.step-result').css('display','block');
@@ -53,8 +53,7 @@
                 accordionCompletionStatus[index] = true;
                 aagbIcon.hide();
                 accordionBodyContinue.hide();
-
-                setCookie('aab-accordion-completion-status-' + accordionId , JSON.stringify(accordionCompletionStatus), 30);
+                setCookie('aab-completion-status-' + accordionId , JSON.stringify(accordionCompletionStatus), 30);
 
                 if(allAccordionsCompleted(accordionCompletionStatus, accordionItems)) {
                     $("#" + accordionId).find('.step-result').css('display','block');
@@ -90,6 +89,52 @@
         if (lastAccordionItemStepText.length > 0) { // Check if the last child element exists
             lastAccordionItemStepText.text("End"); // Change its text content
         }
+
+        // Check list
+        const accordionCheckListItems =  $(parentDiv).find('.wp-block-aab-accordion-item.aagb__accordion_container.check-list');
+
+        if(accordionCheckListItems.length) {
+            let checklistItems = [];
+            const checklistItemsCookie = JSON.parse( getCookie(`aab-checklist-status-${accordionId}`) );
+
+            if(checklistItemsCookie !== null){
+                checklistItems = checklistItemsCookie;
+            }
+
+            $.each(accordionCheckListItems, function(index, item) {
+                const checklistBox = $(item).find('.checklist-box');
+                const aagb__accordion_title = $(item).find('.aagb__accordion_title');
+                let isChecked = false;
+                if(checklistItemsCookie == null){
+                    const checklistItemsObj = {[`${index}`]: false};
+                    checklistItems.push(checklistItemsObj);
+                }else{
+                    $.each(checklistItems, function(checklistItemsIndex, checklistItem) {
+
+                        if (index === checklistItemsIndex) {
+                            if (checklistItem[checklistItemsIndex] === true) {
+                                checklistBox.prop('checked', true);
+                                aagb__accordion_title.toggleClass('line-through');
+                            }
+                        }
+                    });
+
+                }
+
+                checklistBox.change(function () {
+                    aagb__accordion_title.toggleClass('line-through');
+                    isChecked = checklistBox.is(':checked');
+
+                    checklistItems[index] = {[`${index}`]: isChecked};
+
+                    setCookie('aab-checklist-status-' + accordionId, JSON.stringify(checklistItems), 30);
+
+                });
+            });
+        }
+        // end of check list
+
+
     })
 
 
@@ -102,57 +147,6 @@
         return true;
     }
 
-    // Check list
-    const accordionCheckListItems = $('.wp-block-aab-accordion-item.aagb__accordion_container.check-list');
-
-    if(accordionCheckListItems.length) {
-
-        let checklistItems = [];
-        const checklistItemsCookie = JSON.parse( getCookie('aab-accordion-check-list-status') );
-
-
-        if(checklistItemsCookie !== null){
-            checklistItems = checklistItemsCookie;
-        }
-
-        $.each(accordionCheckListItems, function(index, item) {
-            const aagb__accordion_head = $(item).find('.aagb__accordion_head');
-            const aagb__accordion_heading = $(item).find('.aagb__accordion_heading');
-            const checklistBox = $(item).find('.checklist-box');
-            const aagb__accordion_title = $(item).find('.aagb__accordion_title');
-            let isChecked = false;
-
-
-            if(checklistItemsCookie == null){
-                const checklistItemsObj = {[`${index}`]: false};
-                checklistItems.push(checklistItemsObj);
-            }else{
-                $.each(checklistItems, function(checklistItemsIndex, checklistItem) {
-
-                    if (index === checklistItemsIndex) {
-                        if (checklistItem[checklistItemsIndex] === true) {
-                            checklistBox.prop('checked', true);
-                            aagb__accordion_title.toggleClass('line-through');
-                        }
-                    }
-                });
-
-            }
-
-            checklistBox.change(function () {
-                aagb__accordion_title.toggleClass('line-through');
-                isChecked = checklistBox.is(':checked');
-
-                checklistItems[index] = {[`${index}`]: isChecked};
-
-                setCookie('aab-accordion-check-list-status', JSON.stringify(checklistItems), 30);
-
-            });
-        });
-
-    }
-    // end of check list
-
 
     // Read More button
     // Set the maximum number of characters to display initially
@@ -162,20 +156,26 @@
         const textMax = $(this).data('contentcount');
         const paragraph = $(this).find("p:first");
         const fullText = paragraph.text();
-        const slicedText = fullText.slice(0, textMax);
-        paragraph.text(slicedText + '...').show();
+        if(paragraph.text().length > textMax){
+            const slicedText = fullText.slice(0, textMax);
+            paragraph.text(slicedText + '...').show();
 
-        paragraph.data("full-text", fullText);
+            paragraph.data("full-text", fullText);
 
-        $(this).children().not(paragraph).fadeOut();
+            $(this).children().not(paragraph).not('.aagb_overlay').fadeOut();
 
-        $(this).siblings(".aagb_button_toggle").click(function(e) {
-            e.preventDefault();
-            paragraph.text(fullText).slideDown("slow");
-            $(this).closest(".aagb__accordion_body").find(".aagb__accordion_component").children().not(paragraph).fadeIn();
-            $(this).fadeOut("slow");
-            $(this).closest(".aagb__accordion_body").find(".aagb_overlay").removeClass("aagb_overlay");
-        });
+            $(this).siblings(".aagb_button_toggle").click(function(e) {
+                e.preventDefault();
+                paragraph.text(fullText).slideDown("slow");
+                $(this).closest(".aagb__accordion_body").find(".aagb__accordion_component").children().not(paragraph).not('.aagb_overlay').fadeIn();
+                $(this).fadeOut("slow");
+                $(this).closest(".aagb__accordion_body").find(".aagb_overlay").fadeOut().removeClass("aagb_overlay");
+            });
+        }else{
+            $(this).siblings(".aagb_button_toggle").remove();
+            $(this).closest(".aagb__accordion_body").find(".aagb_overlay").remove();
+        }
+
     });
     //End of Read More button
 
@@ -200,5 +200,6 @@
         }
         return null;
     }
+
 })(jQuery);
 
