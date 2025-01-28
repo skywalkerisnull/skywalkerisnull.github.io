@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='January 28, 2025 2:25 am' -->
+<!-- generated-on='January 28, 2025 10:09 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/2024/02/10/interacting-with-legacy-systems/</loc>
 		<lastmod>2024-03-05T08:54:29+00:00</lastmod>
@@ -326,7 +326,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/2025/01/19/chocolate-gelato/</loc>
-		<lastmod>2025-01-25T00:58:54+00:00</lastmod>
+		<lastmod>2025-01-28T10:06:10+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>1.0</priority>
 	</url>
@@ -350,7 +350,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/2025/01/24/salted-caramel-gelato/</loc>
-		<lastmod>2025-01-28T02:23:28+00:00</lastmod>
+		<lastmod>2025-01-28T10:05:50+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>1.0</priority>
 	</url>
@@ -360,4 +360,10 @@
 		<changefreq>monthly</changefreq>
 		<priority>1.0</priority>
 	</url>
-</urlset><!-- Request ID: 958f66785f9d025aaab71850a030f950; Queries for sitemap: 3; Total queries: 35; Seconds: 0.02; Memory for sitemap: 1KB; Total memory: 8MB -->
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/01/28/chocolate-souffle/</loc>
+		<lastmod>2025-01-28T10:05:07+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+</urlset><!-- Request ID: 8fec75349a01cb785c47e2f91c96270d; Queries for sitemap: 3; Total queries: 35; Seconds: 0.02; Memory for sitemap: 1KB; Total memory: 8MB -->
