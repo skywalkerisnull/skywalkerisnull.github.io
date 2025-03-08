@@ -5,15 +5,14 @@
     const groupAccordions = $('.wp-block-aab-group-accordion.click');
     groupAccordions.each(function () {
         // accordion head
-        const accordionHeads = $(this).find('.aagb__accordion_head');
-        const accordionContents = $(this).find('.aagb__accordion_body');
-        const accordionIcons = $(this).find('.aagb__icon');
+        const accordionHeads = $(this).children('.wp-block-aab-accordion-item').children('.aagb__accordion_head');
+        const accordionContents = $(this).children('.wp-block-aab-accordion-item').children('.aagb__accordion_body');
+        const accordionIcons = $(this).children('.wp-block-aab-accordion-item').children('.aagb__accordion_head').find('.aagb__icon');
 
         // active accordion
-        const activeAccordion = $(this).find('.aagb__accordion_body--show');
+        const activeAccordion = $(this).children('.wp-block-aab-accordion-item').children('.aagb__accordion_body--show');
         // all accordions
-        const accordions = $(this).find('.wp-block-aab-accordion-item');
-
+        const accordions = $(this).children('.wp-block-aab-accordion-item');
         // show active accrodion on load
         if (activeAccordion.length) {
             activeAccordion.slideDown();
@@ -76,7 +75,6 @@
                         $icon.addClass('dashicons-insert');
                     }
                 } else {
-
                     accordionHeads.each(function () {
                         if ($(this).hasClass('active')) {
                             $(this).removeClass('active');
@@ -161,7 +159,7 @@
 
     // Keyboard Navigation for Group Accordion
     groupAccordions.each(function () {
-        const accordionHeads = $(this).find('.aagb__accordion_head');
+        const accordionHeads = $(this).children('.wp-block-aab-accordion-item').children('.aagb__accordion_head');
 
         accordionHeads.each(function (index) {
             const accordionHead = $(this);
@@ -202,14 +200,14 @@
         groupAccordions.each(function () {
             // accordion head
 
-            const accordionHead = $(this).find('.aagb__accordion_container');
-            const accordionContents = $(this).find('.aagb__accordion_body');
-            const accordionIcons = $(this).find('.aagb__icon');
+            const accordionHeads = $(this).children('.wp-block-aab-accordion-item').children('.aagb__accordion_head');
+            const accordionContents = $(this).children('.wp-block-aab-accordion-item').children('.aagb__accordion_body');
+            const accordionIcons = $(this).children('.wp-block-aab-accordion-item').children('.aagb__accordion_head').find('.aagb__icon');
 
             // active accordion
-            const activeAccordion = $(this).find('.aagb__accordion_body--show');
+            const activeAccordion = $(this).children('.wp-block-aab-accordion-item').children('.aagb__accordion_body--show');
             // all accordions
-            const accordions = $(this).find('.wp-block-aab-accordion-item');
+            const accordions = $(this).children('.wp-block-aab-accordion-item');
 
             // show active accrodion on load
             if (activeAccordion.length) {
@@ -434,7 +432,7 @@
         } else if ($icon.hasClass('dashicons-plus-alt')) {
             $icon.removeClass('dashicons-plus-alt');
             $icon.addClass('dashicons-dismiss');
-        }  else if ($icon.hasClass('dashicons-insert')) {
+        } else if ($icon.hasClass('dashicons-insert')) {
             $icon.removeClass('dashicons-insert');
             $icon.addClass('dashicons-remove');
         }
@@ -451,7 +449,7 @@
 
         const $icon = targetAccordion.find('.aagb__icon');
 
-         if ($icon.hasClass('dashicons-minus')) {
+        if ($icon.hasClass('dashicons-minus')) {
             $icon.removeClass('dashicons-minus');
             $icon.addClass('dashicons-plus-alt2');
         } else if ($icon.hasClass('dashicons-arrow-up-alt2')) {
@@ -463,7 +461,7 @@
         } else if ($icon.hasClass('dashicons-dismiss')) {
             $icon.removeClass('dashicons-dismiss');
             $icon.addClass('dashicons-plus-alt');
-        }  else if ($icon.hasClass('dashicons-remove')) {
+        } else if ($icon.hasClass('dashicons-remove')) {
             $icon.removeClass('dashicons-remove');
             $icon.addClass('dashicons-insert');
         }
@@ -473,14 +471,13 @@
         if (e.which == 13) e.preventDefault();
     });
 
-
-
     $('.aagb-search-control').on('input', function () {
-        var targetId= $(this).data('searchtarget');
+
+        var targetId = $(this).data('searchtarget');
         var filter = $(this).val();
         var $form = $(`#aagb-search-form-${targetId}`);
 
-        var targetPanelWrapper= $(`.aagb_accordion_${targetId}`);
+        var targetPanelWrapper = $(`.aagb_accordion_${targetId}`);
         var $helpBlock = $form.find('.help-block');
         $form.removeClass('has-success has-error');
 
@@ -494,26 +491,44 @@
 
             var regex = new RegExp(filter, 'i');
 
-            var filterResult = targetPanelWrapper.find('.panel').filter(function () {
+            var filterResult = targetPanelWrapper.find('.head_content_wrapper,.aagb__accordion_component > *:not(.wp-block-aab-group-accordion)').filter(function () {
+
                 return regex.test($(this).text());
             });
-
             if (filterResult) {
                 if (filterResult.length !== 0) {
                     $form.addClass('has-success');
                     $helpBlock.text(
                         filterResult.length + ' question(s) found.'
                     );
-                    filterResult.show();
+                    filterResult.parents('.wp-block-aab-accordion-item').show();
+                    targetPanelWrapper.find('> .step-result').show();
+                    targetPanelWrapper.find('> .aagb_accordion_wrapper_btn').show();
                 } else {
                     $form.addClass('has-error').removeClass('has-success');
                     $helpBlock.text('No questions found.');
+                    targetPanelWrapper.find('> .step-result').hide();
+                    targetPanelWrapper.find('> .aagb_accordion_wrapper_btn').hide();
                 }
             } else {
                 $form.addClass('has-error').removeClass('has-success');
                 $helpBlock.text('No questions found.');
+                targetPanelWrapper.find('> .step-result').hide();
+                targetPanelWrapper.find('> .aagb_accordion_wrapper_btn').hide();
             }
         }
+
+
+
+        // Remove previous marked elements and mark
+        // the new keyword inside the context
+        targetPanelWrapper.find('.head_content_wrapper,.aagb__accordion_component > *:not(.wp-block-aab-group-accordion)').unmark({
+            done: function() {
+                targetPanelWrapper.find('.head_content_wrapper,.aagb__accordion_component > *:not(.wp-block-aab-group-accordion)').mark(filter);
+            }
+        });
+
+
     });
     //Watch for user typing to refresh the filter
     // $('.aagb-search-control').keyup();
@@ -525,15 +540,13 @@
 
         $.each(accordionItemsChecklist, function (index, item) {
 
-            const accordionHeading = $(item).find('.aagb__accordion_heading');
+            const accordionHeading = $(item).children('.aagb__accordion_head').find('.aagb__accordion_heading');
 
             accordionHeading.prepend("<input type='checkbox' class='checklist-box'></input>")
         });
 
 
     }
-
-
 
 
 })(jQuery);

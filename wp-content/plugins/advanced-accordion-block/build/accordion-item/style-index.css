@@ -5,6 +5,63 @@
 /*
 * Style Works for both Editor and Frontend
 */
+.highlight, mark {
+  background: yellow !important;
+}
+
+.wp-block-aab-group-accordion.horizontal_filter .aab-filter-button-group {
+  flex-direction: row;
+}
+.wp-block-aab-group-accordion.vertical_filter {
+  position: relative;
+  padding-left: 210px !important;
+  min-height: 400px;
+}
+.wp-block-aab-group-accordion.vertical_filter .aab-filter-button-group {
+  position: absolute;
+  left: 0;
+  top: 0;
+  flex-direction: column;
+  width: 200px;
+}
+.wp-block-aab-group-accordion .aab-filter-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  gap: 10px;
+}
+.wp-block-aab-group-accordion .aab-filter-button-group.right_btn {
+  justify-content: end;
+}
+.wp-block-aab-group-accordion .aab-filter-button-group.center_btn {
+  justify-content: center;
+}
+.wp-block-aab-group-accordion .aab-filter-button-group.left_btn {
+  justify-content: flex-start;
+}
+.wp-block-aab-group-accordion .aab-filter-button-group .btn {
+  font-size: 14px;
+  font-weight: 400;
+  color: #0866ff;
+  border: 1px solid rgba(8, 102, 255, 0.2);
+  border-radius: 4px;
+  background-color: rgba(16, 179, 214, 0.031);
+  padding: 0 20px;
+  line-height: 28px;
+  margin: 0;
+  transition: all 0.3s linear;
+  text-decoration: none;
+  cursor: pointer;
+}
+.wp-block-aab-group-accordion .aab-filter-button-group .btn:hover {
+  background-color: rgba(8, 102, 255, 0.2);
+}
+.wp-block-aab-group-accordion .aab-filter-button-group .btn.active {
+  background-color: #0866ff;
+  border-color: #0866ff;
+  color: #fff;
+}
+
 .wp-block-aab-accordion-item {
   overflow: hidden;
   transition: all 0.3s linear;
@@ -35,14 +92,15 @@
   box-shadow: none;
 }
 .wp-block-aab-accordion-item .aagb__accordion_head .complete-sign {
-  background-color: #66CDA3;
+  background-color: #18B36F;
   color: #fff;
   border-radius: 50%;
   text-align: center;
   font-size: 15px;
   display: none;
-  padding: 0 5px;
-  line-height: 1.6;
+  height: 24px;
+  width: 24px;
+  line-height: 26px;
 }
 .wp-block-aab-accordion-item .aagb__accordion_head .aagb__accordion_icon {
   width: 20px;
@@ -117,10 +175,10 @@
   transition: border-top-color 0.3s linear;
 }
 .wp-block-aab-accordion-item .aagb__accordion_body .continue {
-  background: #41a9f8;
+  background: #1570EC;
   border-radius: 3px;
   color: #ffffff;
-  padding: 10px 20px;
+  padding: 8px 18px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -164,8 +222,7 @@
 .aagb_form_inner {
   max-width: 600px;
   width: 100%;
-  margin: 0 auto 40px;
-  text-align: center;
+  margin: 0 auto 35px;
 }
 .aagb_form_inner .aagb_form_group {
   position: relative;
@@ -182,12 +239,11 @@
 .aagb_form_inner .aagb_form_control {
   width: 100%;
   border: 1px solid #ccc;
-  padding: 0 30px;
   border-radius: 4px;
   height: 60px;
   font-size: 18px;
   color: #333;
-  padding-right: 55px;
+  padding: 0 55px 0 30px;
 }
 .aagb_form_inner .aagb_form_control::-moz-placeholder {
   color: #848d95 !important;
@@ -205,14 +261,25 @@
 }
 .aagb_form_inner .help-block {
   font-size: 16px;
+  display: block;
+  text-align: center;
+  margin-top: 6px;
 }
 
 .aagb_accordion_wrapper_btn {
   display: flex;
+}
+.aagb_accordion_wrapper_btn.right_btn {
   justify-content: flex-end;
 }
+.aagb_accordion_wrapper_btn.left_btn {
+  justify-content: flex-start;
+}
+.aagb_accordion_wrapper_btn.center_btn {
+  justify-content: center;
+}
 .aagb_accordion_wrapper_btn a {
-  margin: 0px 0 5px 16px;
+  margin: 0 0 12px 16px;
   color: #333;
   font-weight: 500;
   font-size: 16px;
@@ -262,7 +329,7 @@
 .wp-block-aab-group-accordion .step-result {
   border: 1px solid #3e94b2;
   display: none;
-  padding: 20px;
+  padding: 14px 20px;
 }
 
 .wp-block-aab-accordion-item.aagb__accordion_container.style-qa .aagb__accordion_head {

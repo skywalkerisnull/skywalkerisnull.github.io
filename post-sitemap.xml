@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='February 10, 2025 8:53 am' -->
+<!-- generated-on='March 8, 2025 12:38 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/2024/02/10/interacting-with-legacy-systems/</loc>
 		<lastmod>2024-03-05T08:54:29+00:00</lastmod>
@@ -372,4 +372,10 @@
 		<changefreq>monthly</changefreq>
 		<priority>1.0</priority>
 	</url>
-</urlset><!-- Request ID: b9a0742000e55baa90b4ecef71e54e8b; Queries for sitemap: 3; Total queries: 35; Seconds: 0.02; Memory for sitemap: 1KB; Total memory: 6MB -->
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/03/08/the-pitfalls-of-copy-paste-coding/</loc>
+		<lastmod>2025-03-08T00:36:17+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+</urlset><!-- Request ID: 1ee48e4daf0f5cdfc6927cfb311cae10; Queries for sitemap: 3; Total queries: 33; Seconds: 0.02; Memory for sitemap: 1KB; Total memory: 14MB -->

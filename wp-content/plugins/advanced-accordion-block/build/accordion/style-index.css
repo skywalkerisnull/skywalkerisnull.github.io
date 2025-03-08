@@ -120,7 +120,6 @@
   display: block;
 }
 .wp-block-aab-accordion-block .aab__accordion_body {
-  border-top: 1px solid rgb(204, 204, 204);
   padding: 10px 15px;
   transition: border 0.3s ease-in-out;
   display: none;
@@ -261,16 +260,6 @@
 }
 .wp-block-aab-accordion-block.is-style-qa .aab__accordion_body .block-editor-inner-blocks .block-editor-block-list__layout :first-child {
   margin-top: 0;
-}
-.wp-block-aab-accordion-block.is-style-qa.no-pro-plan {
-  padding: 0;
-}
-.wp-block-aab-accordion-block.is-style-qa.no-pro-plan .aab__accordion_head {
-  padding: 10px 15px;
-}
-.wp-block-aab-accordion-block.is-style-qa.no-pro-plan .aab__accordion_body {
-  border-top: 1px solid rgb(204, 204, 204);
-  padding: 30px 15px 10px;
 }
 
 .aab__accordion_container.is-style-qa .aab__accordion_head.aab_left_icon + .aab__accordion_body {
