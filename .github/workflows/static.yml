@@ -60,4 +60,5 @@ jobs:
         with:
           sitemap-location: 'https://blog.skywalker.net.au/sitemap.xml'
           key: ${{ secrets.INDEXNOW_KEY }}
-          since: 2
+          since: 6
+          sine-unit: hour
