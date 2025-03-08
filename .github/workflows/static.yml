@@ -58,6 +58,6 @@ jobs:
       - name: indexnow-action
         uses: bojieyang/indexnow-action@v2
         with:
-          sitemap-location: 'https://raw.githubusercontent.com/skywalkerisnull/skywalkerisnull.github.io/refs/heads/main/sitemap.xml'
+          sitemap-location: 'https://blog.skywalker.net.au/sitemap.xml'
           key: ${{ secrets.INDEXNOW_KEY }}
           since: 2
