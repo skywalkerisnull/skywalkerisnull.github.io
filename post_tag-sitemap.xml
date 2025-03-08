@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='March 8, 2025 12:38 am' -->
+<!-- generated-on='March 8, 2025 3:17 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/tag/ai/</loc>
 		<lastmod>2024-02-11T10:49:18+00:00</lastmod>
@@ -19,8 +19,14 @@
 		<priority>0.3</priority>
 	</url>
 	<url>
+		<loc>https://blog.skywalker.net.au/tag/automate/</loc>
+		<lastmod>2025-03-08T13:08:38+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
 		<loc>https://blog.skywalker.net.au/tag/automation/</loc>
-		<lastmod>2025-01-04T16:04:04+00:00</lastmod>
+		<lastmod>2025-03-08T13:08:38+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -122,7 +128,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/development/</loc>
-		<lastmod>2025-03-08T10:36:17+00:00</lastmod>
+		<lastmod>2025-03-08T12:46:10+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -254,7 +260,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/management/</loc>
-		<lastmod>2025-03-08T10:36:17+00:00</lastmod>
+		<lastmod>2025-03-08T12:46:10+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -332,7 +338,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/risk-management/</loc>
-		<lastmod>2025-03-08T10:36:17+00:00</lastmod>
+		<lastmod>2025-03-08T12:46:10+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -362,7 +368,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/security/</loc>
-		<lastmod>2025-03-08T10:36:17+00:00</lastmod>
+		<lastmod>2025-03-08T12:46:10+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -392,7 +398,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/strategy/</loc>
-		<lastmod>2025-02-01T11:29:35+00:00</lastmod>
+		<lastmod>2025-03-08T13:08:38+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -444,4 +450,4 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: f9d891067bac5e558023f7212aa439cd; Queries for sitemap: 76; Total queries: 106; Seconds: 0.22; Memory for sitemap: 2MB; Total memory: 8MB -->
+</urlset><!-- Request ID: 49c8e7227fbdaf83f386b6ae484b08c3; Queries for sitemap: 77; Total queries: 107; Seconds: 0.2; Memory for sitemap: 1KB; Total memory: 8MB -->
