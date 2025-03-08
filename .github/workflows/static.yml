@@ -43,16 +43,21 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        
+
   submit-indexnow:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Sleep for 90s
+        uses: juliangruber/sleep-action@v2.0.0
+        with:
+          time: 90s
+          
       - name: indexnow-action
         uses: bojieyang/indexnow-action@v2
         with:
-          sitemap-location: 'https://blog.skywalker.net.au/sitemap.xml'
+          sitemap-location: 'https://raw.githubusercontent.com/skywalkerisnull/skywalkerisnull.github.io/refs/heads/main/sitemap.xml'
           key: ${{ secrets.INDEXNOW_KEY }}
           since: 2
