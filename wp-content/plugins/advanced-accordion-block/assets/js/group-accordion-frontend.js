@@ -1,12 +1,7 @@
 /* eslint-disable no-undef */
 (function ($) {
-
-
-    // genereate unique id
     const groupAccordions = $(".wp-block-aab-group-accordion");
     let id = 0;
-
-
     // step
     $.each(groupAccordions, function (index, item) {
         const accordionId = $(item).attr('id');
@@ -23,6 +18,7 @@
             const accordionBodyContinue = $(accordionBody).children('.continue');
             const completeSign = $(accordionHead).find('.complete-sign');
             const aagbIcon = $(accordionHead).find('.aagb__icon');
+            const $stepResult = $("#" + accordionId).find('> .step-result');
 
 
             /* cookie work's here */
@@ -32,12 +28,6 @@
                     completeSign.show();
                     aagbIcon.hide();
                     accordionBodyContinue.hide();
-
-                    if (allAccordionsCompleted(accordionCompletionStatus, accordionItems)) {
-                        $("#" + accordionId).find('> .step-result').css('display', 'block');
-                    } else {
-                        $("#" + accordionId).find('> .step-result').hide();
-                    }
                 }
             } else {
                 accordionCompletionStatus[index] = false;
@@ -52,7 +42,11 @@
                 setCookie('aab-completion-status-' + accordionId, JSON.stringify(accordionCompletionStatus), 30);
 
                 if (allAccordionsCompleted(accordionCompletionStatus, accordionItems)) {
-                    $("#" + accordionId).find('> .step-result').css('display', 'block');
+                    $stepResult.css('display', 'block');
+                    setTimeout(() => {
+                        $stepResult.hide();
+                    }, 5000)
+
                 } else {
                     let nextIndex = index + 1;
 
@@ -81,7 +75,6 @@
         // Select and modify last accordion item
         const lastAccordionItem = accordionItems.last();
         const lastAccordionItemStepText = lastAccordionItem.find('> .aagb__accordion_body').children('.continue').find('.step-text'); // Select the content of the last accordion item
-
 
         if (lastAccordionItemStepText.length > 0) { // Check if the last child element exists
             lastAccordionItemStepText.text("End"); // Change its text content
@@ -135,7 +128,6 @@
 
     })
 
-
     function allAccordionsCompleted(status, items) {
         for (let i = 0; i < items.length; i++) {
             if (!status[i]) {
@@ -145,11 +137,8 @@
         return true;
     }
 
-
     // Read More button
     // Set the maximum number of characters to display initially
-
-
     $(".aagb__accordion_component.read-more-btn").each(function () {
         const textMax = $(this).data('contentcount');
         const paragraph = $(this).find("p:first");
@@ -157,11 +146,8 @@
         if (paragraph.text().length > textMax) {
             const slicedText = fullText.slice(0, textMax);
             paragraph.text(slicedText + '...').show();
-
             paragraph.data("full-text", fullText);
-
             $(this).children().not(paragraph).not('.aagb_overlay').fadeOut();
-
             $(this).siblings(".aagb_button_toggle").click(function (e) {
                 e.preventDefault();
                 paragraph.text(fullText).slideDown("slow");
@@ -173,11 +159,9 @@
             $(this).siblings(".aagb_button_toggle").remove();
             $(this).closest(".aagb__accordion_body").find(".aagb_overlay").remove();
         }
-
     });
 
     //End of Read More button
-
     function setCookie(name, value, days) {
         let expires = "";
         if (days) {
@@ -200,50 +184,126 @@
         return null;
     }
 
-
     if ($('.wp-block-aab-group-accordion').length) {
         $(".wp-block-aab-group-accordion").each(function () {
+            const $groupAccordion = $(this);
+            const $accordionItems = $groupAccordion.find('> .wp-block-aab-accordion-item');
+            const $searchContainer = $groupAccordion.find('> .aagb_form_inner');
+            const $search = $searchContainer.find('> .aagb_form_group .aagb-search-control');
+            const $searchHelp = $searchContainer.find('> .help-block');
+            const $searchWrapperBtn = $groupAccordion.find('> .aagb_accordion_wrapper_btn');
+            const $showMoreBtn = $groupAccordion.find('> .aab-show-more-btn-container .show-more-btn');
+            const $showLessBtn = $groupAccordion.find('> .aab-show-more-btn-container .show-less-btn');
 
-            var filterButtons = $(this).find("> .aab-filter-button-group button");
+            let itemsPerClick = Number($showMoreBtn.data('items-to-show'));
+            let itemsToShow = itemsPerClick;
+            let filterClass = '';
+            let searchTxt = '';
+
+            $search.on('input', function () {
+                searchTxt = $search.val();
+                loadAccordions();
+            });
+
+            function loadAccordions() {
+                let _targetItems = $accordionItems;
+                _targetItems.hide();
+                
+                if (filterClass) _targetItems = _targetItems.filter(`.${filterClass}`);
+                
+                $searchContainer.removeClass('has-success has-error');
+                $groupAccordion?.unmark?.();
+                $searchHelp.hide();
+
+                if(searchTxt) {
+                    $searchHelp.show();
+
+                    _targetItems = _targetItems.filter(function() {
+                        return $(this).text()?.toLowerCase().includes(searchTxt.toLowerCase());
+                    });
+
+                    if(_targetItems.length) {
+                        $searchHelp.text(`${_targetItems.length} question(s) found.`);
+                        $searchContainer.addClass('has-success');
+                        _targetItems?.mark?.(searchTxt);
+                        $searchWrapperBtn.show();
+                    } else {
+                        $searchContainer.addClass('has-error');
+                        $searchHelp.text('No questions found.');
+                        $searchWrapperBtn.hide();
+                    }
+                }
+
+                $showMoreBtn.parent()?.show();
+
+                // if not greater than zero, all accordions are shown (covers the case of showMoreBtn feature not being activated)
+                if (itemsToShow > 0) {
+                    let loaded = 0;
+                    _targetItems.each(function () {
+                        $(this).hide();
+
+                        if (loaded < itemsToShow) {
+                            $(this).show();
+                            loaded++;
+                        }
+                    });
+
+                    if(loaded >= _targetItems.length) {
+                        $showMoreBtn.hide();
+
+                        $showLessBtn.show(0, function () {
+                            $(this).css("display", "flex");
+                        });
+                        $showLessBtn.parent()?.css("background-color", "#ffffff00");
+
+                        if(loaded <= itemsPerClick) $showMoreBtn.parent()?.hide();
+                    } else {
+                        $showMoreBtn.show();
+                        $showLessBtn.hide();
+                    }
+                } else { // show-more-btn feature is not activated (or invalid items-per-click value)
+                    _targetItems.show();
+                    $showMoreBtn?.parent()?.hide();
+                }
+                
+            }
+
+            var filterButtons = $(this).find('> .aab-filter-button-group button');
             var allButton = $(this).find('> .aab-filter-button-group .cat_all_item'); // Select the "All" button
-            var targetItems = $(this).find('> .wp-block-aab-accordion-item');
 
             filterButtons.on('click', function () {
-                let filterValue = $(this).data('filter');
+                filterClass = $(this).data('filter');
 
-                if ($(this).hasClass('active')) {
-                    $(this).removeClass('active');
-                    allButton.addClass('active');
-                    targetItems.show(); // Show all items
-                } else {
-                    // Remove active from all buttons and activate clicked button
-                    filterButtons.removeClass('active');
-                    $(this).addClass('active');
-
-                    // Show/Hide items based on filter
-                    targetItems.hide();
-                    targetItems.filter('.' + filterValue).show();
-
-                    // Deactivate "All" button when a category is active
-                    allButton.removeClass('active');
-                }
-            });
-
-            // "All" button functionality
-            allButton.on('click', function () {
-                // Activate "All" and deactivate all category buttons
                 filterButtons.removeClass('active');
+                allButton.removeClass('active');
                 $(this).addClass('active');
 
-                // Show all items
-                targetItems.show();
+                loadAccordions();
             });
 
-            // Initially activate "All" button
-            allButton.addClass('active');
+            allButton.on('click', function () {
+                filterButtons.removeClass('active');
+                $(this).addClass('active');
+                filterClass = '';
+                loadAccordions();
+            });
+
+            // Initially activate "All" button, and load accordions
+            allButton.click();
+            loadAccordions();
+
+            $showMoreBtn.on('click', function () {
+                itemsToShow += itemsPerClick;
+                loadAccordions();
+                $showLessBtn.focus();
+            });
+
+            $showLessBtn.on('click', function () {
+                itemsToShow = itemsPerClick;
+                loadAccordions();
+                $showMoreBtn.focus();
+            });
         });
     }
-
-
 })(jQuery);
 
