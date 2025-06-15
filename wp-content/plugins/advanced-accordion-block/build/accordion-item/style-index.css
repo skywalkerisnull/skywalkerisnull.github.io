@@ -251,15 +251,16 @@
   line-height: 26px;
 }
 .wp-block-aab-accordion-item .aagb__accordion_head .aagb__accordion_icon {
-  width: 20px;
-  height: 20px;
   border-radius: 50%;
 }
 .wp-block-aab-accordion-item .aagb__accordion_head .aagb__accordion_icon .aagb__icon_dashicons_box {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+}
+.wp-block-aab-accordion-item .aagb__accordion_head .aagb__accordion_icon .aagb__icon_dashicons_box .aagb__icon {
+  height: auto;
+  width: auto;
 }
 .wp-block-aab-accordion-item .aagb__accordion_head.aagb_right_icon {
   flex-direction: row;
