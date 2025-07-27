@@ -923,11 +923,51 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 
 
 
-<p></p>
+<h2 class="wp-block-heading">After the initial story</h2>
 
 
 
-<p>Further analysis revealed critical flaws in how files were downloaded, each making unauthorised access trivial:</p>
+<p>After this initial story was shared (not when it was written) further analysis revealed critical flaws in how files were downloaded, each making unauthorised access trivial:</p>
+
+
+
+<h4 class="wp-block-heading">Files Stored Directly in wwwroot/uploads</h4>
+
+
+
+<ul class="wp-block-list">
+<li>Files uploaded were placed into <a href="https://learn.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads">wwwroot</a> which is unadvisable.</li>
+
+
+
+<li>IIS treated these files as static content and served them without routing through any controller logic.</li>
+</ul>
+
+
+
+<h4 class="wp-block-heading">Unrestricted Public Access</h4>
+
+
+
+<ul class="wp-block-list">
+<li>Files were reachable via predictable URLs: <code>https://&lt;domain&gt;/uploads/&lt;filename&gt;.&lt;extension&gt;</code>.</li>
+
+
+
+<li>No access checks, authorisation, or token-based controls were applied.</li>
+
+
+
+<li>This meant:
+<ul class="wp-block-list">
+<li>Anyone who knew or could guess a filename had full access.</li>
+
+
+
+<li>Malicious actors could serve executable scripts, assets, or phishing pages directly from the domain.</li>
+</ul>
+</li>
+</ul>
 
 
 
@@ -989,6 +1029,24 @@ ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:
 <li>Impossible to trace after the fact.</li>
 </ul>
 </li>
+</ul>
+
+
+
+<h4 class="wp-block-heading">Security Implications</h4>
+
+
+
+<ul class="wp-block-list">
+<li>Web shells could be uploaded and executed, bypassing any business logic protections.</li>
+
+
+
+<li>Sensitive documents were exposed with no traceable download mechanism.</li>
+
+
+
+<li>No isolation between static content and user uploads, breaking secure design principles.</li>
 </ul>
 
 
