@@ -40,7 +40,7 @@
                 aagbIcon.hide();
                 accordionBodyContinue.hide();
                 setCookie('aab-completion-status-' + accordionId, JSON.stringify(accordionCompletionStatus), 30);
-
+                 updateProgressBasedOnActiveSection(accordionId, parentDiv.find("#progressBarFill"));
                 if (allAccordionsCompleted(accordionCompletionStatus, accordionItems)) {
                     $stepResult.css('display', 'block');
                     setTimeout(() => {
@@ -119,13 +119,16 @@
                     checklistItems[index] = {[`${index}`]: isChecked};
 
                     setCookie('aab-checklist-status-' + accordionId, JSON.stringify(checklistItems), 30);
+                    // checklist completion status 
+                        const checklistStatus = {};
+                        checklistItems.forEach((item, idx) => {
+                            checklistStatus[idx] = item[idx];
+                        });
+                         updateProgressBasedOnActiveSection(accordionId, parentDiv.find("#progressBarFill"));
 
                 });
             });
         }
-        // end of check list
-
-
     })
 
     function allAccordionsCompleted(status, items) {
@@ -305,5 +308,61 @@
             });
         });
     }
-})(jQuery);
+   
+    // Update progress bar based on active section 
+    function updateProgressBasedOnActiveSection(accordionId, $progressBarFill) {
+		const $groupAccordion = $('#' + accordionId);
+		const $stepAccordionItems = $groupAccordion.children(
+			'.wp-block-aab-accordion-item.aagb__accordion_container.step'
+		);
+		const $checklistAccordionItems = $groupAccordion.children(
+			'.wp-block-aab-accordion-item.aagb__accordion_container.check-list'
+		);
+		const $progressText = $groupAccordion.find('.aab-progress-text');
 
+		let completedCount = 0,
+			totalCount = 0,
+			percentage = 0;
+
+		if ($stepAccordionItems.length && $stepAccordionItems.is(':visible')) {
+			const stepStatus = JSON.parse(
+				getCookie(`aab-completion-status-${accordionId}`) || '{}'
+			);
+			totalCount = $stepAccordionItems.length;
+			for (let i = 0; i < totalCount; i++)
+				if (stepStatus[i]) completedCount++;
+		} else if (
+			$checklistAccordionItems.length &&
+			$checklistAccordionItems.is(':visible')
+		) {
+			const checklistStatus = JSON.parse(
+				getCookie(`aab-checklist-status-${accordionId}`) || '[]'
+			);
+			totalCount = $checklistAccordionItems.length;
+			for (let i = 0; i < totalCount; i++)
+				if (checklistStatus[i] && checklistStatus[i][i])
+					completedCount++;
+		}
+
+		percentage = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
+
+		// Only update THIS progress bar
+		$progressBarFill.css('width', `${percentage}%`);
+		$progressText.text(`${Math.round(percentage)}%`);
+		setCookie(`aab-progress-${accordionId}`, percentage, 30);
+	}
+
+	/* ================================
+       INIT ON PAGE LOAD
+    ==================================*/
+	$(document).ready(function () {
+		$('.wp-block-aab-group-accordion').each(function () {
+			const accordionId = $(this).attr('id');
+			updateProgressBasedOnActiveSection(
+				accordionId,
+				$(this).find('#progressBarFill')
+			);
+		});
+	});
+
+})(jQuery);
