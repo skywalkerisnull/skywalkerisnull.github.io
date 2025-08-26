@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='August 22, 2025 11:55 pm' -->
+<!-- generated-on='August 26, 2025 1:50 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/2024/02/10/interacting-with-legacy-systems/</loc>
 		<lastmod>2024-03-05T08:54:29+00:00</lastmod>
@@ -624,4 +624,10 @@
 		<changefreq>monthly</changefreq>
 		<priority>1.0</priority>
 	</url>
-</urlset><!-- Request ID: 07c73d2893a4286cef1ffb7de9806d11; Queries for sitemap: 3; Total queries: 35; Seconds: 0.02; Memory for sitemap: 1KB; Total memory: 8MB -->
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/08/26/ntfs-8-3-naming/</loc>
+		<lastmod>2025-08-26T01:48:46+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+</urlset><!-- Request ID: 06b6b0bea48643454e5e80b92ec32b3b; Queries for sitemap: 3; Total queries: 35; Seconds: 0.02; Memory for sitemap: 1KB; Total memory: 8MB -->
