@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='August 26, 2025 1:50 am' -->
+<!-- generated-on='August 26, 2025 4:36 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/artificial-intelligence/</loc>
 		<lastmod>2024-03-16T15:45:20+00:00</lastmod>
@@ -96,4 +96,4 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: 130bed009eecab22f47ce9a1953d642a; Queries for sitemap: 26; Total queries: 58; Seconds: 0.08; Memory for sitemap: 1KB; Total memory: 8MB -->
+</urlset><!-- Request ID: 670d6bb80f1fc79a90a1597422785963; Queries for sitemap: 26; Total queries: 58; Seconds: 0.08; Memory for sitemap: 1KB; Total memory: 8MB -->
