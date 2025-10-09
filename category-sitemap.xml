@@ -1,8 +1,50 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='October 3, 2025 10:42 pm' -->
+<!-- generated-on='October 9, 2025 3:06 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
+		<loc>https://blog.skywalker.net.au/category/appetizer/</loc>
+		<lastmod>2025-10-08T20:45:42+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/artificial-intelligence/</loc>
 		<lastmod>2024-03-16T15:45:20+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/asian/</loc>
+		<lastmod>2025-10-08T19:54:16+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/barbecue/</loc>
+		<lastmod>2025-10-08T20:34:37+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/breakfast/</loc>
+		<lastmod>2025-10-08T20:06:04+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/casserole/</loc>
+		<lastmod>2025-10-08T20:04:55+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/chinese/</loc>
+		<lastmod>2025-10-08T20:26:22+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/condiment/</loc>
+		<lastmod>2025-10-08T20:09:13+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -19,14 +61,50 @@
 		<priority>0.3</priority>
 	</url>
 	<url>
+		<loc>https://blog.skywalker.net.au/category/curry/</loc>
+		<lastmod>2025-10-08T20:17:15+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/dip/</loc>
+		<lastmod>2025-10-08T19:24:08+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/dressing/</loc>
+		<lastmod>2025-10-08T19:27:06+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/fish/</loc>
+		<lastmod>2025-10-08T20:21:36+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
 		<loc>https://blog.skywalker.net.au/category/personal-interests/cooking-and-gardening/gardening/</loc>
 		<lastmod>2024-09-22T09:28:16+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
+		<loc>https://blog.skywalker.net.au/category/grilled/</loc>
+		<lastmod>2025-10-08T20:44:35+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
 		<loc>https://blog.skywalker.net.au/category/personal-interests/home-automation/</loc>
 		<lastmod>2025-09-30T09:45:59+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/international/</loc>
+		<lastmod>2025-10-08T20:10:23+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -49,6 +127,48 @@
 		<priority>0.3</priority>
 	</url>
 	<url>
+		<loc>https://blog.skywalker.net.au/category/main-course/</loc>
+		<lastmod>2025-10-08T20:47:49+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/marinade/</loc>
+		<lastmod>2025-10-08T20:02:49+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/meat-dish/</loc>
+		<lastmod>2025-10-08T20:24:47+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/mexican/</loc>
+		<lastmod>2025-10-08T19:58:20+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/middle-eastern/</loc>
+		<lastmod>2025-10-08T19:40:46+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/noodles/</loc>
+		<lastmod>2025-10-08T19:52:54+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/pasta/</loc>
+		<lastmod>2025-10-08T19:38:19+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
 		<loc>https://blog.skywalker.net.au/category/personal-interests/</loc>
 		<lastmod>2025-09-30T09:45:59+00:00</lastmod>
 		<changefreq>weekly</changefreq>
@@ -61,8 +181,38 @@
 		<priority>0.3</priority>
 	</url>
 	<url>
+		<loc>https://blog.skywalker.net.au/category/poultry/</loc>
+		<lastmod>2025-10-08T20:22:47+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/</loc>
 		<lastmod>2025-10-03T14:19:18+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/rice-dish/</loc>
+		<lastmod>2025-10-08T20:46:53+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/salad/</loc>
+		<lastmod>2025-10-08T20:43:44+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/sauce/</loc>
+		<lastmod>2025-10-08T20:09:13+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/seafood/</loc>
+		<lastmod>2025-10-08T20:11:48+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -73,8 +223,44 @@
 		<priority>0.3</priority>
 	</url>
 	<url>
+		<loc>https://blog.skywalker.net.au/category/side-dish/</loc>
+		<lastmod>2025-10-08T20:49:02+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/snack/</loc>
+		<lastmod>2025-10-08T20:42:10+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
 		<loc>https://blog.skywalker.net.au/category/professional/software-engineering/</loc>
 		<lastmod>2025-10-03T14:19:18+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/soup/</loc>
+		<lastmod>2025-10-08T19:35:05+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/spread/</loc>
+		<lastmod>2025-10-08T19:22:39+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/stew/</loc>
+		<lastmod>2025-10-08T20:20:38+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/category/stir-fry/</loc>
+		<lastmod>2025-10-08T19:56:35+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -96,4 +282,10 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: 13b5e3ceebe3d56d93e7cab1695ea276; Queries for sitemap: 25; Total queries: 57; Seconds: 0.07; Memory for sitemap: 1KB; Total memory: 10MB -->
+	<url>
+		<loc>https://blog.skywalker.net.au/category/vegetarian/</loc>
+		<lastmod>2025-10-08T20:49:02+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+</urlset><!-- Request ID: d5225e57d7c6d9336a803f577fa94736; Queries for sitemap: 90; Total queries: 122; Seconds: 0.21; Memory for sitemap: 1KB; Total memory: 10MB -->
