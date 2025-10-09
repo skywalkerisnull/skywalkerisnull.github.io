@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='October 9, 2025 3:06 am' -->
+<!-- generated-on='October 9, 2025 4:58 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/tag/ai/</loc>
 		<lastmod>2024-02-11T10:49:18+00:00</lastmod>
@@ -9,6 +9,12 @@
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/architecture/</loc>
 		<lastmod>2024-02-20T13:59:57+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/tag/asian/</loc>
+		<lastmod>2025-10-09T14:28:36+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -74,7 +80,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/chinese/</loc>
-		<lastmod>2025-10-08T20:26:22+00:00</lastmod>
+		<lastmod>2025-10-09T14:53:15+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -224,7 +230,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/family-secret-recipes/</loc>
-		<lastmod>2025-10-08T20:49:02+00:00</lastmod>
+		<lastmod>2025-10-09T14:55:39+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -271,6 +277,12 @@
 		<priority>0.3</priority>
 	</url>
 	<url>
+		<loc>https://blog.skywalker.net.au/tag/hungarian/</loc>
+		<lastmod>2025-10-09T14:36:34+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.3</priority>
+	</url>
+	<url>
 		<loc>https://blog.skywalker.net.au/tag/ice-cream/</loc>
 		<lastmod>2025-07-07T17:45:07+00:00</lastmod>
 		<changefreq>weekly</changefreq>
@@ -302,7 +314,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/international/</loc>
-		<lastmod>2025-10-08T20:49:02+00:00</lastmod>
+		<lastmod>2025-10-09T14:55:39+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -326,7 +338,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/italian/</loc>
-		<lastmod>2025-10-08T20:22:47+00:00</lastmod>
+		<lastmod>2025-10-09T14:51:38+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -386,31 +398,31 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/middle-eastern/</loc>
-		<lastmod>2025-10-08T19:02:45+00:00</lastmod>
+		<lastmod>2025-10-09T14:04:41+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/moroccan/</loc>
-		<lastmod>2025-10-08T20:11:48+00:00</lastmod>
+		<lastmod>2025-10-09T14:44:37+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/nanny/</loc>
-		<lastmod>2025-10-08T20:49:02+00:00</lastmod>
+		<lastmod>2025-10-09T14:55:39+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/nanny-bev/</loc>
-		<lastmod>2025-10-08T20:49:02+00:00</lastmod>
+		<lastmod>2025-10-09T14:55:39+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/nanny-green/</loc>
-		<lastmod>2025-10-08T20:49:02+00:00</lastmod>
+		<lastmod>2025-10-09T14:55:39+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -422,13 +434,13 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/nanny-purple/</loc>
-		<lastmod>2025-10-08T19:40:46+00:00</lastmod>
+		<lastmod>2025-10-09T14:15:28+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/nanny-yellow/</loc>
-		<lastmod>2025-10-08T20:26:22+00:00</lastmod>
+		<lastmod>2025-10-09T14:53:15+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -626,7 +638,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/tag/thai/</loc>
-		<lastmod>2025-10-08T20:17:15+00:00</lastmod>
+		<lastmod>2025-10-09T14:49:59+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -714,4 +726,4 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: 57a1d687ea00640e61d613b619f5d196; Queries for sitemap: 121; Total queries: 153; Seconds: 0.31; Memory for sitemap: 1KB; Total memory: 10MB -->
+</urlset><!-- Request ID: 150b64e37b1313f744cafcf7da189055; Queries for sitemap: 123; Total queries: 155; Seconds: 0.35; Memory for sitemap: 1KB; Total memory: 8MB -->

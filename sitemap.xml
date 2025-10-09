@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='October 9, 2025 3:05 am' -->
+<!-- generated-on='October 9, 2025 4:56 am' -->
 <sitemapindex xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<sitemap>
 		<loc>https://blog.skywalker.net.au/sitemap-misc.xml</loc>
-		<lastmod>2025-10-08T10:49:02+00:00</lastmod>
+		<lastmod>2025-10-09T04:55:39+00:00</lastmod>
 	</sitemap>
 	<sitemap>
 		<loc>https://blog.skywalker.net.au/post_tag-sitemap.xml</loc>
-		<lastmod>2025-10-08T10:49:02+00:00</lastmod>
+		<lastmod>2025-10-09T04:55:39+00:00</lastmod>
 	</sitemap>
 	<sitemap>
 		<loc>https://blog.skywalker.net.au/category-sitemap.xml</loc>
-		<lastmod>2025-10-08T10:49:02+00:00</lastmod>
+		<lastmod>2025-10-09T04:55:39+00:00</lastmod>
 	</sitemap>
 	<sitemap>
 		<loc>https://blog.skywalker.net.au/post-sitemap.xml</loc>
-		<lastmod>2025-10-08T10:49:02+00:00</lastmod>
+		<lastmod>2025-10-09T04:55:39+00:00</lastmod>
 	</sitemap>
 	<sitemap>
 		<loc>https://blog.skywalker.net.au/page-sitemap.xml</loc>
@@ -22,6 +22,6 @@
 	</sitemap>
 	<sitemap>
 		<loc>https://blog.skywalker.net.au/archives-sitemap.xml</loc>
-		<lastmod>2025-10-08T10:49:02+00:00</lastmod>
+		<lastmod>2025-10-09T04:55:39+00:00</lastmod>
 	</sitemap>
-</sitemapindex><!-- Request ID: b277e1d05ecc7fcda276b5cbbba9c4dc; Queries for sitemap: 7; Total queries: 39; Seconds: 0.03; Memory for sitemap: 1KB; Total memory: 8MB -->
+</sitemapindex><!-- Request ID: e07107a118a8757e7e962e47d807a4e8; Queries for sitemap: 7; Total queries: 39; Seconds: 0.03; Memory for sitemap: 1KB; Total memory: 8MB -->

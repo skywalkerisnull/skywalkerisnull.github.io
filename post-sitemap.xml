@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='October 9, 2025 3:06 am' -->
+<!-- generated-on='October 9, 2025 4:58 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/2024/02/10/interacting-with-legacy-systems/</loc>
 		<lastmod>2024-03-05T08:54:29+00:00</lastmod>
@@ -1062,4 +1062,100 @@
 		<changefreq>monthly</changefreq>
 		<priority>1.0</priority>
 	</url>
-</urlset><!-- Request ID: 319e931ac81f5f7eb487d51fec89eaf1; Queries for sitemap: 3; Total queries: 35; Seconds: 0.04; Memory for sitemap: 1KB; Total memory: 8MB -->
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/pesto-2/</loc>
+		<lastmod>2025-10-09T03:49:49+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/eggplant-tahini-dip-baba-ganoush/</loc>
+		<lastmod>2025-10-09T04:17:11+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/pate-sauce/</loc>
+		<lastmod>2025-10-09T04:17:13+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/chilli-sauce-lazy/</loc>
+		<lastmod>2025-10-09T04:15:28+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/prawn-and-bbq-pork-stir-fry/</loc>
+		<lastmod>2025-10-09T04:28:36+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/marinated-chicken-with-spiced-paprika-potatoes-and-chimichurri/</loc>
+		<lastmod>2025-10-09T04:34:01+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/spiced-paprika-potatoes-2/</loc>
+		<lastmod>2025-10-09T04:35:13+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/hungarian-goulash/</loc>
+		<lastmod>2025-10-09T04:36:34+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/beef-curried-in-sweet-peanut-sauce/</loc>
+		<lastmod>2025-10-09T04:41:37+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/grilled-moroccan-fish-2/</loc>
+		<lastmod>2025-10-09T04:44:37+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/creamy-chicken-and-basil-curry-2/</loc>
+		<lastmod>2025-10-09T04:47:10+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/chicken-peanut-curry/</loc>
+		<lastmod>2025-10-09T04:48:29+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/massaman-beef-curry-2/</loc>
+		<lastmod>2025-10-09T04:49:59+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/chicken-cacciatore-2/</loc>
+		<lastmod>2025-10-09T04:51:38+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/sweet-and-sour-pork-2/</loc>
+		<lastmod>2025-10-09T04:53:15+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://blog.skywalker.net.au/2025/10/09/salad-pork-chicken-3/</loc>
+		<lastmod>2025-10-09T04:55:39+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+</urlset><!-- Request ID: 1e9851572441314b89f813850744af91; Queries for sitemap: 3; Total queries: 35; Seconds: 0.04; Memory for sitemap: 1KB; Total memory: 8MB -->
