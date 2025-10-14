@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='October 9, 2025 4:58 am' -->
+<!-- generated-on='October 14, 2025 5:41 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/category/appetizer/</loc>
 		<lastmod>2025-10-09T14:55:39+00:00</lastmod>
@@ -50,13 +50,13 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/personal-interests/cooking-and-gardening/cooking/</loc>
-		<lastmod>2025-08-23T09:52:40+00:00</lastmod>
+		<lastmod>2025-10-09T14:55:39+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/personal-interests/cooking-and-gardening/</loc>
-		<lastmod>2025-08-23T09:52:40+00:00</lastmod>
+		<lastmod>2025-10-09T14:55:39+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -170,7 +170,7 @@
 	</url>
 	<url>
 		<loc>https://blog.skywalker.net.au/category/personal-interests/</loc>
-		<lastmod>2025-09-30T09:45:59+00:00</lastmod>
+		<lastmod>2025-10-09T14:55:39+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
@@ -288,4 +288,4 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: b0051a265a45ba7cd8f193ed2fbd058f; Queries for sitemap: 90; Total queries: 122; Seconds: 0.21; Memory for sitemap: 1KB; Total memory: 10MB -->
+</urlset><!-- Request ID: 59731742d2f514b1d6d7d85d137d37ba; Queries for sitemap: 87; Total queries: 119; Seconds: 0.2; Memory for sitemap: 1KB; Total memory: 8MB -->
