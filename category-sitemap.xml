@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- sitemap-generator-url='http://www.arnebrachhold.de' sitemap-generator-version='4.1.21' -->
-<!-- generated-on='October 14, 2025 5:41 am' -->
+<!-- generated-on='October 19, 2025 10:53 am' -->
 <urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd' xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>	<url>
 		<loc>https://blog.skywalker.net.au/category/appetizer/</loc>
 		<lastmod>2025-10-09T14:55:39+00:00</lastmod>
@@ -288,4 +288,4 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.3</priority>
 	</url>
-</urlset><!-- Request ID: 59731742d2f514b1d6d7d85d137d37ba; Queries for sitemap: 87; Total queries: 119; Seconds: 0.2; Memory for sitemap: 1KB; Total memory: 8MB -->
+</urlset><!-- Request ID: fb7015d29b36410ec180495a3e72a2bf; Queries for sitemap: 87; Total queries: 119; Seconds: 0.19; Memory for sitemap: 1KB; Total memory: 16MB -->
